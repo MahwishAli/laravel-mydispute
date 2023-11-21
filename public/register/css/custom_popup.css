@@ -1,0 +1,622 @@
+.reveal-modal-bg {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    background: rgba(0, 0, 0, .8);
+    z-index: 100;
+    display: none;
+    top: 0;
+    left: 0
+}
+
+.mpt-modal-container {
+    top: 50%;
+    left: 50%;
+    margin-left: -300px;
+    width: 610px;
+    height: auto;
+    background: #eee;
+    position: fixed;
+    z-index: 101;
+    padding: 0;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+    -box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+    display: none
+}
+
+.close-mpt-modal {
+    font-size: 38px;
+    line-height: .5;
+    position: absolute;
+    top: 17px;
+    right: 11px;
+    color: #fff;
+    text-shadow: 0 -1px 1px rbga(0, 0, 0, .6);
+    font-weight: 400;
+    cursor: pointer
+}
+
+.reveal-modal.small {
+    width: 200px;
+    margin-left: -140px
+}
+
+.reveal-modal.medium {
+    width: 400px;
+    margin-left: -240px
+}
+
+.reveal-modal.large {
+    width: 600px;
+    margin-left: -340px
+}
+
+.reveal-modal.xlarge {
+    width: 800px;
+    margin-left: -440px
+}
+
+.reveal-modal .close-reveal-modal {
+    font-size: 38px;
+    line-height: .5;
+    position: absolute;
+    top: 17px;
+    right: 11px;
+    color: #fff;
+    text-shadow: 0 -1px 1px rbga(0, 0, 0, .6);
+    font-weight: 400;
+    cursor: pointer
+}
+
+.popup_wrapper_holder {
+    margin: 0;
+    padding: 0;
+    display: block
+}
+
+.popup_title_holder {
+    background: #0e983e;
+    height: 58px;
+    margin: 0;
+    padding: 0 20px;
+    line-height: 58px;
+    font-size: 22px;
+    color: #fff
+}
+
+.popup_bottom_holder {
+    background: #fff;
+    padding: 15px;
+    margin: 0;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-bottom-left-radius: 5px;
+    overflow: hidden
+}
+
+.popup_bottom_holder h3 {
+    margin: 0 0 15px 0;
+    display: block;
+    font-size: 14px
+}
+
+.left_login_area {
+    width: 272px;
+    float: left;
+    display: block;
+    border-right: 1px solid #cdcdcd;
+    padding: 0 28px 0 0
+}
+
+.left_login_area input.field {
+    background: #fff;
+    width: 254px;
+    height: 36px;
+    line-height: 36px;
+    margin: 0 0 12px 0;
+    padding: 0 9px;
+    display: block;
+    border: 1px solid #bababa;
+    font-size: 15px;
+    font-weight: 400;
+    color: #000
+}
+
+.left_login_area .input_holder {
+    margin: 0 0 20px 0;
+    padding: 0;
+    display: block;
+    overflow: hidden;
+    font-size: 15px;
+    color: #000
+}
+
+.left_login_area .input_holder span {
+    float: left;
+    display: block;
+    font-size: 15px;
+    margin: 0 15px 0 0;
+    color: #000
+}
+
+.left_login_area .input_holder input[type=radio] {
+    margin: 5px 10px 0 0
+}
+
+.left_login_area input.submit_btn_green {
+    background: #e55129;
+    height: 36px;
+    padding: 0 20px;
+    line-height: 36px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    outline: 0;
+    border: none;
+    font-size: 19px;
+    font-weight: 400
+}
+
+.right_register_area {
+    width: 247px;
+    float: right;
+    display: block;
+    margin: 0;
+    padding: 0
+}
+
+.left_login_area h2,
+.right_register_area h2 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #e03e12;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: block;
+    border-bottom: 1px solid #e0e0e0
+}
+
+.right_register_area a {
+    display: block;
+    width: 215px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+    font-size: 19px;
+    margin: 0 0 17px 0;
+    text-decoration: none
+}
+
+.right_register_area a.blue {
+    background: #147ea9
+}
+
+.right_register_area a.red {
+    background: #e24349
+}
+
+textarea.popup {
+    background: #eee;
+    width: 550px;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #d9d9d9;
+    font-size: 16px;
+    font-family: roboto
+}
+
+input.send_message_pop_btn {
+    background: #ed654b;
+    height: 36px;
+    margin: 15px auto 0;
+    padding: 0 20px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    outline: 0;
+    border: none;
+    font-size: 19px;
+    font-weight: 400;
+    font-family: roboto !important
+}
+
+.lets_area {
+    margin: 0;
+    padding: 0;
+    display: block
+}
+
+.lets_area p,
+.popup_bottom_holder p {
+    font-size: 14px;
+    text-align: center;
+    color: #000;
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 10px;
+    margin-bottom: 18px
+}
+
+.lets_area p span,
+.popup_bottom_holder p span {
+    font-weight: 700
+}
+
+.lets_area_frm_area {
+    width: 500px;
+    margin: 0 auto;
+    display: block
+}
+
+.lets_area_input {
+    margin: 0 0 10px 0;
+    padding: 0;
+    display: block;
+    overflow: hidden
+}
+
+.lets_area_input a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500
+}
+
+.lets_area_input a:hover {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 500
+}
+
+.lets_area_input_half {
+    width: 49%;
+    margin: 0;
+    padding: 0
+}
+
+input.pop {
+    background: #edeff1;
+    width: 97%;
+    height: 40px;
+    border: 1px solid #cbcbcb;
+    outline: 0;
+    font-size: 15px;
+    color: #000;
+    margin: 0;
+    padding: 0 0 0 10px
+}
+
+textarea.pop {
+    background: #edeff1;
+    width: 95%;
+    height: 100px !important;
+    font-family: roboto !important;
+    padding: 10px;
+    border: 1px solid #cbcbcb;
+    outline: 0;
+    font-size: 15px;
+    color: #000;
+    margin: 0
+}
+
+input.pop_half {
+    background: #fff;
+    width: 97.2%;
+    height: 40px;
+    border: 1px solid #adadad;
+    outline: 0;
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    color: #000;
+    margin: 0;
+    padding: 0 0 0 2%
+}
+
+select.pop_half {
+    background: #fff;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #adadad;
+    outline: 0;
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    color: #000;
+    margin: 0;
+    padding: 0 0 0 10px
+}
+
+.lets_area_frm_area input.submit {
+    background: #ed654b;
+    width: 200px;
+    height: 40px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    border: none;
+    outline: 0;
+    color: #fff;
+    cursor: pointer
+}
+
+.student_login_area_pop {
+    width: 47%;
+    display: block;
+    padding: 0
+}
+
+.student_login_area_pop .input_holder {
+    margin: 0 0 10px 0;
+    padding: 0;
+    display: block;
+    overflow: hidden;
+    font-size: 15px;
+    color: #000;
+    position: relative
+}
+
+.infotextopt {
+    font-size: 12px !important;
+    line-height: 16px;
+    color: #373737;
+    text-align: left !important;
+    padding-top: 10px
+}
+
+.infotextopt strong {
+    font-weight: 700
+}
+
+.getcode {
+    background: #e55129;
+    position: absolute;
+    top: 1px;
+    right: 2px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    line-height: 36px;
+    padding: 0 8px
+}
+
+.otp_holder_block {
+    display: block;
+    margin: 10px 0;
+    text-align: center
+}
+
+.otp_holder_block .block {
+    display: inline-block;
+    vertical-align: middle
+}
+
+.otp_holder_block .block:not(:last-child) {
+    margin-right: 10px
+}
+
+.otp_holder_block .block input {
+    width: 120px !important;
+    padding: 0 10px !important
+}
+
+.otp_holder_block .block .resentcode {
+    font-size: 14px;
+    text-decoration: none;
+    color: #e55129;
+    text-decoration: none
+}
+
+.student_login_area_pop input {
+    background: #fff;
+    width: 95%;
+    height: 36px;
+    line-height: 36px;
+    margin: 0;
+    padding: 0 2%;
+    display: block;
+    border: 1px solid #adadad;
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #000
+}
+
+.student_login_area_pop select {
+    background: #fff;
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    margin: 0;
+    padding: 0 2%;
+    display: block;
+    border: 1px solid #adadad;
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #000
+}
+
+.student_login_area_pop textarea {
+    background: #fff;
+    width: 95%;
+    height: 80px;
+    line-height: 36px;
+    margin: 0;
+    padding: 0 2%;
+    display: block;
+    border: 1px solid #adadad;
+    font-size: 15px;
+    font-weight: 400;
+    color: #000;
+    font-family: Roboto, sans-serif
+}
+
+.student_login_area_pop h2 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #e03e12;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: block;
+    border-bottom: 1px solid #c9c9c9
+}
+
+.student_login_area_pop input.submit_btn_green {
+    background: #e55129;
+    width: 50%;
+    height: 36px;
+    padding: 0 20px;
+    line-height: 36px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    outline: 0;
+    border: none;
+    font-family: Roboto, sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    margin: 0
+}
+
+.grey_box_area {
+    background: #fff;
+    padding: 10px;
+    overflow: hidden
+}
+
+.check_pop_holder {
+    display: block;
+    padding: 0;
+    margin: 0 0 10px 0;
+    color: #0c0c0c;
+    font-size: 15px;
+    line-height: 22px
+}
+
+.check_pop_holder input {
+    display: inline-block;
+    height: auto;
+    margin: 0 5px 0 0;
+    padding: 0;
+    width: auto
+}
+
+.lets_area .popinfo_area {
+    margin: 0;
+    padding: 0;
+    display: block
+}
+
+.lets_area .popinfo_area .studentinfo_bar {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0 0 20px 0
+}
+
+.lets_area .popinfo_area .info_details {
+    background: #f0f0f0;
+    padding: 20px;
+    margin: 0 0 20px 0
+}
+
+.lets_area .popinfo_area .info_details h3 {
+    font-size: 20px;
+    font-weight: 300;
+    color: #000;
+    margin: 0 0 8px 0;
+    padding: 0
+}
+
+.lets_area .popinfo_area .info_details h3 span {
+    font-weight: 500;
+    color: #ea4a2f
+}
+
+.lets_area .popinfo_area .info_details h4 {
+    font-size: 16px;
+    font-weight: 300;
+    color: #000;
+    margin: 0;
+    padding: 0
+}
+
+.security_txt {
+    font-size: 16px;
+    padding: 0;
+    color: #ed654b;
+    font-weight: 700
+}
+
+.security_txt span {
+    font-size: 12px;
+    padding: 0 0 0 10px;
+    font-weight: 300;
+    color: #000
+}
+
+.tuition_block_popup {
+    margin: 15px;
+    border: 1px solid #e6e6e6;
+    padding: 10px 15px
+}
+
+.tuition_block_popup h2 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #373737;
+    margin: 0 0 4px 0;
+    padding: 0
+}
+
+.tuition_block_popup h2 a {
+    color: #252525;
+    text-decoration: none
+}
+
+.tuition_block_popup h2 a:hover {
+    color: #e55129;
+    text-decoration: none
+}
+
+.tuition_block_popup .small_pop_box {
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+    font-weight: 300
+}
+
+.tuition_block_popup .small_pop_box span {
+    padding: 0 15px 0 0
+}
+
+.tuition_block_popup .small_pop_box span strong {
+    color: #353535
+}
+
+.tuition_block_popup .small_pop_box span:last-child {
+    padding-right: 0
+}
+
+input.requestfield {
+    background: #fff;
+    width: 93.4% !important;
+    height: 34px;
+    border: 1px solid #bababa;
+    font-size: 15px;
+    font-weight: 400;
+    color: #676767;
+    padding: 0 3%;
+    font-family: roboto
+}
+
+input.withdraw_fund_btn {
+    width: 60% !important
+}

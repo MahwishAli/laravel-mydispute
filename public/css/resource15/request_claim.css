@@ -1,0 +1,44 @@
+/* Style for the checkbox list */
+.opt_data_holder_new {
+    margin-top: 10px;
+  }
+  
+  /* Style for the list items */
+  .subjectlist li {
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the checkbox */
+  .subject_radio {
+    display: none;
+  }
+  
+  /* Style for the labels that simulate checkboxes */
+  .subject_text {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    padding-left: 30px; /* Adjust as needed */
+  }
+  
+  /* Style for the checkbox appearance */
+  .subject_radio + .subject_text:before {
+    content: "";
+    display: inline-block;
+    width: 20px; /* Adjust as needed */
+    height: 20px; /* Adjust as needed */
+    margin-right: 5px; /* Adjust as needed */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    top: 2px;
+  }
+  
+  /* Style for the checkbox when checked */
+  .subject_radio:checked + .subject_text:before {
+    background-color: #007BFF; /* Adjust as needed */
+    border: 1px solid #007BFF; /* Adjust as needed */
+  }
+  

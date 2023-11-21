@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;400&family=Poppins&display=swap');
+/* @import url('https://fonts.cdnfonts.com/css/akzidenzgrotesk'); */
+
+body {
+    font-family: 'Poppins', sans-serif !important;
+    /* font-family: 'AkzidenzGrotesk', sans-serif;                                         */
+}
+
+.navbar {
+    background-image: url("image/Mask group.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.nav-logo {
+    width: 130px!important;
+    height: 95px;
+    object-fit: fill;
+}
+
+.navbar-expand a{
+    font-size: 12px!important;
+}
+
+.nav-btns .btn{
+    font-size: 10px;
+}
+
+.sec-1 h1{
+    font-size: 24px!important;
+}
+
+.sec-1 p{
+    font-size: 13px!important;
+}
+
+.sec-1 .btn{
+    font-size: 12px;
+}
+
+a.nav-link{
+    color:#262525;
+}
+
+@media only screen and (max-width: 1120px) {
+    .nav-logo {
+        width: 130px!important;
+    }
+
+    .navbar-expand a{
+        font-size: 10px!important;
+    }
+
+    .nav-btns .btn{
+        font-size: 9px;
+    }
+
+    .sec-1 h1{
+        font-size: 18px!important;
+    }
+
+    .test-name{
+        font-size: 10px!important;
+    }
+
+    .sec-1 p{
+        font-size: 9px!important;
+    }
+
+    .sec-1 .btn{
+        font-size: 9px;
+    }
+
+    #carouselExample{
+        padding: 5px 0px!important;
+    }
+
+    .footer-bg h4{
+        font-size: 18px!important;
+    }
+
+    .footer-bg ul li a{
+        font-size: 12px!important;
+    }
+}
+
+.navbar-toggler{
+    border: none;
+}
+
+.navbar-toggler:focus{
+    box-shadow: none;
+}
+
+.navbar-expand a {
+    font-size: 16px;
+    padding: 0px 30px !important;
+    font-weight: 800;
+}
+
+@media only screen and (min-width: 992px) {
+    .sec-1 {
+        background-image: url("image/MainNAv.jpg");
+        width: 100%;
+        height: auto;
+        background-size: contain;
+    }
+}
+
+#carouselExampleIndicators {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 25px;
+    padding: 20px 0px 40px 0px;
+}
+
+.carousel-indicators button {
+    width: 6px!important;
+    height: 6px!important;
+    border-radius: 100%;
+}
+
+.sec-1-col-1{
+    display: flex;
+    justify-content: center;
+}
+
+.sec-1-col-2 h1 {
+    font-size: 32px;
+}
+
+
+.sec-2 h2 {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.sec-3 h2, .sec-4 h2 {
+    font-weight: 500;
+    font-size: 33px;
+    color: black;
+}
+.about_us, .vision {
+    font-size: 18px;
+}
+
+.vision-sec ul{
+    line-height: 1.7;
+}
+
+/* about us start */
+
+.about_us_page h4{
+    font-size: 23px;
+    font-weight: 600;
+    color: black;
+    font-family: 'candara';
+}
+
+.about_us_page p{
+    font-size: 21px;
+    font-family: 'garamond';
+}
+
+/* how it works*/
+
+.how_it_works p{
+    font-size: 21px;
+    font-family: 'garamond';
+}
+
+.footer-sec h4{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.footer-sec ul li{
+    line-height: 2.2;
+}
+
+.footer-bg {
+    background-image: url("image/Mask group4.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: bottom;
+}
+
+.footer-icon i {
+    padding: 0px 10px;
+}
+
+/* resolution form */
+.blurback {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    opacity: 0.7;
+    z-index: 99999;
+    display: none;
+  }
+
+  .universalloader {
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -37px;
+    margin-top: -37px;
+    z-index: 999999;
+    display: none;
+  }
+
+  .innnerlanding_form {
+    position: relative;
+  }
+
+  .other_information .halfblock {
+    margin: 0 auto;
+  }
+
+  .left {
+    float: none;
+  }
+
+  .alertify-message {
+    margin-bottom: 10px;
+  }
+
+  .alertify-button {
+    font-family: "Open Sans", sans-serif;
+  }
+
+  .file-attachment-container {
+    position: relative;
+    margin-top: 20px;
+  }
+
+  .file-attachment {
+    display: none;
+  }
+
+  .file-label {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-block;
+  }
+
+  .file-label:hover {
+    background-color: #0056b3;
+  }
+
+/* faq's page */
+
+    details{
+        padding-left: 30px;
+    }
+    details > p {
+        color: #787777;
+    }
+
+    .faq-list > div {
+        border-bottom: 0.07em solid #c1c1c1;
+        padding: 1.5em 0em;
+    } 
+
+    .faq-list > div:last-child {
+        border: unset;
+    }
+
+    details > summary {
+        list-style: none;
+    }
+
+    summary {
+        cursor: pointer;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none; 
+        user-select: none;
+        transition: all 0.3s ease;
+    }
+
+    summary:hover {
+        color: #006DA7;
+    }
+
+    details[open] summary {
+        color: #006DA7;
+        font-size: 20px;
+        font-weight: 600;
+        font-family: garamond;
+    }
+
+    details[open] p {
+        border-left: 2px solid #006DA7;
+        margin-left: 35px;
+        padding-left: 15px;
+        opacity: 100;
+        transition: all 3s ease;
+    }
+
+    .faq-body {
+        box-shadow: 0px 0px 6px #8a8787;
+        border-radius: 0.2em;
+        background-color: #fff;
+    }

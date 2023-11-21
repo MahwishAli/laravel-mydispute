@@ -1,0 +1,1 @@
+function getDomain(){try{var domain ='https://www.myprivatetutor.ae/';return(domain);}catch(err){}}

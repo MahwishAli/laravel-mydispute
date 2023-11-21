@@ -1,0 +1,631 @@
+/*
+    Colorbox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+
+#colorbox,
+#cboxOverlay,
+#cboxWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+#cboxOverlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+#cboxMiddleLeft,
+#cboxBottomLeft {
+    clear: left;
+}
+
+#cboxContent {
+    position: relative;
+}
+
+#cboxLoadedContent {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#cboxTitle {
+    margin: 0;
+}
+
+#cboxLoadingOverlay,
+#cboxLoadingGraphic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#cboxPrevious,
+#cboxNext,
+#cboxClose,
+#cboxSlideshow {
+    cursor: pointer;
+}
+
+.cboxPhoto {
+    float: left;
+    margin: auto;
+    border: 0;
+    display: block;
+    max-width: none;
+    -ms-interpolation-mode: bicubic;
+}
+
+.cboxIframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
+}
+
+#colorbox,
+#cboxContent,
+#cboxLoadedContent {
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of Colorbox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+
+#cboxOverlay {
+    background: url(images/overlay.png) repeat 0 0;
+}
+
+#colorbox {
+    outline: 0;
+}
+
+/*#cboxTopLeft{width:21px; height:21px; background:url(images/controls.png) no-repeat -101px 0;}
+    #cboxTopRight{width:21px; height:21px; background:url(images/controls.png) no-repeat -130px 0;}
+    #cboxBottomLeft{width:21px; height:21px; background:url(images/controls.png) no-repeat -101px -29px;}
+    #cboxBottomRight{width:21px; height:21px; background:url(images/controls.png) no-repeat -130px -29px;}
+    #cboxMiddleLeft{width:21px; background:url(images/controls.png) left top repeat-y;}
+    #cboxMiddleRight{width:21px; background:url(images/controls.png) right top repeat-y;}
+    #cboxTopCenter{height:21px; background:url(images/border.png) 0 0 repeat-x;}
+    #cboxBottomCenter{height:21px; background:url(images/border.png) 0 -29px repeat-x;}*/
+
+#cboxContent {
+    background: #fff;
+    overflow: hidden;
+}
+
+.cboxIframe {
+    background: #fff;
+}
+
+#cboxError {
+    padding: 50px;
+    border: 1px solid #ccc;
+}
+
+/*  #cboxLoadedContent{margin-bottom:28px;}*/
+
+#cboxTitle {
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    color: #949494;
+}
+
+#cboxCurrent {
+    position: absolute;
+    bottom: 4px;
+    left: 58px;
+    color: #949494;
+}
+
+#cboxLoadingOverlay {
+    background: url(images/loading_background.png) no-repeat center center;
+}
+
+#cboxLoadingGraphic {
+    background: url(images/loading.gif) no-repeat center center;
+}
+
+/* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+
+#cboxPrevious,
+#cboxNext,
+#cboxSlideshow,
+#cboxClose {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    width: auto;
+    background: none;
+}
+
+/* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+
+#cboxPrevious:active,
+#cboxNext:active,
+#cboxSlideshow:active,
+#cboxClose:active {
+    outline: 0;
+}
+
+#cboxSlideshow {
+    position: absolute;
+    bottom: 4px;
+    right: 30px;
+    color: #0092ef;
+}
+
+#cboxPrevious {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(images/controls.png) no-repeat -75px 0;
+    width: 25px;
+    height: 25px;
+    text-indent: -9999px;
+}
+
+#cboxPrevious:hover {
+    background-position: -75px -25px;
+}
+
+#cboxNext {
+    position: absolute;
+    bottom: 0;
+    left: 27px;
+    background: url(images/controls.png) no-repeat -50px 0;
+    width: 25px;
+    height: 25px;
+    text-indent: -9999px;
+}
+
+#cboxNext:hover {
+    background-position: -50px -25px;
+}
+
+/*#cboxClose{position:absolute; top:0; right:0; background:url(images/controls.png) no-repeat -25px 0; width:25px; height:25px; text-indent:-9999px;}
+        #cboxClose:hover{background-position:-25px -25px;}*/
+
+#cboxClose:after {
+    content: "X";
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 48px;
+    color: #ffffff;
+    position: absolute;
+    top: -12px;
+    right: 8px;
+    /*background:url(images/controls.png) -25px 0px no-repeat;*/
+    width: 25px;
+    height: 25px;
+}
+
+#cboxClose {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 48px;
+    color: #ffffff;
+    position: absolute;
+    top: 12px;
+    right: 8px;
+    /*background:url(images/controls.png) -25px 0px no-repeat;*/
+    width: 25px;
+    height: 25px;
+}
+
+/*
+  The following fixes a problem where IE7 and IE8 replace a PNG's alpha transparency with a black fill
+  when an alpha filter (opacity change) is set on the element or ancestor element.  This style is not applied to or needed in IE9.
+  See: http://jacklmoore.com/notes/ie-transparency-problems/
+*/
+
+.cboxIE #cboxTopLeft,
+.cboxIE #cboxTopCenter,
+.cboxIE #cboxTopRight,
+.cboxIE #cboxBottomLeft,
+.cboxIE #cboxBottomCenter,
+.cboxIE #cboxBottomRight,
+.cboxIE #cboxMiddleLeft,
+.cboxIE #cboxMiddleRight {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF, endColorstr=#00FFFFFF);
+}
+
+.lets_area_frm_area {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+}
+
+.popup_bottom_holder,
+.popup_bottom_holder_landing {
+    background: #ffffff;
+    padding: 15px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.popup_bottom_holder p,
+.popup_bottom_holder_landing p {
+    margin: 0 0 15px 0;
+    padding: 0 0 10px 0;
+    text-align: center;
+    font-size: 15px;
+}
+
+.popup_bottom_holder p.enqtext {
+    text-align: left !important;
+    padding: 5px 15px !important;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 22px;
+    background: #F3F3F3;
+}
+
+.popup_bottom_holder p.enqtext strong {
+    font-size: 14px;
+    padding: 0 10px 0 0;
+    color: #ED654B;
+}
+
+.popup_bottom_holder p.enqtext span {
+    font-weight: 400;
+}
+
+.pop_frm_holder_mid {
+    margin: 0 auto;
+    display: block;
+}
+
+.pop_frm_holder_mid .input_holder {
+    margin: 0 auto 15px;
+    padding: 0;
+    display: block;
+    overflow: hidden;
+}
+
+.pop_frm_holder_mid .input_holder input {
+    background: #ffffff;
+    float: left;
+    display: block;
+    margin: 0;
+    padding: 0 10px;
+    width: 210px;
+    height: 36px;
+    border: 1px solid #acacac;
+    font-size: 15px;
+}
+
+.pop_frm_holder_mid .input_holder input:nth-child(2n) {
+    margin-right: 0px;
+    float: right !important;
+}
+
+.pop_frm_holder_mid .input_holder input.send_message {
+    background: #ee5e3f;
+    width: 125px;
+    height: 36px;
+    margin: 0 auto !important;
+    display: block;
+    padding: 0;
+    text-align: center;
+    color: #ffffff;
+    float: none !important;
+    font-size: 16px;
+    border: none !important;
+    cursor: pointer;
+}
+
+/*===== Added Mamoon ====*/
+
+.inp_chk {
+    display: block;
+    margin: 20px 0 0 0;
+}
+
+.inp_chk input.checkbox {
+    display: block;
+    font-size: 12px;
+    height: 17px;
+    margin-right: 10px;
+    padding: 0 6px;
+    width: 6px;
+}
+
+.popup_wrapper_holder {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.popup_title_holder {
+    background: #e55129;
+    height: 48px;
+    margin: 0;
+    padding: 0 20px;
+    line-height: 48px;
+    font-size: 22px;
+    color: #fff;
+}
+
+.popup_bottom_holder h3 {
+    margin: 0 0 15px 0;
+    display: block;
+    font-size: 14px;
+}
+
+.left_login_area {
+    width: 272px;
+    float: left;
+    display: block;
+    border-right: 1px solid #cdcdcd;
+    padding: 0 28px 0 0;
+}
+
+.left_login_area input.field {
+    background: #ffffff;
+    width: 254px;
+    height: 36px;
+    line-height: 36px;
+    margin: 0 0 12px 0;
+    padding: 0 9px;
+    display: block;
+    border: 1px solid #bababa;
+    font-size: 15px;
+    font-weight: normal;
+    color: #000;
+}
+
+.left_login_area .input_holder {
+    margin: 0 0 20px 0;
+    padding: 0;
+    display: block;
+    overflow: hidden;
+    font-size: 15px;
+    color: #000;
+}
+
+.left_login_area .input_holder span {
+    float: left;
+    display: block;
+    font-size: 15px;
+    margin: 0 15px 0 0;
+    color: #000;
+}
+
+.left_login_area .input_holder input[type=radio] {
+    padding: 0 10px 0 0;
+    float: left;
+    display: block;
+}
+
+.left_login_area input.submit_btn_green {
+    background: #e55129;
+    height: 36px;
+    padding: 0 20px;
+    line-height: 36px;
+    text-align: center;
+    cursor: pointer;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    font-size: 19px;
+    font-weight: normal;
+}
+
+.right_register_area {
+    width: 247px;
+    float: right;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.left_login_area h2,
+.right_register_area h2 {
+    font-size: 18px;
+    font-weight: normal;
+    color: #e03e12;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: block;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.right_register_area a {
+    display: block;
+    width: 215px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 19px;
+    margin: 0 0 17px 0;
+    text-decoration: none;
+}
+
+.right_register_area a.blue {
+    background: #147ea9;
+}
+
+.right_register_area a.red {
+    background: #e24349;
+}
+
+textarea.popup {
+    background: #eeeeee;
+    width: 550px;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #d9d9d9;
+    font-size: 16px;
+    font-family: roboto;
+}
+
+input.send_message_pop_btn {
+    background: #ED654B;
+    height: 36px;
+    margin: 15px auto 0;
+    padding: 0 20px;
+    text-align: center;
+    cursor: pointer;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    font-size: 19px;
+    font-weight: normal;
+    font-family: roboto !important;
+}
+
+/* Withdraw Finance */
+
+.wdraw_fin_area {
+    margin: 0;
+    padding: 10px 0;
+    display: block;
+}
+
+.wdraw_fin_area h2 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 300;
+    color: #000;
+    border-bottom: 4px solid #D3D3D3;
+    padding-bottom: 15px;
+    margin-bottom: 0px;
+}
+
+.wdraw_fin_area p.mem_title_text {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 300;
+    color: #000;
+    padding: 0 0 15px 0;
+    margin: 0;
+}
+
+.wdraw_fin_area p.heading_b_text {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    border-bottom: 4px solid #D3D3D3;
+    padding-bottom: 15px;
+    margin-bottom: 0px;
+}
+
+.wdraw_fin_area p.heading_b_text span {
+    display: block;
+    padding: 10px 0 0 0;
+}
+
+.wdraw_fin_blk {
+    margin: 0 auto;
+    padding: 5%;
+    display: block;
+    background: #ECECEC;
+}
+
+.wdraw_fin_blk .input_holder {
+    margin: 0 0 8px 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.wdraw_fin_blk .input_holder label {
+    width: 37%;
+    font-size: 14px;
+    float: left;
+    line-height: 40px;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.wdraw_fin_blk .input_holder .pay_blk {
+    width: 60%;
+    height: 40px;
+    line-height: 40px;
+    float: right;
+    outline: none;
+    border: none;
+    background: #f2f2f2;
+    font-size: 18px;
+    padding: 0 0 0 2%;
+    border: 1px solid #d2d2d2;
+}
+
+.wdraw_fin_blk .input_holder input {
+    width: 60%;
+    height: 40px;
+    line-height: 40px;
+    float: right;
+    outline: none;
+    border: none;
+    background: #fff;
+    font-size: 18px;
+    padding: 0 0 0 2%;
+    border: 1px solid #d2d2d2;
+}
+
+.wdraw_fin_blk .input_holder select {
+    width: 60%;
+    height: 40px;
+    line-height: 40px;
+    float: right;
+    outline: none;
+    border: none;
+    background: #fff;
+    font-size: 18px;
+    padding: 0 0 0 2%;
+    border: 1px solid #d2d2d2;
+}
+
+input.withdraw_fund_btn,
+.lets_area_frm_area input.withdraw_fund_btn {
+    width: 30%;
+    margin: 20px auto 0;
+    background: #EC5B42;
+    height: 40px;
+    text-align: center;
+    border: none;
+    outline: none;
+    display: block;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.lets_area_input textarea {
+    width: 96.8%;
+    height: 100px;
+    background: #ffffff;
+    color: #000;
+    font-size: 16px;
+    padding: 1.4%;
+    outline: none;
+    border: 1px solid #adadad;
+    margin-bottom: 0px;
+    font-family: "Roboto", sans-serif;
+}
+
+.lets_area_input_half {
+    font-size: 16px;
+}
+
+.lets_area_input_half input[type="checkbox"] {
+    margin: 0 10px 0 0;
+}
