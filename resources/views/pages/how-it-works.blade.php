@@ -3,11 +3,27 @@
 @section('content')
     <section class="how_it_works pt-5">
         <div class="container my-5" >
-            <div class="row justify-content-around mt-2">
-                <h2 class="fs-1 mb-2">How It Works</h2>
-                <div class="col-lg-12 mb-4 text-center" >
-                    <img src="{{ asset('assets/image/how-it-works.PNG') }}" />
+            <div class="row text-center">
+                <div class="d-flex flex-column align-items-center mb-4">    
+                    <h2 class="fs-1">How It Works</h2>
+                    <div class="seperator works"></div>
                 </div>
+                <div class="col-lg-1 col-md-1" >
+                </div>
+                <div class="col-lg-2 col-md-2 d-flex justify-content-center align-items-center image-left">
+                    <img class="image-left-img" src="{{ asset('assets/image/works1.PNG') }}" />
+                </div>
+                <div class="col-lg-6 col-md-6" >
+                    <img class="image-left-arrow" src="{{ asset('assets/image/works4.PNG') }}" />
+                    <img class="image-right-arrow" src="{{ asset('assets/image/works3.PNG') }}" />
+                </div>
+                <div class="col-lg-2 col-md-2 d-flex justify-content-center align-items-center image-right"  >
+                    <img class="image-right-img" src="{{ asset('assets/image/works2.PNG') }}" />
+                </div>
+                <div class="col-lg-1 col-md-1" >
+                </div>
+            </div>
+            <div class="row justify-content-around mt-5">
                 <div class="col-lg-12 mb-4" >
                     <p>How it Works – <b>Dispute Resolution Seeker</b> – Step by Step Guidelines:</p>
                     <ol class="decimal-list mt-4">
@@ -92,14 +108,16 @@
                 </div>
             </div>
         </div>
-         <style>
-         ol.decimal-list {
-                list-style-type: decimal;
-            }
-            ol.decimal-list li{
-                line-height: 1.6;
-                margin-bottom: 25px;
-            }
-    </style>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start the right and left animations after the arrow animations complete
+            setTimeout(function() {
+                document.querySelector('.image-left-img').style.display='block';
+                document.querySelector('.image-right-img').style.display='block';
+                document.querySelector('.image-left-img').style.animation = 'moveToLeft 2s ease-in-out forwards, returnToLeft 2s ease-in-out forwards';
+                document.querySelector('.image-right-img').style.animation = 'moveToRight 2s ease-in forwards, returnToRight 2s ease-in-out forwards';
+            }, 500); // 5s delay (3s for arrow animations + 2s break)
+        });
+    </script>
 @endsection

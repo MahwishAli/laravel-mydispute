@@ -1,4 +1,4 @@
-<nav class="navbar d-none d-md-block">
+<nav class="navbar d-none d-md-block ">
     <div class="container-fluid" style="--bs-gutter-x: 5rem">
         <div class="col-lg-3 col-md-3 me-auto">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
@@ -19,7 +19,7 @@
                     <a class="nav-link" href="{{ route('work') }}">How it works</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
+                    <a class="nav-link" href="{{ route('contactUs') }}">Contact Us</a>
                 </li>
             </ul>
         </div>
@@ -41,7 +41,7 @@
                         <a class="nav-link" href="{{ route('work') }}">How it works</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
+                        <a class="nav-link" href="{{ route('contactUs') }}">Contact Us</a>
                     </li>
                 </ul>
             </div>

@@ -5,7 +5,10 @@
         <div class="container my-5" >
             <div class="row justify-content-around mt-2">
                 <div class="col-lg-12 mb-4" >
-                    <h2 class="fs-1">About Us</h2>
+                    <div class="d-flex flex-column align-items-center mb-4">
+                        <h2 class="fs-1 ">About Us</h2>
+                        <div class="seperator"></div>
+                    </div>
                     <p>
                         My Dispute Resolution Partner (MyDRP) believes in healthy competition for the evolving nature of justice. MyDRP provides a platform to facilitate dispute resolution and claim management. It provides an effective mean of connecting the dispute initiators (plaintiffs) and provides prospective contract-based jobs for consultants, claim and forensic experts in the field of construction, trade, finance and digital industries.
                     </p>
