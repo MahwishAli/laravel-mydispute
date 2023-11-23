@@ -11,7 +11,7 @@
     {{-- <link href="css/resource15/header_footer.css" media="all" rel="stylesheet" type="text/css" /> --}}
     <link href="{{ asset('css/resource15/individual_form.css') }}" media="all" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/resource15/animate.css') }}" media="all" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/lertifya/alertify.core.css') }}" media="screen" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/alertify/alertify.core.css') }}" media="screen" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/alertify/alertify.default.css') }}" media="screen" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/ui-lightness/jquery-ui-1.9.2.custom.css') }}" media="screen" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/resource15/scroller.css') }}" media="screen" rel="stylesheet" type="text/css" />
@@ -69,7 +69,7 @@
     @include('partials.frontend.footer')
 
     <script src="{{ asset('js/request_claim.js') }}"></script>
-    <script src="{{ asset('js/first_page.js') }}"></script>
+    <script src="{{ asset('js/first_step.js') }}"></script>
     <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
