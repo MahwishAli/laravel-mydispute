@@ -16,7 +16,7 @@
                     <a class="nav-link" href="{{ route('about') }}">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('work') }}">How it workss</a>
+                    <a class="nav-link" href="{{ route('work') }}">How it works</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact Us</a>
@@ -38,7 +38,7 @@
                         <a class="nav-link" href="{{ route('about') }}">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('work') }}">How it workss</a>
+                        <a class="nav-link" href="{{ route('work') }}">How it works</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact Us</a>
