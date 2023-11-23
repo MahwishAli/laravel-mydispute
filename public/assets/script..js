@@ -100,7 +100,7 @@ adroll_adv_id = "2HOYAY24RNF2RNFLQ7LHMY";
         top.location = self.location;
       }
 
-    // 8th
+    // for how it works image animation
 
     
 

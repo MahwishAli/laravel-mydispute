@@ -1,16 +1,16 @@
-<nav class="navbar d-none d-md-block">
+<nav class="navbar d-none d-md-block ">
     <div class="container-fluid" style="--bs-gutter-x: 5rem">
-        <div class="col-lg-3 me-auto">
+        <div class="col-lg-3 col-md-3 me-auto">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a href="{{ url('/') }}">
-                <img src="assets/image/Logo (2).png" class="nav-logo" >
+                <img src="{{ asset('assets/image/FinalLogo.jpg') }}" class="nav-logo" >
             </a>
         </div>
 
-        <div class="col-lg-4 navbar-expand d-none d-lg-block mx-auto ms-5" id="">
+        <div class="col-lg-4 col-md-4 navbar-expand d-none d-lg-block mx-auto ms-5" id="">
             <ul class="navbar-nav d-flex justify-content-between">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('about') }}">About Us</a>
@@ -19,7 +19,7 @@
                     <a class="nav-link" href="{{ route('work') }}">How it works</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
+                    <a class="nav-link" href="{{ route('contactUs') }}">Contact Us</a>
                 </li>
             </ul>
         </div>
@@ -41,13 +41,13 @@
                         <a class="nav-link" href="{{ route('work') }}">How it works</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
+                        <a class="nav-link" href="{{ route('contactUs') }}">Contact Us</a>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <div class="col-lg-4 nav-btns ms-auto text-end">
+        <div class="col-lg-4 col-md-4 nav-btns ms-auto text-end">
             <a href="{{ route('request.resolution') }}" type="button" class="btn"
                 style="color: white; background-color: #006DA7">Request Dispute Resolution Consultancy</a>
             <a href="{{ route('login') }}" type="button" class="btn" style="color: white; background-color: #DAB57F; margin: 0px 5px;">Login</a>

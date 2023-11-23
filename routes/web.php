@@ -8,13 +8,19 @@ Route::group(['namespace' => 'web'], function () {
     Route::get('/', 'PagesController@index')->name('home');
     Route::get('/about-us', 'PagesController@aboutUs')->name('about');
     Route::get('/how-it-works', 'PagesController@howitWorks')->name('work');
+    Route::get('/contact-us', 'PagesController@contactUs')->name('contactUs');
     Route::get('/request-resolution-consultancy', 'PagesController@reqResolution')->name('request.resolution');
     Route::get('/faqs', 'PagesController@faqs')->name('faqs');
-
 });
+
+
 
 Auth::routes();
 Route::get('/member-signup', 'Auth\LoginController@memberSignUp')->name('member_signup');
+Route::get('/initiator-signup', 'Auth\LoginController@initiatorSignUp')->name('initiator_signup');
+Route::get('/consultant-signup', 'Auth\LoginController@consultantSignUp')->name('consultant_signup');
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
