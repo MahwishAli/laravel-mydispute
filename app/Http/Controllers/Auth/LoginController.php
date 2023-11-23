@@ -54,6 +54,14 @@ class LoginController extends Controller
     public function memberSignUp(){
         return view('auth.member-signup');
     }
+
+    public function initiatorSignUp(){
+        return view('auth.signup');
+    }
+
+    public function consultantSignUp(){
+        return view('auth.member-signup');
+    }
     /**
      * Create a new controller instance.
      *

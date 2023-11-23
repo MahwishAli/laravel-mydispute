@@ -28,10 +28,10 @@
                         <img src="https://www.myprivatetutor.ae/images/2020/icon/tt_active.png" alt=""
                             class="active">
                     </div>
-                    <h4>Initiator</h4>
-                    <p>Find tuition jobs, build your teaching career, teach online courses</p>
+                    <h4>Dispute Resolution Initiator</h4>
+                    <p>Companies Seeking Dispute Resolution Services</p>
                     <a href="/become-a-tutor" class="learnmore">Learn More</a>
-                    <a href="{{ route('register') }}" class="btn">Sign Up</a>
+                    <a href="{{ route('initiator_signup') }}" class="btn">Sign Up</a>
 
                 </div>
                 <div class="block">
@@ -42,7 +42,7 @@
                             class="active">
                     </div>
                     <h4>Consultant</h4>
-                    <p>Get students, sell your courses, launch online tutoring, grow your business</p>
+                    <p>Companies Providing Dispute Resolution Services</p>
                     <a href="/center_signup.php" class="learnmore">Learn More</a>
                     <a href="{{ route('register') }}" class="btn">Sign Up</a>
 

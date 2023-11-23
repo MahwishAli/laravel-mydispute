@@ -8,11 +8,11 @@
                 <div class="seperator contact"></div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-12 contact-form form-all bg-white">
+        <div class="row justify-content-center mt-1">
+            <div class="col-lg-10 col-md-12 contact-form form-all bg-white mb-5">
                 <div class="wrapper form-section">
                     <div class="row no-gutters">
-                        <div class="col-md-12 d-flex align-items-stretch">
+                        <div class="col-md-7 d-flex align-items-stretch" >
                             <div class="contact-wrap w-100 p-md-5 p-4">
                                 <h3 class="mb-4">Get in touch</h3>
                                 {{-- <div id="form-message-warning" class="mb-4"></div>
@@ -41,7 +41,7 @@
                                                 <textarea name="message" class="form-control" id="message" cols="30" rows="7" placeholder="Message"></textarea>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 text-center">
+                                        <div class="col-md-12 mt-2 text-center">
                                             <div class="form-group">
                                                 <input type="submit" value="Send Message" class="btn btn-primary">
                                             <div class="submitting"></div>
@@ -51,55 +51,72 @@
                                 </form>
                             </div>
                         </div>
-                        {{-- <div class="col-md-5 d-flex align-items-stretch p-0">
-                            <div class="info-wrap w-100 p-lg-5 p-4 text-white">
-                                <h3 class="mb-4 mt-md-4">Contact us</h3>
-                                <div class="dbox w-100 d-flex align-items-start">
-                                    <div class="icon d-flex align-items-center justify-content-center">
+                        {{-- <div class="imga">
+                            <img src="{{ asset('assets/image/envelope.png') }}" />
+                        </div> --}}
+                        <div class="col-md-5 d-flex align-items-stretch p-0">
+                            <div class="info-wrap w-100 p-lg-5 p-4 text-white contact-links">
+                                <h3 class="">Contact us</h3>
+                                <div class=" border-white border-bottom"></div>
+                                <div class="dbox w-100 d-flex align-items-start mb-2 mt-5">
+                                    <div class="col-1 icon d-flex align-items-center justify-content-center">
                                         <span class="fa fa-map-marker"></span>
                                     </div>
-                                    <div class="text ps-3">
-                                        <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+                                    <div class="col-4 text ps-3">
+                                        <span class="">Address:</span>
+                                    </div>
+                                    <div class="col-7 ">
+                                        <p>198 West 21th Street, Suite 721 New York NY 10016</p>
                                     </div>
                                 </div>
-                                <div class="dbox w-100 d-flex align-items-start">
-                                    <div class="icon d-flex align-items-center justify-content-center">
+                                <div class="dbox w-100 d-flex align-items-start mb-2">
+                                    <div class="col-1 icon d-flex align-items-center justify-content-center">
                                         <span class="fa fa-phone"></span>
                                     </div>
-                                    <div class="text ps-3">
-                                        <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+                                    <div class="col-4 text ps-3">
+                                        <span class="">Phone:</span>
+                                    </div>
+                                    <div class="col-7">
+                                        <p><a href="tel://1234567920">+ 1235 2355 98</a></p>
                                     </div>
                                 </div>
-                                <div class="dbox w-100 d-flex align-items-start">
-                                    <div class="icon d-flex align-items-center justify-content-center">
+                                <div class="dbox w-100 d-flex align-items-start mb-2">
+                                    <div class="col-1 icon d-flex align-items-center justify-content-center">
                                         <span class="fa fa-paper-plane"></span>
                                     </div>
-                                    <div class="text ps-3">
-                                        <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                                    <div class="col-4 text ps-3">
+                                        <span class="">Email:</span>
+                                    </div>
+                                    <div class="col-7">
+                                        <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
                                     </div>
                                 </div>
-                                <div class="dbox w-100 d-flex align-items-start">
-                                    <div class="icon d-flex align-items-center justify-content-center">
+                                <div class="dbox w-100 d-flex align-items-start mb-2">
+                                    <div class="col-1 icon d-flex align-items-center justify-content-center">
                                         <span class="fa fa-globe"></span>
                                     </div>
-                                    <div class="text ps-3">
-                                        <p><span>Website</span> <a href="#">yoursite.com</a></p>
+                                    <div class="col-4 text ps-3">
+                                        <span class="">Website:</span>
+                                    </div>
+                                    <div class="col-7">
+                                        <p><a href="#">yoursite.com</a></p>
                                     </div>
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container spacing">
-    </div>
     <style>
-.container.spacing {
-    height: 130px;
-}
-    .form-all:before, .form-all:after {
+        .form-control{
+            border-color: #b1b1b1;
+        }
+        .contact-links a {
+            color: #DAB57F;
+        }
+    /* .form-all:before, .form-all:after {
     content: '';
     position: absolute;
     width: 0;
@@ -136,7 +153,7 @@
     z-index: -1;
 }
 
-
+ */
 
     </style>
 </section>
