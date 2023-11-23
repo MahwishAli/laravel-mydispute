@@ -1,6 +1,9 @@
 @extends('layouts.web')
 
 @section('content')
+<style>
+ 
+</style>
     <section class="about_us_page pt-5">
         <div class="container my-5" >
             <div class="row justify-content-around mt-2">

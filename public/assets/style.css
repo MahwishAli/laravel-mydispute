@@ -148,6 +148,19 @@ a.nav-link{
     line-height: 1.7;
 }
 
+/* home page */
+
+.seperator.vision{
+    width: 15.5em;
+}
+
+.seperator.about{
+    width: 9.5em;
+}
+.about-sec p, .vision-sec p , .vision-sec ul li{
+    font-size: 21px;
+    font-family: 'garamond';
+}
 /* about us start */
 
 .about_us_page h4{
@@ -174,6 +187,24 @@ div.seperator {
 
 .seperator.contact{
     width: 14.5em;
+}
+@keyframes fadeInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.seperator {
+    width: 50px; /* Adjust the width as needed */
+    height: 2px; /* Adjust the height as needed */
+    background-color: #000; /* Adjust the color as needed */
+    margin-top: 10px; /* Adjust the margin as needed */
+    animation: fadeInFromLeft 2s ease-in-out;
 }
 /* how it works*/
 

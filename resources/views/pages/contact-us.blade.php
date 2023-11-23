@@ -8,7 +8,7 @@
                 <div class="seperator contact"></div>
             </div>
         </div>
-        <div class="row justify-content-center mt-1">
+        <div class="row justify-content-center mt-2">
             <div class="col-lg-10 col-md-12 contact-form form-all bg-white mb-5">
                 <div class="wrapper form-section">
                     <div class="row no-gutters">
