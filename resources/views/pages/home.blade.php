@@ -109,8 +109,9 @@
     {{-- how it works section --}}
     <section class="sec-2 py-5">
         <div class="container works-sec">
-            <div class="row justify-content-around align-items-center">
+            <div class="row d-flex flex-column">
                 <h2>How It Works</h2>
+                <div class="seperator works"></div>
             </div>
         </div>
 
@@ -130,7 +131,10 @@
                 </div>
 
                 <div class="col-md-6">
-                    <h2 class="mb-4">About Us</h2>
+                    <div class="d-flex flex-column mb-4">
+                        <h2 class="">About Us</h2>
+                        <div class="seperator about"></div>
+                    </div>
                     <p class="about_us pe-5">
                         My Dispute Resolution Partner (MyDRP) believes in healthy competition for the evolving nature of justice. MyDRP provides a platform for the assistance of the claim initiators (plaintiffs) and
                         prospective contract-based jobs for the claim and forensic experts in the field of construction,
@@ -144,7 +148,10 @@
         <div class="container vision-sec">
             <div class="row justify-content-around align-items-center">
                 <div class="col-md-8 px-5">
-                    <h2 class="mb-4">Vision Statement</h2>
+                    <div class="d-flex flex-column mb-4">
+                        <h2 class="">Vision Statement</h2>
+                        <div class="seperator vision"></div>
+                    </div>
                     <p class="vision">
                         To be a market leader in connecting claim consultants and experts with the companies needing
                         fee-based and/or ownership-oriented mode of claim management for their disputes.<br>
