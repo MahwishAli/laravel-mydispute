@@ -1108,7 +1108,7 @@ a.edit_text,
         padding: 0px !important;
         background: #fff !important
     }
-    input.form-control {
+    /* input.form-control {
         position: fixed;
         left: 0;
         bottom: 0;
@@ -1119,7 +1119,7 @@ a.edit_text,
         border: 1px solid #ddd !important;
         background: #f6f6f6 !important;
         font-weight: 600 !important;
-    }
+    } */
     .leftavttxt,
     .rightavttxt {
         line-height: 20px !important;
