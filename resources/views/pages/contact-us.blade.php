@@ -110,12 +110,7 @@
         </div>
     </div>
     <style>
-        .form-control{
-            border-color: #b1b1b1;
-        }
-        .contact-links a {
-            color: #DAB57F;
-        }
+
     /* .form-all:before, .form-all:after {
     content: '';
     position: absolute;

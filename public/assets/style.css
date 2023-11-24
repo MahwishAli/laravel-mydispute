@@ -318,98 +318,175 @@ ol.decimal-list li{
 .contact_us_page .contact-form{
     box-shadow: 0px 0px 6px #8a8787;
 }
-
-/* footer */
-.footer-sec h4{
-    font-weight: 600;
-    font-size: 18px;
+.form-control{
+    border-color: #b1b1b1;
 }
-
-.footer-sec ul li{
-    line-height: 2.2;
+.form-select{
+    border-color: #b1b1b1;
 }
-
-.footer-bg {
-    background-image: url("image/Mask group4.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-x: center;
-    background-position-y: bottom;
-    box-shadow: 0px 0px 6px #8a8787;
-}
-
-.footer-icon i {
-    padding: 0px 10px;
+.contact_us_page  .contact-links a {
+    color: #DAB57F;
 }
 
 /* resolution form */
-.blurback {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #fff;
-    opacity: 0.7;
-    z-index: 99999;
-    display: none;
-  }
+    .blurback {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #fff;
+        opacity: 0.7;
+        z-index: 99999;
+        display: none;
+    }
 
-  .universalloader {
-    width: 75px;
-    height: 75px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -37px;
-    margin-top: -37px;
-    z-index: 999999;
-    display: none;
-  }
+    .universalloader {
+        width: 75px;
+        height: 75px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -37px;
+        margin-top: -37px;
+        z-index: 999999;
+        display: none;
+    }
 
-  .innnerlanding_form {
-    position: relative;
-  }
+    .innnerlanding_form {
+        position: relative;
+    }
 
-  .other_information .halfblock {
-    margin: 0 auto;
-  }
+    .other_information .halfblock {
+        margin: 0 auto;
+    }
 
-  .left {
-    float: none;
-  }
+    .left {
+        float: none;
+    }
 
-  .alertify-message {
-    margin-bottom: 10px;
-  }
+    .alertify-message {
+        margin-bottom: 10px;
+    }
 
-  .alertify-button {
-    font-family: "Open Sans", sans-serif;
-  }
+    .alertify-button {
+        font-family: "Open Sans", sans-serif;
+    }
 
-  .file-attachment-container {
-    position: relative;
-    margin-top: 20px;
-  }
+    .file-attachment-container {
+        position: relative;
+        margin-top: 20px;
+    }
 
-  .file-attachment {
-    display: none;
-  }
+    .file-attachment {
+        display: none;
+    }
 
-  .file-label {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    display: inline-block;
-  }
+    .file-label {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        display: inline-block;
+    }
 
-  .file-label:hover {
-    background-color: #0056b3;
-  }
+    .file-label:hover {
+        background-color: #0056b3;
+    }
 
-/* faq's page */
+    /* member signup */
+
+    .seperator.member-signup{
+        width: 22.5em;
+    }
+    
+   .sign_up_member .block {
+        flex: 0 0 30%;
+        box-shadow: 0px 0px 4px #8a8787;
+        border: 0.1rem solid var(--line-gray);
+        border-radius: 0.4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: all 0.5s;
+    }
+
+    .sign_up_member .block:hover {
+        box-shadow: 0 1px 10px 0 #8a8787;
+        border: 0.1rem solid var(--white);
+    }
+
+    .sign_up_member .block a.learnmore {
+        font-weight: bold;
+        color: #686664;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+    .sign_up_member .block h4 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        font-family: 'candara';
+    }
+
+    .sign_up_member .block p {
+        padding: 0;
+        margin: 0 0 2rem 0;
+        font-size: 0.9rem;
+        color: #686664;
+        line-height: 2rem;
+        text-align: center;
+    }
+
+    .sign_up_member .picture2 {
+        display: none;
+    }
+
+    .sign_up_member .block:hover .picture1 {
+        display: none;
+    }
+
+    .sign_up_member .block:hover .picture2 {
+        display: block;
+    }
+
+    .sign_up_member .icon_signup a.btn {
+        height: 2.8rem;
+        border-radius: 0.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sign_up_member .block:hover .icon_signup a.btn {
+        color: white;
+        background-color: #006DA7;
+    }
+
+    .sign_up_member .signin-link{
+        text-transform: uppercase;
+        font-weight: bold;
+        text-decoration: none;
+        color: #006DA7;
+    }
+
+    /* initiator signup */
+
+    .sign_up_consultant .ini-signup-form{
+        box-shadow: 0px 0px 6px #8a8787;
+    }
+    .form-check .form-check-input{
+        border-color: #b1b1b1;
+    }
+
+    /* consultant signup */
+
+    .sign_up_initiator .ini-signup-form{
+        box-shadow: 0px 0px 6px #8a8787;
+    }
+
+    /* faq's page */
 
     details{
         padding-left: 30px;
@@ -465,4 +542,27 @@ ol.decimal-list li{
         box-shadow: 0px 0px 6px #8a8787;
         border-radius: 0.2em;
         background-color: #fff;
+    }
+
+    /* footer */
+    .footer-sec h4{
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    .footer-sec ul li{
+        line-height: 2.2;
+    }
+
+    .footer-bg {
+        background-image: url("image/Mask group4.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: bottom;
+        box-shadow: 0px 0px 6px #8a8787;
+    }
+
+    .footer-icon i {
+        padding: 0px 10px;
     }

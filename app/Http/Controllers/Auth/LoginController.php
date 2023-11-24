@@ -56,11 +56,11 @@ class LoginController extends Controller
     }
 
     public function initiatorSignUp(){
-        return view('auth.signup');
+        return view('auth.initiator-signup');
     }
 
     public function consultantSignUp(){
-        return view('auth.member-signup');
+        return view('auth.consultant-signup');
     }
     /**
      * Create a new controller instance.
