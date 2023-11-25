@@ -36,7 +36,7 @@
                                                 <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
                                             </div>
                                         </div>
-                                        <div class="col-md-12 mb-3">
+                                        <div class="col-md-12 mb-3 p-3">
                                             <div class="form-group">
                                                 <textarea name="message" class="form-control" id="message" cols="30" rows="7" placeholder="Message"></textarea>
                                             </div>

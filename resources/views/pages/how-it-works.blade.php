@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="how_it_works pt-5">
-        <div class="container my-5" >
+        <div class="container animation my-5" >
             <div class="row text-center">
                 <div class="d-flex flex-column align-items-center mb-4">    
                     <h2 class="fs-1">How It Works</h2>
@@ -13,7 +13,7 @@
                 <div class="col-lg-2 col-md-2 d-flex justify-content-center align-items-center image-left">
                     <img class="image-left-img" src="{{ asset('assets/image/works1.PNG') }}" />
                 </div>
-                <div class="col-lg-6 col-md-6" >
+                <div class="col-lg-6 col-md-8" >
                     <img class="image-left-arrow" src="{{ asset('assets/image/works4.PNG') }}" />
                     <img class="image-right-arrow" src="{{ asset('assets/image/works3.PNG') }}" />
                 </div>
