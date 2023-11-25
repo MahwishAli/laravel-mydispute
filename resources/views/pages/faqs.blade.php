@@ -4,7 +4,7 @@
     <div class="container my-5" >
         <div class="row justify-content-around mt-2">
             <div class="col-lg-12 mb-4" >
-                <h5 class="fs-1">FAQ's</h5>
+                <h5 class="fs-1">FAQs</h5>
                 <h3 class="fs-4 fw-semibold my-4">Dispute Resolution Consultancy Requirements Posting</h3>
                 <div id="faq" class="faq-body">
                     <div class="faq-list">

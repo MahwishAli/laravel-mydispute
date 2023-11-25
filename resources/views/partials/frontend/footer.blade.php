@@ -71,7 +71,7 @@
         </div>
     </div>
 
-    <div class="container-fluid d-flex justify-content-center py-4" style="border-top: 1px solid #7C7C7C;">
+    <div class="container-fluid d-flex justify-content-center pt-3" style="border-top: 1px solid #7C7C7C;">
         <div class="row">
             <p class="" style="font-size: 18px;">Copyright © 2023</p>
         </div>

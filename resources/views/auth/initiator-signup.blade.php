@@ -1,5 +1,6 @@
 @extends('layouts.web')
 @section('content')
+
 <section class="sign_up_initiator pt-5">
     <div class="container my-5">
         <div class="row justify-content-center">
@@ -13,7 +14,7 @@
             <div class="col-lg-11 col-md-12 ini-signup-form form-all bg-white mb-5">
                 <form action="#" method="post" enctype="multipart/form-data">
                     <!-- Company Information -->
-                    <div class="row my-5 mx-4">
+                    <div class="row my-5 mx-2">
                         <!-- Company Information -->
                         <div class="col-md-6 mb-3">
                             <label for="companyName" class="form-label">Company Name: <span class="text-danger">*</span></label>
@@ -31,8 +32,8 @@
                         </div>
 
                     <!-- Specific Industry (Visible only if Commercial is selected) -->
-                        <div id="specificIndustry" class="mb-3" style="display: none;">
-                            <label for="industry" class="form-label">Specific Industry: <span class="text-danger">*</span></label>
+                        <div id="specificIndustry" class="col-md-12 mb-3" style="display: none;">
+                            <label for="industry" class="form-label">Please mention your Specific Industry: <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="industry" name="industry" required>
                         </div>
 
@@ -55,33 +56,33 @@
                             </div>
                         </div>
                         <!-- Company Documents Attachment -->
-                        <div class="col-md-6 mb-2">
+                        <div class="col-md-6 mb-3">
                             <label for="companyDocuments" class="form-label">Company Documents Attachment:</label>
                             <input type="file" class="form-control" id="companyDocuments" name="companyDocuments">
                             <small>(can upload later)</small>
                             <p class="form-text">We encourage you to upload company documents as this increases your chance of success in finding the right Dispute Resolution Partner.</p>
                         </div>
-                        <div class="col-md-6 mb-2">
+                        <div class="col-md-6 mb-3">
                             <label for="" class="form-label">Please describe your company and style of work concisely in the below: </label>
                             <textarea class="form-text col-12" rows="8" placeholder="We are a construction company located in Oman, established in the year 1980. We deal in building roads, dams and water and wastewater treatment plants in the Middle East. We have a turnover of USD 10 million and we do employ sub-contractors from time-to-time. We mainly deal with government or semi government projects. We know that sometimes disputes can be resolved amicably but may require independent third-party evaluation even in Mediation. Due to the expansion of the company and intense growth we like to resolve our disputes by sharing a percentage on an award especially in arbitrations.(This all written but when the person clicks on this box all written above is removed – above only for idea purposes for the person/company to write. 
                             "></textarea>
                         </div>
                         
                         <!-- Payment Options -->
-                        <div class="col-md-6 mb-2">
+                        <div class="col-md-6 mb-3">
                             <label class="form-label">We are generally interested in the following payment options (select as desired – one or more):</label>
 
-                            <div class="form-check">
+                            <div class="form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="feeBased" name="paymentOption" value="Fee Based only">
                                 <label class="form-check-label" for="feeBased">Fee Based only</label>
                             </div>
 
-                            <div class="form-check">
+                            <div class="form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="feeAndAward" name="paymentOption" value="Fee and Award Percentage Based">
                                 <label class="form-check-label" for="feeAndAward">Fee and Award Percentage Based</label>
                             </div>
                             
-                            <div class="form-check">
+                            <div class="form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="awardPercentage" name="paymentOption" value="Award Percentage Based only">
                                 <label class="form-check-label" for="awardPercentage">Award Percentage Based only</label>
                             </div>
@@ -89,7 +90,7 @@
                             <div id="feeBasedOptions" class=" mt-4" style="display: none;">
                                 <label class="form-label">Please select one or as desired:</label>
                                 
-                                <div class="form-check">
+                                <div class="form-check mb-2">
                                     <input class="form-check-input" type="radio" id="lumpSum" name="feeOption" value="Lump Sum Fee">
                                     <label class="form-check-label" for="lumpSum">Lump Sum Fee</label>
                                 </div>
@@ -103,20 +104,20 @@
                         
                         
                         <!-- Agreement and Declaration -->
-                        <div class="col-md-6 mb-2">
+                        <div class="col-md-6 mb-3">
                             <label class="form-check-label mb-2">Select to submit form:</label>
                             
-                            <div class="form-check">
+                            <div class="form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="agreeTerms" name="agreeTerms" required>
                                 <label class="form-check-label" for="agreeTerms">I agree to the terms and conditions</label>
                             </div>
                             
-                            <div class="form-check">
+                            <div class="form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="agreeDisclaimer" name="agreeDisclaimer" required>
                                 <label class="form-check-label" for="agreeDisclaimer">I agree to the terms of the Disclaimer</label>
                             </div>
                             
-                            <div class="form-check">
+                            <div class="form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="declareAuthentic" name="declareAuthentic" required>
                                 <label class="form-check-label" for="declareAuthentic">I declare that all information provided here is correct and authentic.</label>
                             </div>
@@ -131,7 +132,7 @@
                     <!-- Submit Button -->
                     <div class="row text-center my-5">
                         <div class="d-grid gap-2 col-6 mx-auto">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <a type="submit" class="btn btn-primary" style="background: #006DA7">Submit</a>
                         </div>
                     </div>
                 </form>

@@ -127,7 +127,7 @@
         <div class="container about-sec">
             <div class="row justify-content-around align-items-center">
                 <div class="col-md-6 p-5">
-                    <img class="img-fluid" src="assets/image/5.png" alt="">
+                    <img class="img-fluid" src="{{ asset('assets/image/5.png') }}" alt="">
                 </div>
 
                 <div class="col-md-6">

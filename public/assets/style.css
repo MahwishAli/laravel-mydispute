@@ -473,17 +473,35 @@ ol.decimal-list li{
 
     /* initiator signup */
 
-    .sign_up_consultant .ini-signup-form{
+    .sign_up_initiator .ini-signup-form{
         box-shadow: 0px 0px 6px #8a8787;
     }
     .form-check .form-check-input{
         border-color: #b1b1b1;
     }
 
+    .sign_up_initiator .col-md-6.mb-3 {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    
+    .sign_up_initiator .ini-signup-form .form-check {
+        margin-left: 15px;
+    }
+
     /* consultant signup */
 
-    .sign_up_initiator .ini-signup-form{
+    .sign_up_consultant .con-signup-form{
         box-shadow: 0px 0px 6px #8a8787;
+    }
+
+    .sign_up_consultant .col-md-6.mb-3 , .col-md-12.mb-3{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    
+    .sign_up_consultant .con-signup-form .form-check {
+        margin-left: 15px;
     }
 
     /* faq's page */
@@ -565,4 +583,15 @@ ol.decimal-list li{
 
     .footer-icon i {
         padding: 0px 10px;
+    }
+
+    /* Media query for Surface Pro 7 and similar devices */
+    @media screen and (max-width: 2736px) {
+        /* Add your specific styles for Surface Pro 7 here */
+        .col-lg-1.col-md-1 {
+            display: none;
+        }
+        .container.animation, .container-md.animation, .container-sm.animation {
+            max-width: 840px;
+        }
     }
