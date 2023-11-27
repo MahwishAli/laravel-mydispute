@@ -8,7 +8,7 @@
                     <h2 class="fs-1">How It Works</h2>
                     <div class="seperator works"></div>
                 </div>
-                <div class="col-lg-1 col-md-1" >
+                <div class="col-lg-1 col-md-1 hide-on-mob" >
                 </div>
                 <div class="col-lg-2 col-md-2 d-flex justify-content-center align-items-center image-left">
                     <img class="image-left-img" src="{{ asset('assets/image/works1.PNG') }}" />
@@ -20,7 +20,7 @@
                 <div class="col-lg-2 col-md-2 d-flex justify-content-center align-items-center image-right"  >
                     <img class="image-right-img" src="{{ asset('assets/image/works2.PNG') }}" />
                 </div>
-                <div class="col-lg-1 col-md-1" >
+                <div class="col-lg-1 col-md-1 hide-on-mob" >
                 </div>
             </div>
             <div class="row justify-content-around mt-5">
