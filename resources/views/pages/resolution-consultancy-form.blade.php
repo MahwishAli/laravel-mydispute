@@ -18,799 +18,712 @@
                         </p>
                     </div>
                 </div>
-                <div class="custom_progress_bar">
+                <div class="custom_progress_bar" style="display: none">
                     <div class="processtext">0%</div>
                     <div class="progressbar_text">
                     <div class="probar" style="width: 0%"></div>
                     </div>
                 </div>
                 <div class="bottomform_holder" id="hideclass3">
-                    <!-- One -->
-                    <div class="formlebel_one animated zoomIn" data-step="first_page">
-                    <div class="frmtitle">Dispute Resolution Initiator</div>
-                    <div class="midsection_common">
-                        <div class="other_information signupscreen">
-                        <input type="hidden" name="subjectid" id="subjectid" value="" />
-                        <div class="match_dropdown_holder down_mark searchboxcontainernew" id="subject_div_holder">
-        
-                            <input type="text" onkeyup="filterdropdown(this,'theList')"
-                            class="input_subject_holder input_match_holder" id="subject_textbox" placeholder="Company Name*"
-                            autocomplete="off" value="" required />
+                    <div class="formlebel animated zoomIn" data-step="first_page">
+                        <h4 class="frmtitle text-center fw-bold">Dispute Resolution Initiator</h4>
+                        <form action="#" method="post" enctype="multipart/form-data">
+                            {{-- page 2 start --}}
+                            <div class="page1" >
+                                <!-- Company Information -->
+                                <div class="row my-5 mx-2" >
+                                    <!-- Company Information -->
+                                    <div class="col-md-12 mb-3 d-flex align-items-center">
+                                        <label for="companyName" class="form-label col-3">Company Name: <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="companyName" name="companyName" placeholder="" required>
+                                    </div>
+            
+                                    <div class="col-md-12 mb-3 d-flex align-items-center">
+                                        <label for="companyType" class="form-label col-3">Company Type: <span class="text-danger">*</span></label>
+                                        <select class="form-select" id="companyType" name="companyType" required>
+                                            <option value="Construction">Construction</option>
+                                            <option value="Finance">Finance</option>
+                                            <option value="Trade">Trade</option>
+                                            <option value="Commercial">Commercial</option>
+                                        </select>
+                                    </div>
+            
+                                    <!-- Specific Industry (Visible only if Commercial is selected) -->
+                                    <div id="specificIndustry" class="col-md-12 mb-3" style="display: none;">
+                                        <div  class="col-md-12 m-0 d-flex align-items-center" >
+                                            <label for="industry" class="form-label col-3">Please mention your Specific Industry: <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="industry" name="industry" required>
+                                        </div>
+                                    </div>
+            
+                                    <div class="col-md-12 mb-3 d-flex align-items-center">
+                                        <label for="email" class="form-label col-3">Email Address: <span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                    </div>
+            
+                                    <div class="col-md-12 mb-3 d-flex align-items-center">
+                                        <label for="address" class="form-label col-3">Address:</label>
+                                        <textarea class="form-control" id="address" name="address" rows="2"></textarea>
+                                    </div>
+            
+                                    <div class="col-md-12 mb-3 d-flex align-items-center">
+                                        <label for="country" class="form-label col-3">Country: <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="country" name="country" required>     
+                                    </div>
+                                    <div class="col-md-12 mb-3 d-flex align-items-center">
+                                        <label for="phone" class="form-label col-3">Phone No: <span class="text-danger">*</span></label>
+                                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                                    </div>
+                                    <!-- Company Documents Attachment -->
+                                    <div class="col-md-12 mb-3 d-flex">
+                                        <label for="companyDocuments" class="form-label col-3">Company Documents Attachment:</label>
+                                        <div class="">
+                                            <input type="file" class="form-control" id="companyDocuments" name="companyDocuments">
+                                                <p class="form-text mb-0">We encourage you to upload company documents as this increases your chance of success in finding the right Dispute Resolution Partner.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4 class="frmtitle text-center fw-bold"><u>Dispute Details so Claim Consultants</u></h4>
+                                <div class="row my-5 mx-2">
+                                    <div class="col-md-12 mb-3 d-flex align-items-center">
+                                        <label for="industryType" class="form-label col-3">Industry Type: <span class="text-danger">*</span></label>
+                                        <select name="industry_type" id="industry_type" class="form-select industry_type"
+                                            onchange="javascript:getLocation(this.id);">
+                                            <option value="">Industry Type</option>
+                                            <option value="Construction">Construction</option>
+                                            <option value="Financial">Financial</option>
+                                            <option value="Trade">Trade</option>
+                                            <option value="Commercial">Commercial</option>
+                                        </select>
+                                    </div>
+            
+                                    <!-- Specific Industry (Visible only if Commercial is selected) -->
+                                    <div id="specificIndustryType" class="col-md-12 mb-3" style="display: none;">
+                                        <div  class="col-md-12 m-0 d-flex align-items-center" >
+                                            <label for="industry" class="form-label col-3">Please mention your Specific Industry: <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="industry" name="industry" required>
+                                        </div>
+                                    </div>
 
-                            <div class="input_holder">
-        
-                            <div class="dropdownbox">
-                                <select name="loc" id="loc" class="locdropdn" onchange="javascript:getLocation(this.id);">
-                                <option value="">Company Type*</option>
-        
-                                <option value="1">Construction</option>
-                                <option value="2">Financial</option>
-                                <option value="3">Trade</option>
-                                <option value="4">Commercial</option>
-                                <option value="5">Technology</option>
-                                </select>
-                            </div>
-        
-                            </div>
-        
-                            <input type="text" onkeyup="filterdropdown(this,'theList')"
-                            class="input_email_holder input_match_holder" id="email_textbox" placeholder="Email Address"
-                            autocomplete="off" value="" required />
-        
-                            <div class="input_holder">
-                            <div class="">
-                                <div class="dropdownbox">
-                                <select name="initiator_country" id="initiator_country" class="countrydropdn"
-                                    onchange="javascript:getLocation(this.id);">
-                                    <option value="">Country*</option>
-                                </select>
-                                </div>
-                            </div>
-                            </div>
-        
-                            <input type="text" onkeyup="filterdropdown(this,'theList')"
-                            class="input_phone_holder input_match_holder" id="phone_textbox" placeholder="Phone No*"
-                            autocomplete="off" value="" required />
+                                    <div class="col-md-12 mb-3 d-flex align-items-center">
+                                        <label for="disputeType" class="form-label col-3">Dispute Type: <span class="text-danger">*</span></label>
+                                        <select name="dispute_type" id="dispute_type" class="form-select dispute_type">
+                                            <!-- onchange="javascript:getLocation(this.id);" -->
+                                            <option value="">Dispute Type</option>
+                                            <option value="Negotiation">Negotiation</option>
+                                            <option value="Mediation">Mediation</option>
+                                            <option value="Conciliation">Conciliation</option>
+                                            <option value="Adjudication">Adjudication</option>
+                                            <option value="Litigation">Litigation</option>
+                                            <option value="Arbitration">Arbitration</option>
+                                            <option value="Expert Determination">Expert Determination</option>
+                                            <option value="Award Enforcement">Award Enforcement</option>
+                                        </select>
+                                    </div>
+            
+                                    <!-- Specific Industry (Visible only if Commercial is selected) -->
+                                    <div class="col-md-12 mb-3 d-flex align-items-center">
+                                        <label for="amount" class="form-label col-3">Dispute Amount:</label>
+                                        <select name="dispute_amount" id="dispute_amount" class="form-select dispute_amount">
+                                            <option value="">Dispute Amount</option>
+                                            <option value="1">$0 to $10</option>
+                                            <option value="2">$11 to %50</option>
+                                            <option value="3">$51 to $100</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col-md-12 mb-3 mt-3" id="feeBasedhide">
+                                        <label for="companyType" class="form-label">Select Dispute Resolution Partner Type (select as many options as desired): <span class="text-danger">*</span></label>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="feeBased" name="paymentOption" value="Fee Based only">
+                                            <label class="form-check-label" for="feeBased">Fee Based only</label>
+                                        </div>
+            
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="feeAndAward" name="paymentOption" value="Fee and Award Percentage Based">
+                                            <label class="form-check-label" for="feeAndAward">Fee and Award Percentage Based</label>
+                                        </div>
+                                        
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="awardPercentage" name="paymentOption" value="Award Percentage Based only">
+                                            <label class="form-check-label" for="awardPercentage">Award Percentage Based only</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-12 mb-3">
+                                        <!-- Additional Options for Fee Based -->
+                                        <div id="feeBasedOptions" class=" mt-2 mb-3" style="display: none;">
+                                            <label class="form-label">Please select one or as desired:</label>
+                                            
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="radio" id="lumpSum" name="feeOption" value="Lump Sum Fee">
+                                                <label class="form-check-label" for="lumpSum">Lump Sum Fee</label>
+                                            </div>
+                                            
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" id="hourlyBased" name="feeOption" value="Hourly Based Fee">
+                                                <label class="form-check-label" for="hourlyBased">Hourly Based Fee</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- show when fee and award is selected --}}
+                                    <div class="col-md-12 mb-3" id="feeAwardshow" class=" mb-1" style="display: none;">
+                                        {{-- <div class=" mb-1" > --}}
+                                            <label class="form-label col-3">Award Percentage Based:</label>
+                                            <input type="text" class="form-control" name="awardPercentage" placeholder="Enter percentage (e.g., up to 5%, up to 10%, up to 50%)" style="height: 40px;">
+                                    </div>
 
-                            <div class="mb-3">
-                            <input class="form-control" type="file" id="formFileMultiple" multiple>
-                            </div>
-        
-                            <br />
-                            <div class="frmtitle_small">
-                            We encourage to upload company documents as this increases
-                            your chance of success in finding the right Dispute
-                            Resolution Partner.
-                            </div>
-                            <br />
-                            <br />
-                            <h3>
-                            <strong>
-                                <u>Dispute Details so Claim Consultants</u></strong>
-                            </h3>
-                            <br />
-        
-                            <div class="input_holder">
-                            <div class="">
-                                <div class="dropdownbox">
-                                <select name="industry_type" id="industry_type" class="industry_type"
-                                    onchange="javascript:getLocation(this.id);">
-                                    <option value="">Industry Type*</option>
-        
-                                    <option value="1">Construction</option>
-                                    <option value="2">Financial</option>
-                                    <option value="3">Trade</option>
-                                    <option value="4">Commercial</option>
-                                    <option value="5">Technology</option>
-                                    <option value="6">Digital</option>
-                                </select>
+                                    <div class="col-md-12 mb-3 d-flex align-items-center">
+                                        <label for="region" class="form-label col-3">Region: <span class="text-danger">*</span></label>
+                                        <select name="region" id="region" class="form-select regiondropdn"
+                                            onchange="javascript:getLocation(this.id);" required>
+                                            <option value="">Region*</option>
+                                        </select>
+                                    </div>
+            
+                                    <!-- Specific Industry (Visible only if Commercial is selected) -->
+                                    <div class="col-md-12 mb-3 d-flex align-items-center">
+                                        <label for="country" class="form-label col-3">Country:</label>
+                                        <select name="country" id="country" class="form-select countrydropdn"
+                                            onchange="javascript:getLocation(this.id);">
+                                            <option value="">Country</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12 mb-3 mt-3">
+                                        <label for="companyregister" class="form-label">Due to the sensitivity of data, you can post the Dispute Details as: <span class="text-danger">*</span></label>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="companyReg" name="companyReg" value="Fee Based only">
+                                            <label class="form-check-label" for="feeBased">The Company Registered</label>
+                                        </div>
+            
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="anonymous" name="anonymous" value="Fee and Award Percentage Based">
+                                            <label class="form-check-label" for="feeAndAward">Anonymous</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-12 mb-3" id="anonymousShow" style="display: none;">
+                                        {{-- <div class=" mb-3">
+                                            (if Anonymous is selected then you can put a different e-mail address and phone number to be contacted)
+                                        </div> --}}
+                                        <div class="mb-1 d-flex align-items-center">
+                                            <label for="anonymous" class="form-label col-3">Your anonymous email: <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="anonymousEmail" name="anonymousEmail" placeholder="" required>
+                                        </div>
+                                        <div class="mb-3 d-flex align-items-center">
+                                            <label for="anonymous" class="form-label col-3">Your anonymous phone: <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="anonymousPhone" name="anonymousPhone" placeholder="" required>
+                                        </div>
+                                        <div class=" mb-3"><b>
+                                            Selecting Anonymous will hide all registered company details except but will show the dispute details as selected.</b>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 mb-3" >
+                                        <label for="companyType" class="form-label">Please select Option for Free posting and receiving of proposals in which only our paid members can see your Dispute Details or Select the Paid Service by MyDRP to receive a list of Dispute Resolution and Claim Consultants best suiting your dispute requirements.</label>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="feeBased" name="paid_service" value="paid_service" onchange="toggleButtons();">
+                                            <label class="form-check-label" for="feeBased">Paid Service</label>
+                                        </div>
+            
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="feeAndAward" name="free_service" id="free_service" value="Fee and Award Percentage Based" onchange="toggleButtons();">
+                                            <label class="form-check-label" for="feeAndAward">Free</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="new_button_holder">
+                                            <a href="#" class="backbtn" style="display: none">Back</a>
+                                            <a href="#" class="button_common nextbtn">Next</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            </div>
-        
-                            <div class="input_holder">
-                            <div class="">
-                                <div class="dropdownbox">
-                                <select name="dispute_type" id="dispute_type" class="dispute_type">
-                                    <!-- onchange="javascript:getLocation(this.id);" -->
-                                    <option value="">Dispute Type*</option>
-        
-                                    <option value="1">Negotiation</option>
-                                    <option value="2">Mediation</option>
-                                    <option value="3">Adjudication</option>
-                                    <option value="4">Litigation</option>
-                                    <option value="5">Arbitration</option>
-                                    <option value="6">Expert Determination</option>
-                                    <option value="7">Award Enforcement</option>
-                                    <option value="8">Class Action</option>
-                                </select>
+                            {{-- page 1 end --}}
+                            {{-- page 2 start --}}
+                            <div class="page2 typeConstruction" style="display: none">
+                                <h4 class="frmtitle text-center fw-bold">Page 2</h4>
+                                <div class="custom_progress_bar">
+                                    <div class="processtext">20%</div>
+                                    <div class="progressbar_text">
+                                    <div class="probar" style="width: 20%;"></div>
+                                    </div>
+                                </div>
+                                <div class="row my-5 mx-2" >
+                                    <div class="col-md-12 mb-3 mt-3">
+                                        <label for="contractgov" class="form-label">Contract is governed by:</label>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="fidic" name="fidic" value="fidic">
+                                            <label class="form-check-label" for="fidic">FIDIC</label>
+                                        </div>
+            
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="otherCont" name="otherCont" value="otherCont">
+                                            <label class="form-check-label" for="otherCont">Any other please state</label>
+                                        </div>
+                                    </div>
+                                    <div id="otherContract" class="col-md-12 mb-3" style="display: none;">
+                                        <div  class="col-md-12 m-0 d-flex align-items-center" >
+                                            <label for="contract" class="form-label col-3">Mention the name:</label>
+                                            <input type="text" class="form-control" id="contract" name="contract" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-3 mt-3">
+                                        <label class="form-label">Please select Dispute Details (select one or many as desired):</label>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="extensionOfTime" name="" value="extensionOfTime">
+                                            <label class="form-check-label" for="extensionOfTime">Extension of Time Analysis</label>
+                                        </div>
+                                    
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="forensicDelay" name="" value="forensicDelay">
+                                            <label class="form-check-label" for="forensicDelay">Forensic Delay Analysis</label>
+                                        </div>
+                                    
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="forensicDisruption" name="" value="forensicDisruption">
+                                            <label class="form-check-label" for="forensicDisruption">Forensic Disruption Analysis</label>
+                                        </div>
+                                    
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="expertWitnessing" name="" value="expertWitnessing">
+                                            <label class="form-check-label" for="expertWitnessing">Expert Witnessing</label>
+                                        </div>
+                                    
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="quantumAnalysis" name="" value="quantumAnalysis">
+                                            <label class="form-check-label" for="quantumAnalysis">Quantum Analysis</label>
+                                        </div>
+                                    
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="claimStatements" name="" value="claimStatements">
+                                            <label class="form-check-label" for="claimStatements">Drafting of Claim Statements</label>
+                                        </div>
+                                    
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="legalInterpretation" name="" value="legalInterpretation">
+                                            <label class="form-check-label" for="legalInterpretation">Legal Interpretation of the Contract</label>
+                                        </div>
+                                    
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="strategizeResolution" name="" value="strategizeResolution">
+                                            <label class="form-check-label" for="strategizeResolution">Strategize Dispute Resolution</label>
+                                        </div>
+                                    
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="researchAnalysis" name="" value="researchAnalysis">
+                                            <label class="form-check-label" for="researchAnalysis">Research Based Analysis Required</label>
+                                        </div>
+                                    
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="specialistFieldServices" name="" value="specialistFieldServices">
+                                            <label class="form-check-label" for="specialistFieldServices">Specific Specialist Field Services are allowed*</label>
+                                            <div class="mt-3 text-danger">
+                                                <small>*By ticking this box, you allow consultant firms which are specialist firms in a specific field such as Delay Analysis, Legal Interpretation, or Chemical Plant Engineering Analysis to contact you for providing any required services either selected above or mentioned below in the Concise Summary and Requirements of the Dispute Resolution.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <label for="" class="form-label">Please provide anonymous or non-anonymous concise summary and requirements of the dispute resolution: </label>
+                                        <textarea class="form-text col-12" rows="8" placeholder="This is initially a confidential and private mediation which can lead to arbitration. Extensive experience and in-depth knowledge may be required to substantiate the demonstration of damages incurred in the project of wastewater treatment plant due to the mismanagement of work caused by the direct intervention of the Contractor/Employer.
+                                        We initially require expert interpretation of the legal contract and quantum services for a large case of damages caused due to delay and disruption. This can solidify towards an Arbitration settlement. As the matter is private and confidential hence no company information can be given. Please provide your kind proposals on the basis of either fee only, fee or award percentage or completely on sharing the award percentage sharing basis. If you are considered for this arrangement, we will contact you back and a confidential, private and legal contract will be signed stating the details of the dispute resolution requirements. "></textarea>
+                                    </div> 
+                                    <div class="typeFinance" style="display: none">
+                                        <div class="col-md-12 mb-3 mt-3">
+                                            <label class="form-label">Please select which dispute resolution services you may require:</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="forensicAccounting" name="disputeServices" value="forensicAccounting">
+                                                <label class="form-check-label" for="forensicAccounting">Forensic Accounting Analysis</label>
+                                            </div>
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="fraudExamination" name="disputeServices" value="fraudExamination">
+                                                <label class="form-check-label" for="fraudExamination">Fraud Examination</label>
+                                            </div>
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="financialStatementsAnalysis" name="disputeServices" value="financialStatementsAnalysis">
+                                                <label class="form-check-label" for="financialStatementsAnalysis">Analysis of Financial Statements</label>
+                                            </div>
+                                        
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="Forecasting" name="Forecasting" value="forecasting">
+                                                <label class="form-check-label" for="forecasting">Forecasting of Financial Statements</label>
+                                            </div>
+                                        
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="quantumAnalysis" name="" value="quantumAnalysis">
+                                                <label class="form-check-label" for="quantumAnalysis">Quantum for Loss of Opportunity Analysis</label>
+                                            </div>
+                                        
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="comapanyVal" name="" value="claimStatements">
+                                                <label class="form-check-label" for="companyVal">Company Valuation</label>
+                                            </div>
+                                        
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="quantum" name="" value="quantum">
+                                                <label class="form-check-label" for="quantum">Quantum for Damages</label>
+                                            </div>
+                                        
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="draftingClaim" name="" value="draftingClaim">
+                                                <label class="form-check-label" for="draftingClaim"> Drafting of Claim Statement</label>
+                                            </div>
+                                        
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="legalInter" name="legalInter" value="researchAnalysis">
+                                                <label class="form-check-label" for="legalInter">Legal Interpretation of the Contract</label>
+                                            </div>
+
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="strategizeResolution" name="" value="strategizeResolution">
+                                                <label class="form-check-label" for="strategizeResolution">Strategize Dispute Resolution</label>
+                                            </div>
+                                        
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="researchAnalysis" name="" value="researchAnalysis">
+                                                <label class="form-check-label" for="researchAnalysis">Research Based Analysis</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="specialistFieldServices" name="" value="specialistFieldServices">
+                                                <label class="form-check-label" for="specialistFieldServices">Specific Specialist Field Services are allowed*</label>
+                                                <div class="mt-3 text-danger">
+                                                <small>*By ticking this box, you allow consultant firms which are specialist firms in a specific field such as Delay Analysis, Legal Interpretation, or Chemical Plant Engineering Analysis to contact you for providing any required services either selected above or mentioned below in the Concise Summary and Requirements of the Dispute Resolution.</small></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <label for="" class="form-label">Please provide anonymous or non-anonymous concise summary and requirements of the dispute resolution: </label>
+                                            <textarea class="form-text col-12" rows="8" placeholder="We require a consultant firm which may provide us with loss of opportunity claim. The consultants would be required to forecast financial statements of a company and provide valuation of the upcoming profits and the total value of the company. The consultant company has to provide a quantum of damages apart from the principal money. The consultant company has also to opt for recovery of damages in relation to the psychological harm that the investors have faced. This is a forensic case of fraud examination. (This all written but when the person clicks on this box all written above is removed – above only for idea purposes for the person/company to write. )
+                                             "></textarea>
+                                        </div> 
+                                    </div>
+                                    <div class="typeTrade" style="display: none" >
+                                        <div class="col-md-12 mb-3 mt-2">
+                                            <label for="contractgov" class="form-label">Contract is governed by:</label>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="gafta" name="gafta" value="gafta">
+                                                <label class="form-check-label" for="gafta">GAFTA </label>
+                                            </div>
+                
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="otherContrac" name="otherContrac" value="otherContrac">
+                                                <label class="form-check-label" for="otherCont">Any other please state</label>
+                                            </div>
+                                        </div>
+                                        <div id="otherContract2" class="col-md-12 mb-3" style="display: none;">
+                                            <div  class="col-md-12 m-0 d-flex align-items-center" >
+                                                <label for="contract" class="form-label col-3">Mention the name:</label>
+                                                <input type="text" class="form-control" id="contract" name="contract" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3 mt-3">
+                                            <label class="form-label">Please select which dispute resolution services you may require:</label>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="commercialTradeForensic" name="disputeServices" value="commercialTradeForensic">
+                                                <label class="form-check-label" for="commercialTradeForensic">Commercial Trade Forensic Analysis</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="digitalCyberForensic" name="disputeServices" value="digitalCyberForensic">
+                                                <label class="form-check-label" for="digitalCyberForensic">Digital-Cyber Forensic Analysis</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="fraudExamination" name="disputeServices" value="fraudExamination">
+                                                <label class="form-check-label" for="fraudExamination">Fraud Examination</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="lossOfOpportunityForensic" name="disputeServices" value="lossOfOpportunityForensic">
+                                                <label class="form-check-label" for="lossOfOpportunityForensic">Loss of Opportunity Forensic Analysis</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="quantumForDamages" name="disputeServices" value="quantumForDamages">
+                                                <label class="form-check-label" for="quantumForDamages">Quantum for Damages</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="draftingOfClaimStatement" name="disputeServices" value="draftingOfClaimStatement">
+                                                <label class="form-check-label" for="draftingOfClaimStatement">Drafting of Claim Statement</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="legalInterpretation" name="disputeServices" value="legalInterpretation">
+                                                <label class="form-check-label" for="legalInterpretation">Legal Interpretation of the Contract</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="strategizeDisputeResolution" name="disputeServices" value="strategizeDisputeResolution">
+                                                <label class="form-check-label" for="strategizeDisputeResolution">Strategize Dispute Resolution</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="researchBasedAnalysis" name="disputeServices" value="researchBasedAnalysis">
+                                                <label class="form-check-label" for="researchBasedAnalysis">Research Based Analysis</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="specialistFieldServices" name="specialistFieldServices">
+                                                <label class="form-check-label" for="specialistFieldServices">Specific Specialist Field Services are allowed*</label>
+                                                <div class="mt-3 text-danger">
+                                                    <small>*By ticking this box, you allow consultant firms which are specialist firms in a specific field such as Delay Analysis, Legal Interpretation, or Chemical Plant Engineering Analysis to contact you for providing any required services either selected above or mentioned below in the Concise Summary and Requirements of the Dispute Resolution.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <label for="" class="form-label">Please provide anonymous or non-anonymous concise summary and requirements of the dispute resolution: </label>
+                                            <textarea class="form-text col-12" rows="8" placeholder="We are a X-country based trading house. We want a partner who can fund our claim of US$ 10 million against a company based in Y-country. We are ready to mutually agree upon beneficial terms and possibly a percentage of the claim amount and fee together. Please if you have dealt with similar cases of litigation in Country-Y or other countries please contact us. We encourage consultant firms to provide us with their proposals and we can make selection upon expertise, experience and percentage sharing and fees."></textarea>
+                                        </div> 
+                                    </div>
+                                    <div class="typeCommercial" style="display: none">
+                                        <div class="col-md-12 mb-3 mt-2 align-items-center">
+                                            <label for="contractgoverned" class="form-label">Contract is governed by:</label>
+                                            <div  class="col-md-12 m-0 d-flex align-items-center" >
+                                                <label for="contract" class="form-label col-3">Name of the organization if any: </label>
+                                                <input type="text" class="form-control" id="" name="contract" placeholder="e.g., FIDIC, GAFTA, The Berne Convention, ICSID Convention" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3 mt-3">
+                                            <label class="form-label">Please select which dispute resolution services you may require:</label>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="commercialForensicAnalysis" name="disputeServices" value="commercialForensicAnalysis">
+                                                <label class="form-check-label" for="commercialForensicAnalysis">Commercial Forensic Analysis</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="iprQuantumOfDamages" name="disputeServices" value="iprQuantumOfDamages">
+                                                <label class="form-check-label" for="iprQuantumOfDamages">Intellectual Property Right Quantum of Damages</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="patentAnalysis" name="disputeServices" value="patentAnalysis">
+                                                <label class="form-check-label" for="patentAnalysis">Patent Analysis</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="digitalCyberForensicAnalysis" name="disputeServices" value="digitalCyberForensicAnalysis">
+                                                <label class="form-check-label" for="digitalCyberForensicAnalysis">Digital-Cyber Forensic Analysis</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="fraudExamination" name="disputeServices" value="fraudExamination">
+                                                <label class="form-check-label" for="fraudExamination">Fraud Examination</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="quantumForDamages" name="disputeServices" value="quantumForDamages">
+                                                <label class="form-check-label" for="quantumForDamages">Quantum for Damages</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="draftingOfClaimStatement" name="disputeServices" value="draftingOfClaimStatement">
+                                                <label class="form-check-label" for="draftingOfClaimStatement">Drafting of Claim Statement</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="legalInterpretation" name="disputeServices" value="legalInterpretation">
+                                                <label class="form-check-label" for="legalInterpretation">Legal Interpretation of the Contract</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="strategizeDisputeResolution" name="disputeServices" value="strategizeDisputeResolution">
+                                                <label class="form-check-label" for="strategizeDisputeResolution">Strategize Dispute Resolution</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="researchBasedAnalysis" name="disputeServices" value="researchBasedAnalysis">
+                                                <label class="form-check-label" for="researchBasedAnalysis">Research Based Analysis</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="specialistFieldServices" name="specialistFieldServices">
+                                                <label class="form-check-label" for="specialistFieldServices">Specific Specialist Field Services are allowed*</label>
+                                                <div class="mt-3 text-danger">
+                                                    <small>*By ticking this box, you allow consultant firms which are specialist firms in a specific field such as Delay Analysis, Legal Interpretation, or Chemical Plant Engineering Analysis to contact you for providing any required services either selected above or mentioned below in the Concise Summary and Requirements of the Dispute Resolution.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <label for="" class="form-label">Please provide anonymous or non-anonymous concise summary and requirements of the dispute resolution: </label>
+                                            <textarea class="form-text col-12" rows="8" placeholder="We are a X-country based trading house. We want a partner who can fund our claim of US$ 10 million against a company based in Y-country. We are ready to mutually agree upon beneficial terms and possibly a percentage of the claim amount and fee together. Please if you have dealt with similar cases of litigation in Country-Y or other countries please contact us. We encourage consultant firms to provide us with their proposals and we can make selection upon expertise, experience and percentage sharing and fees."></textarea>
+                                        </div> 
+                                    </div>
+                                    <div class="col-md-12 mb-3 mt-2 text-center">
+                                        <label class="form-label">Attach Dispute Relevant Documents:</label>
+                                        <div class="file-attachment-container">
+                                            <input type="file" id="attachment" name="attachment" class="file-attachment" multiple="">
+                                            <label for="attachment" class="file-label">Attach Documents</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 mb-3 mt-3">                              
+                                        <label class="form-label mt-3">Please select for proposals receiving:</label>
+                                
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="contactInformation" name="proposalReceiving" value="contactInformation">
+                                            <label class="form-check-label" for="contactInformation">Let my contact information be available to receive proposals and communication (your registered email address or, in the case of anonymous selection, the other email address given with Dispute Detail would be visible for consultants to contact)</label>
+                                        </div>
+                                
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="consultantContact" name="proposalReceiving" value="consultantContact">
+                                            <label class="form-check-label" for="consultantContact">Let the Dispute Resolution and Claim Consultant ask for Contact information (The paid consultant firm will have to press the "Let me contact" button to let the Dispute Resolution Initiator know that a Dispute Resolution Consultant wants to connect with all the consultant’s specific details)</label>
+                                        </div>
+
+                                        <div class="form-check my-3 text-center">
+                                            <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                I agree to the terms and conditions
+                                            </a>
+                                        </div>
+                                
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="disclaimer" name="disclaimer">
+                                            <label class="form-check-label" for="disclaimer">I agree to the terms of the Disclaimer</label>
+                                        </div>
+                                
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="genuineDeclaration" name="genuineDeclaration">
+                                            <label class="form-check-label" for="genuineDeclaration">I declare that my dispute resolution requirement is genuine, and all the information provided here is correct and authentic</label>
+                                        </div>
+                                    </div>                                   
+                                </div>
+                                <div class="new_button_holder" >
+                                    <a href="#" class="backbtn">Back</a>
+                                    <a href="#" class="button_common" id="submitAndPayBtn" style="display: none;">Submit and Pay</a>
+                                    <a href="#" class="button_common" id="submitBtn" style="display: none;">Submit</a>
                                 </div>
                             </div>
-                            </div>
-        
-                            <div class="input_holder">
-                            <div class="">
-                                <div class="dropdownbox">
-                                <select name="dispute_amount" id="dispute_amount" class="dispute_amount">
-                                    <option value="">Dispute Amount</option>
-        
-                                    <option value="1">$0 to $10</option>
-                                    <option value="2">$11 to %50</option>
-                                    <option value="3">$51 to $100</option>
-                                </select>
-                                </div>
-                            </div>
-                            </div>
-        
-                            <div class="opt_data_holder_new">
-                            <div class="frmtitle_small">
-                                Select Dispute Resolution Partner Type (select as many
-                                options as desired):
-                            </div>
-                            </div>
-        
-                            <div class="opt_data_holder_new">
-                            <ul class="subjectlist locpreflist scrollblock">
-                                <li>
-                                <input name="dispute_partner_type" class="subject_radio locpref_chk" id="fee_based_only"
-                                    value="fee_based_only" type="checkbox" />
-                                <label for="fee_based_only" class="subject_text">Fee Based Only</label>
-                                </li>
-        
-                                <li>
-                                <input name="dispute_partner_type" class="subject_radio locpref_chk"
-                                    id="fee_and_award_percentage" value="fee_and_award_percentage" type="checkbox" />
-                                <label for="fee_and_award_percentage" class="subject_text">Fee and Award Percentage
-                                    Based</label>
-                                </li>
-        
-                                <li>
-                                <input name="dispute_partner_type" class="subject_radio locpref_chk" id="award_percentage_based"
-                                    value="award_percentage_based" type="checkbox" />
-                                <label for="award_percentage_based" class="subject_text">Award Percentage Based Only</label>
-                                </li>
-                            </ul>
-                            </div>
-        
-                            <div class="conditional-options">
-                            <!-- If "Fee Based Only" is selected -->
-                            <div class="fee-based-options" style="display: none">
-                                <p class="frmtitle_small">
-                                Please select one or as desired:
-                                </p>
-                                <ul class="subjectlist locpreflist scrollblock">
-                                <li>
-                                    <input type="checkbox" name="lump_sum_fee" id="lump_sum_fee"
-                                    class="subject_radio locpref_chk" />
-                                    <label for="lump_sum_fee" class="subject_text">Lump Sum Fee</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="hourly_based_fee" id="hourly_based_fee"
-                                    class="subject_radio locpref_chk" />
-                                    <label for="hourly_based_fee" class="subject_text">Hourly Based Fee</label>
-                                </li>
-                                </ul>
-                            </div>
-        
-                            <!-- If "Fee and Award Percentage Based" is selected -->
-                            <div class="fee-and-award-options" style="display: none">
-                                <p class="frmtitle_small">
-                                Award Percentage Based (Range can be given like up to
-                                5%, up to 10%, ... up to 50% or custom in which the
-                                Claim Initiator can put the percentage like 24% etc.)
-                                </p>
-                                <ul class="subjectlist locpreflist scrollblock">
-                                <li>
-                                    <input type="checkbox" name="lump_sum_fee" id="lump_sum_fee"
-                                    class="subject_radio locpref_chk" />
-                                    <label for="lump_sum_fee" class="subject_text">Lump Sum Fee</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="hourly_based_fee" id="hourly_based_fee"
-                                    class="subject_radio locpref_chk" />
-                                    <label for="hourly_based_fee" class="subject_text">Hourly Based Fee</label>
-                                </li>
-                                </ul>
-                                <!-- Custom input field for percentage -->
-                                <input type="text" name="custom_percentage" id="custom_percentage" class="input_percentage_holder"
-                                placeholder="Custom Percentage (e.g., 24%)" />
-                            </div>
-        
-                            <!-- If "Award Percentage Based Only" is selected -->
-                            <div class="award-percentage-options" style="display: none">
-                                <!-- Custom input field for percentage -->
-                                <input type="text" name="custom_percentage" id="custom_percentage" class="input_percentage_holder"
-                                placeholder="Custom Percentage (e.g., 24%)" />
-                            </div>
-                            </div>
-        
-                            <br />
-        
-                            <div class="input_holder">
-                            <div class="">
-                                <div class="dropdownbox">
-                                <select name="region" id="region" class="regiondropdn"
-                                    onchange="javascript:getLocation(this.id);" required>
-                                    <option value="">Region*</option>
-                                </select>
-                                </div>
-                            </div>
-                            </div>
-        
-        
-                            <div class="input_holder">
-                            <div class="">
-                                <div class="dropdownbox">
-                                <select name="country" id="country" class="countrydropdn"
-                                    onchange="javascript:getLocation(this.id);">
-                                    <option value="">Country</option>
-                                </select>
-                                </div>
-                            </div>
-                            </div>
-        
-                            <br />
-        
-                            <div class="opt_data_holder_new">
-                            <div class="frmtitle_small">
-                                Due to the sensitivity of data, you can post the Dispute
-                                Details as:
-                            </div>
-                            </div>
-        
-                            <!-- Dispute Details Privacy Option -->
-                            <div class="opt_data_holder_new">
-                            <ul class="subjectlist locpreflist scrollblock">
-                                <li>
-                                <input name="dispute_privacy" class="subject_radio locpref_chk" id="company_registered"
-                                    value="company_registered" type="radio" />
-                                <label for="company_registered" class="subject_text">The Company Registered</label>
-                                </li>
-                                <li>
-                                <input name="dispute_privacy" class="subject_radio locpref_chk" id="anonymous" value="anonymous"
-                                    type="radio" />
-                                <label for="anonymous" class="subject_text">Anonymous</label>
-                                </li>
-                            </ul>
-        
-                            <div class="frmtitle_small">
-                                (if Anonymous is selected then you can put a different
-                                e-mail address and phone number to be contacted)
-                            </div>
-                            <div class="frmtitle_small">
-                                Selecting Anonymous will hide all registered company
-                                details except but will show the dispute details as
-                                selected.
-                            </div>
-                            </div>
-        
-                            <br />
-        
-                            <div class="opt_data_holder_new">
-                            <div class="frmtitle_small">
-                                Please select Option for Free posting and receiving of
-                                proposals in which only our paid members can see your
-                                Dispute Details or Select the Paid Service by MyDRP to
-                                receive a list of Dispute Resolution and Claim
-                                Consultants best suiting your dispute requirements.
-                            </div>
-                            </div>
-        
-                            <div class="opt_data_holder_new">
-                            <ul class="subjectlist locpreflist scrollblock">
-                                <li>
-                                <input name="dispute_service" class="subject_radio locpref_chk" id="paid_service"
-                                    value="paid_service" type="radio" onchange="toggleButtons();" />
-                                <label for="paid_service" class="subject_text">Paid Service</label>
-                                </li>
-                                <li>
-                                <input name="dispute_service" class="subject_radio locpref_chk" id="free_service"
-                                    value="free_service" type="radio" onchange="toggleButtons();" />
-                                <label for="free_service" class="subject_text">Free</label>
-                                </li>
-                            </ul>
-                            </div>
-        
-        
-                        </div>
-                        </div>
-                    </div>
-        
-                    <a href="#" class="button_common nextbtn">Next</a>
-                    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        terms and conditions
-                    </button> -->
-                    </div>
-                    <!-- End One -->
-        
-                    <!-- One -->
-                    <div class="formlebel_one animated zoomIn" data-step="">
-                    <div class="frmtitle">What curriculum do you follow?</div>
-        
-                    <div class="frmtitle_small">
-                        ( Scroll down for more curriculums )
-                    </div>
-        
-                    <div class="midsection_common">
-                        <div class="opt_data_holder_new">
-                        <div class="searchboxcontainer">
-                            <input name="searchbox" placeholder="Search" type="text" class="searchbox" />
-                        </div>
-        
-                        <ul class="subjectlist boardlist scrollblock"></ul>
-                        </div>
-                    </div>
-        
-                    <div class="new_button_holder">
-                        <a href="#" class="backbtn">Back</a>
-                        <a href="#" class="button_common nextbtn">Next</a>
-                    </div>
-                    </div>
-                    <!-- End One -->
-        
-                    <!-- One -->
-                    <div class="formlebel_one animated zoomIn" data-step="second_page">
-                    <div class="frmtitle">Page 2</div>
-        
-                    <div class="midsection_common">
-                        <div class="other_information signupscreen">
-        
-                        <div class="match_dropdown_holder down_mark searchboxcontainernew" id="subject_div_holder">
-        
-                            <div class="require pright">* Required field</div>
-                            <div class="opt_data_holder_new">
-                            <div class="frmtitle_small">
-                                Select Dispute Resolution Partner Type (select as many
-                                options as desired):
-                            </div>
-                            </div>
-        
-                            <div class="opt_data_holder_new">
-                            <ul class="subjectlist locpreflist scrollblock">
-                                <li>
-                                <input name="dispute_partner_type" class="subject_radio locpref_chk" id="fidic" value="fidic"
-                                    type="radio" />
-                                <label for="fidic" class="subject_text">FIDIC</label>
-                                </li>
-        
-                                <li>
-                                <input name="dispute_partner_type" class="subject_radio locpref_chk" id="other" value="other"
-                                    type="radio" />
-                                <label for="other" class="subject_text">Any other please state</label>
-                                </li>
-                            </ul>
-                            </div>
-        
-                            <!-- other -->
-                            <div class="conditional-input">
-                            <!-- If "Other" is selected -->
-                            <div class="other-option" style="display: none">
-                                <p class="frmtitle_small">Please specify other:</p>
-                                <input type="text" name="other_option" id="other_option"
-                                class="input_other_option input_subject_holder input_match_holder"
-                                placeholder="Specify other option" />
-                            </div>
-                            </div>
-        
-                            <div class="require pright">* Required field</div>
-                            <div class="opt_data_holder_new">
-                            <div class="frmtitle_small">
-                                Please select Dispute Details (select one or many as desired):
-                            </div>
-                            </div>
-                            <!--  -->
-                            <div class="opt_data_holder_new">
-                            <ul class="subjectlist locpreflist">
-                                <li>
-                                <input name="dispute_details" class="subject_radio locpref_chk" id="extension_of_time"
-                                    value="extension_of_time" type="checkbox" />
-                                <label for="extension_of_time" class="subject_text">Extension of Time</label>
-                                </li>
-                                <li>
-                                <input name="dispute_details" class="subject_radio locpref_chk" id="delay_analysis"
-                                    value="delay_analysis" type="checkbox" />
-                                <label for="delay_analysis" class="subject_text">Delay Analysis</label>
-                                </li>
-                                <li>
-                                <input name="dispute_details" class="subject_radio locpref_chk" id="disruption_analysis"
-                                    value="disruption_analysis" type="checkbox" />
-                                <label for="disruption_analysis" class="subject_text">Disruption Analysis</label>
-                                </li>
-                                <li>
-                                <input name="dispute_details" class="subject_radio locpref_chk" id="quantum_analysis"
-                                    value="quantum_analysis" type="checkbox" />
-                                <label for="quantum_analysis" class="subject_text">Quantum Analysis</label>
-                                </li>
-                                <li>
-                                <input name="dispute_details" class="subject_radio locpref_chk" id="claim_statements"
-                                    value="claim_statements" type="checkbox" />
-                                <label for="claim_statements" class="subject_text">Drafting of Claim Statements</label>
-                                </li>
-                                <li>
-                                <input name="dispute_details" class="subject_radio locpref_chk" id="legal_interpretation"
-                                    value="legal_interpretation" type="checkbox" />
-                                <label for="legal_interpretation" class="subject_text">Legal Interpretation of the
-                                    Contract</label>
-                                </li>
-                                <li>
-                                <input name="dispute_details" class="subject_radio locpref_chk" id="strategize_resolution"
-                                    value="strategize_resolution" type="checkbox" />
-                                <label for="strategize_resolution" class="subject_text">Strategize Dispute Resolution</label>
-                                </li>
-                            </ul>
-                            </div>
-                            <!-- textarea -->
-                            <div class="opt_data_holder_new">
-                            <textarea name="dispute_information" rows="3"
-                                placeholder="Please provide anonymous or non-anonymous information of the dispute:"
-                                style="width: 93%;"></textarea>
-                            </div>
-        
-                            <div class="opt_data_holder_new">
-        
-                            <div class="file-attachment-container">
-                                <input type="file" id="attachment" name="attachment" class="file-attachment" multiple />
-                                <label for="attachment" class="file-label">Attach Documents</label>
-                            </div>
-        
-                            <div class="frmtitle_small">
-                                Attach Dispute Relevant Documents (optional).
-                            </div>
-        
-                            </div>
-        
-                            <div class="opt_data_holder_new">
-        
-                            <div class="frmtitle_small">
-                                Please select for proposals receiving:
-                            </div>
-        
-                            <ul class="subjectlist locpreflist">
-                                <li>
-                                <input name="proposals_receiving" class="subject_radio locpref_chk"
-                                    id="contact_information_available" value="contact_information_available" type="radio" />
-                                <label for="contact_information_available" class="subject_text">
-                                    Let my contact information be available to receive proposals and communication (your
-                                    registered email address or in the case of anonymous selection the other email address given
-                                    with Dispute Detail would be visible for consultants to contact)
-                                </label>
-                                </li>
-        
-                                <li>
-                                <input name="proposals_receiving" class="subject_radio locpref_chk"
-                                    id="ask_for_contact_information" value="ask_for_contact_information" type="radio" />
-                                <label for="ask_for_contact_information" class="subject_text">
-                                    Let the Dispute Resolution and Claim Consultant ask for Contact information (The paid
-                                    consultant firm will have to press (Let me contact button) to let the Dispute Resolution
-                                    Initiator to know that a Dispute Resolution Consultant wants to connect with all the
-                                    consultant’s specific details)
-                                </label>
-                                </li>
-                            </ul>
-        
-                            </div>
-        
-                            <br><br>
-        
-                            <div class="opt_data_holder_new">
-                            <!-- <div class="frmtitle_small">
-                                I agree to the terms and conditions
-                            </div> -->
-                            <ul class="subjectlist locpreflist">
-                                <!-- <li>
-                                <input name="agree_terms_conditions" class="subject_radio locpref_chk" id="agree_terms"
-                                    value="agree_terms" type="checkbox" />
-                                <label for="agree_terms" class="subject_text">
-                                    I agree to the terms and conditions
-                                </label>
-                                </li> -->
-                            </ul>
-                            </div>
-                            <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            Terms and Conditions
-                        </a>
-                            <div class="opt_data_holder_new">
-                            <ul class="subjectlist locpreflist">
-                                <li>
-        
-                                <input name="declare_genuine" class="subject_radio locpref_chk" id="declare_genuine"
-                                    value="declare_genuine" type="checkbox" />
-                                <label for="declare_genuine" class="subject_text">
-                                    I declare that my dispute resolution requirement is genuine and all the information provided
-                                    here is correct and authentic
-                                </label>
-                                </li>
-                            </ul>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="new_button_holder">
-                        <a href="#" class="backbtn">Back</a>
-                        <a href="#" class="button_common" id="submitAndPayBtn" style="display: none;">Submit and Pay</a>
-                        <a href="#" class="button_common" id="submitBtn" style="display: none;">Submit</a>
-                    </div>
-        
-                    </div>
-                    <!-- End One -->
-        
-                    <!-- One -->
-                    <div class="formlebel_one animated zoomIn" data-step="locationpref">
-                    <div class="frmtitle">What are you looking for?</div>
-        
-                    <div class="midsection_common">
-                        <div class="opt_data_holder_new">
-                        <ul class="subjectlist locpreflist scrollblock">
-                            <li>
-                            <input name="locpref" class="subject_radio locpref_chk" id="locpref_1" value="Private Tutor"
-                                type="radio" />
-                            <label for="locpref_1" class="subject_text">Private Tutor</label>
-                            </li>
-        
-                            <li>
-                            <input name="locpref" class="subject_radio locpref_chk" id="locpref_2" value="Online Tutor"
-                                type="radio" />
-                            <label for="locpref_2" class="subject_text">Online Tutor</label>
-                            </li>
-        
-                            <li>
-                            <input name="locpref" class="subject_radio locpref_chk" id="locpref_3" value="Tuition Center"
-                                type="radio" />
-                            <label for="locpref_3" class="subject_text">Tuition Center</label>
-                            </li>
-        
-                            <li>
-                            <input name="locpref" class="subject_radio locpref_chk" id="locpref_4" value="Local Class"
-                                type="radio" />
-                            <label for="locpref_4" class="subject_text">Local Class</label>
-                            </li>
-        
-                            <li>
-                            <input name="locpref" class="subject_radio locpref_chk" id="locpref_5" value="Activity Center"
-                                type="radio" />
-                            <label for="locpref_5" class="subject_text">Activity Center</label>
-                            </li>
-        
-                            <li>
-                            <input name="locpref" class="subject_radio locpref_chk" id="locpref_6" value="Training Institute"
-                                type="radio" />
-                            <label for="locpref_6" class="subject_text">Training Institute</label>
-                            </li>
-                        </ul>
-                        </div>
-                    </div>
-        
-                    <div class="new_button_holder">
-                        <a href="#" class="backbtn">Back</a>
-                        <a href="#" class="button_common nextbtn">Next</a>
-                    </div>
-                    </div>
-                    <!-- End One -->
-        
-                    <!-- One -->
-                    <div class="formlebel_one animated zoomIn" data-step="requirement">
-                    <div class="frmtitle">
-                        Introduce yourself and tell what you want to learn
-                        <span class="optional">(Optional)</span>
-                    </div>
-        
-                    <div class="midsection_common">
-                        <textarea placeholder="Enter your message " name="requirementdetails" id="requirementdetails"></textarea>
-        
-                        <p class="wordcount"></p>
-                    </div>
-        
-                    <div class="new_button_holder">
-                        <a href="#" class="backbtn">Back</a>
-                        <a href="#" class="button_common nextbtn">Next</a>
-                    </div>
-                    </div>
-                    <!-- End One -->
-        
-                    <!-- One -->
-                    <div class="formlebel_one animated zoomIn" data-step="signinup">
-                    <div class="frmtitle">Sign Up</div>
-        
-                    <div class="midsection_common">
-                        <div class="other_information signupscreen" style="display: block">
-                        <div class="require pright">* Required fields</div>
-        
-                        <div class="input_holder">
-                            <div class="halfblock">
-                            <input type="text" name="reg_name" id="reg_name" placeholder="* Name" />
-                            </div>
-                        </div>
-        
-                        <div class="input_holder">
-                            <div class="halfblock">
-                            <input type="text" name="reg_email" id="reg_email" placeholder="* Email" />
-                            </div>
-                        </div>
-        
-                        <div class="input_holder">
-                            <div class="halfblock">
-                            <input type="text" name="reg_mobile" id="reg_mobile" placeholder="* Mobile" maxlength="15" />
-                            <a href="javascript:void(0)" class="edit_text send_code" style="display: none">Get Code</a>
-                            <div class="otp_messagetext" id="otp_messagetext" style="display: none">
-                                6 digiet OPT has been sent to your
-                                "<strong>9874459466</strong>" number please enter below
-                            </div>
-                            </div>
-        
-                            <div class="opt_block otptypeholder" style="display: none">
-                            <ul class="opt_block">
-                                <li>
-                                <input type="text" name="" placeholder="0" class="" />
-                                <input type="text" name="" placeholder="0" class="" />
-                                <input type="text" name="" placeholder="0" class="" />
-                                <input type="text" name="" placeholder="0" class="" />
-                                <input type="text" name="" placeholder="0" class="" />
-                                <input type="text" name="" placeholder="0" class="" />
-                                </li>
-                                <li>
-                                <a href="javascript:void(0)" class="edit_text resend_code" style="display: none">Resend Code</a>
-                                <input type="hidden" id="otpvalue" name="otpvalue" value="" />
-                                </li>
-                            </ul>
-                            </div>
-                        </div>
-        
-                        <div class="input_holder">
-                            <div class="halfblock">
-                            <div class="dropdownbox">
-                                <select name="showcontact" id="showcontact" placeholder="Select Privacy">
-                                <option value="">* Select Privacy</option>
-                                <option value="showall">Show All Details</option>
-                                <option value="showemail">Show Email Only</option>
-                                <option value="showmobile">Show Mobile Only</option>
-                                <option value="shownone">Show None</option>
-                                </select>
-                            </div>
-                            </div>
-                        </div>
-        
-                        <div class="input_holder">
-                            <div class="halfblock">
-                            <div class="dropdownbox">
-                                <select name="studyingatgrade" id="studyingatgrade" placeholder="Select Grade/Year">
-                                <option>Select Grade / Year</option>
-                                <option value="Year 1">Year 1</option>
-                                <option value="Year 2">Year 2</option>
-                                <option value="Year 3">Year 3</option>
-                                <option value="Year 4">Year 4</option>
-                                <option value="Year 5">Year 5</option>
-                                <option value="Year 6">Year 6</option>
-                                <option value="Year 7">Year 7</option>
-                                <option value="Year 8">Year 8</option>
-                                <option value="Year 9">Year 9</option>
-                                <option value="Year 10">Year 10</option>
-                                <option value="Year 11">Year 11</option>
-                                <option value="Year 12">Year 12</option>
-        
-                                <option value="Adult Learner">Adult Learner</option>
-                                <option value="Others">Others</option>
-                                </select>
-                            </div>
-                            </div>
-                        </div>
-        
-                        <div class="input_holder">
-                            <div class="halfblock">
-                            <ul class="subjectlist locpreflist scrollblock">
-                                <li>
-                                <input name="agreepref" class="subject_radio locpref_chk" id="agreepref" value="1"
-                                    type="checkbox" />
-                                <label for="agreepref" class="subject_text" style="font-size: 11px; color: #ff4f37">I verify
-                                    that my tutor requirement is genuine and
-                                    all the information provided here is correct.and
-                                    authentic</label>
-                                </li>
-                            </ul>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-        
-                    <br /><br />
-        
-                    <div class="new_button_holder">
-                        <a href="#" class="backbtn">Back</a>
-                        <a href="#" class="button_common nextbtn">Next</a>
-                    </div>
-                    </div>
-                    <!-- End One -->
-        
-                    <!-- One -->
-        
-                    <div class="success_message_holder animated zoomIn" style="display: none">
-                    <div class="signtick_holder">
-                        <img src="images/sucess_tick.png" alt="" />
-                    </div>
-                    <p></p>
-        
-                    <!--<a href="#" class="button_common finishbtn"></a>-->
+                            
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 mb-4 justify-content-center" >
             </div>
-            <div class="exist_login">
-                <span>If you are facing any problem kindly
-                  <a href="https://www.mydispute.ae/contact" class="login" target="_blank">Contact Us</a>
-                  or write to
-                  <a href="mailto:support@mydispute.ae" class="login" target="_blank"><span>support@mydispute.ae</span></a></span>
-              </div>
+        </div>
+        <div class="exist_login">
+            <span>If you are facing any problem kindly
+              <a href="https://www.mydispute.ae/contact" class="login" target="_blank">Contact Us</a>
+              or write to
+              <a href="mailto:support@mydispute.ae" class="login" target="_blank"><span>support@mydispute.ae</span></a></span>
         </div>
     </div>
     {{-- Modal --}}
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">Terms and Conditions</h1>
-            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-        </div>
-        <div class="modal-body">
-            <p>1. My Dispute Resolution Partner is shortened to the abbreviation MyDRP.</p>
-            <p>2. MyDRP does not promise that site or any of its contents, services and features are error free and/or
-            uninterrupted.</p>
-            <p>3. MyDRP does not promises that the usage of the site will result in desired, required and/or specific
-            results.</p>
-            <p>4. MyDRP website and its content are provided on an ‘as is’ and ‘as available’ basis.</p>
-            <p>5. All information and services provided can change without notice.</p>
-            <p>6. If maintenance of the site is required then MyDRP has no responsibility for any loss occurring due to
-            shutdown of services.</p>
-            <p>7. MyDRP disclaims any responsibility or loss if any unforeseen and unfortunate event or occurrence stops
-            the
-            services partially or fully.</p>
-            <p>8. MyDRP can not ensure if any files or data downloaded by the members would be virus free or free from
-            destructive features.</p>
-            <p>9. The members assume total responsibility for the use of the site and any linked sites.s</p>
-            <p>10. If any regional, international and/or national rules, laws and regulations makes the MyDRP services
-            void;
-            in this case MyDRP will not be held responsible and members assume full responsibility for carrying out
-            required and desired due diligence and related jurisdictional approvals.</p>
-            <p>11. The sole remedy upon dissatisfaction with the site or any of its contents is to stop using the site or
-            any
-            such content.</p>
-            <p>12. MyDRP disclaims any responsibility for loss, harm, conflict and/or dispute arising between consultants
-            and
-            companies (providing and requiring dispute services respectively) due to any reasons.</p>
-            <p>13. MyDRP provides new jobs for dispute consultants on an “as is” and “as available” basis and does not
-            carry
-            any responsibility in authenticating such jobs. It is the consultant’s own responsibility to verify and
-            authenticate jobs requiring dispute resolution services.</p>
-            <p>14. MyDRP provides dispute resolution services through registered members to registered members on an “as
-            is”
-            and “as available” basis and does not take any responsibility in authenticating dispute resolution service
-            providers. It is the responsibility of the company requiring dispute resolution services to verify and
-            authenticate experts and consultants providing the desired and required dispute resolution services.</p>
-            <p> 15. MyDRP will not be held responsible for any losses occurring out of the use of the services provided
-            through the platform: My Dispute Resolution provider website.</p>
-            <p>16. MyDRP disclaims any or all liability for the acts, omissions and conduct of any third parties.</p>
-            <p>17. Disputes are sensitive matters and MyDRP takes no responsibility that even when the Dispute Resolution
-            requirements are posted anonymously that other information may not be hacked or leaked. MyDRP disclaims any
-            loss or harm occurring out of hacking of its website or misconduct or mistake by the members.</p>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Terms and Conditions</h1>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                </div>
+                <div class="modal-body">
+                    <p>1. My Dispute Resolution Partner is shortened to the abbreviation MyDRP.</p>
+                    <p>2. MyDRP does not promise that the site or any of its contents, services, and features are error-free and/or
+                        uninterrupted.</p>
+                    <p>3. MyDRP does not promise that the usage of the site will result in desired, required, and/or specific
+                        results.</p>
+                    <p>4. MyDRP website and its content are provided on an ‘as is’ and ‘as available’ basis.</p>
+                    <p>5. All information and services provided can change without notice.</p>
+                    <p>6. If maintenance of the site is required, then MyDRP has no responsibility for any loss occurring due to
+                        shutdown of services.</p>
+                    <p>7. MyDRP disclaims any responsibility or loss if any unforeseen and unfortunate event or occurrence stops
+                        the
+                        services partially or fully.</p>
+                    <p>8. MyDRP cannot ensure if any files or data downloaded by the members would be virus-free or free from
+                        destructive features.</p>
+                    <p>9. The members assume total responsibility for the use of the site and any linked sites.s</p>
+                    <p>10. If any regional, international, and/or national rules, laws, and regulations make the MyDRP services
+                        void;
+                        in this case, MyDRP will not be held responsible, and members assume full responsibility for carrying out
+                        required and desired due diligence and related jurisdictional approvals.</p>
+                    <p>11. The sole remedy upon dissatisfaction with the site or any of its contents is to stop using the site or
+                        any
+                        such content.</p>
+                    <p>12. MyDRP disclaims any responsibility for loss, harm, conflict, and/or dispute arising between consultants
+                        and
+                        companies (providing and requiring dispute services respectively) due to any reasons.</p>
+                    <p>13. MyDRP provides new jobs for dispute consultants on an “as is” and “as available” basis and does not
+                        carry
+                        any responsibility in authenticating such jobs. It is the consultant’s own responsibility to verify and
+                        authenticate jobs requiring dispute resolution services.</p>
+                    <p>14. MyDRP provides dispute resolution services through registered members to registered members on an “as
+                        is”
+                        and “as available” basis and does not take any responsibility in authenticating dispute resolution service
+                        providers. It is the responsibility of the company requiring dispute resolution services to verify and
+                        authenticate experts and consultants providing the desired and required dispute resolution services.</p>
+                    <p>15. MyDRP will not be held responsible for any losses occurring out of the use of the services provided
+                        through the platform: My Dispute Resolution provider website.</p>
+                    <p>16. MyDRP disclaims any or all liability for the acts, omissions, and conduct of any third parties.</p>
+                    <p>17. Disputes are sensitive matters and MyDRP takes no responsibility that even when the Dispute Resolution
+                        requirements are posted anonymously that other information may not be hacked or leaked. MyDRP disclaims any
+                        loss or harm occurring out of hacking of its website or misconduct or mistake by the members.</p>
 
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="agreeCheckbox">
-                <label class="form-check-label" for="agreeCheckbox">
-                I Agree
-                </label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="agreeCheckbox" onclick="enableUnderstoodButton()">
+                        <label class="form-check-label" for="agreeCheckbox">
+                            I Agree
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="understoodBtn" data-bs-dismiss="modal" disabled>Understood</button>
+                    <button type="button" class="close btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
-
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="understoodBtn" data-bs-dismiss="modal" disabled >Understood</button>
-            <button type="button" class="close btn btn-primary" data-bs-dismiss="modal">Close</button>
-        </div>
-
-
         </div>
     </div>
-    </div>
+
+    <script>
+        // Show/hide specific industry field based on Company Type
+        document.getElementById('companyType').addEventListener('change', function () {
+            var specificIndustry = document.getElementById('specificIndustry');
+            specificIndustry.style.display = (this.value === 'Commercial') ? 'block' : 'none';
+        });
+
+        // Show/hide specific industry field based on Industry Type
+        document.getElementById('industry_type').addEventListener('change', function () {
+            var specificIndustryType = document.getElementById('specificIndustryType');
+            specificIndustryType.style.display = (this.value === 'Commercial') ? 'block' : 'none';
+        });
+
+        // Show/hide form based on expert determination
+        document.getElementById('dispute_type').addEventListener('change', function () {
+            var feeBasedOption = document.getElementById('feeBasedOptions');
+            var feeBased = document.getElementById('feeBasedhide');
+            // var disputeType = document.getElementById('disputeTypeForm');
+            // disputeType.style.display = (this.value === 'Expert Determination') ? 'block' : 'none';
+            feeBased.style.display = (this.value === 'Expert Determination') ? 'none' : 'block';
+            feeBasedOption.style.display = (this.value === 'Expert Determination') ? 'block' : 'none';
+        });
+
+        // Show/hide Fee Based options based on payment options
+        document.getElementById('feeBased').addEventListener('change', function () {
+            var feeBasedOptions = document.getElementById('feeBasedOptions');
+            feeBasedOptions.style.display = this.checked ? 'block' : 'none';
+        });
+
+        // show/hide percentage box based on fee & award 
+        document.getElementById('feeAndAward').addEventListener('change', function() {
+            var feeAward = document.getElementById('feeAwardshow');
+            feeAward.style.display = this.checked ? 'flex' : 'none';
+        });
+
+        // show/hide email fields based on anonymous
+        document.getElementById('anonymous').addEventListener('change', function() {
+            var anonymous = document.getElementById('anonymousShow');
+            anonymous.style.display = this.checked ? 'block' : 'none';
+        });
+
+
+        // page 2 
+
+        function enableUnderstoodButton() {
+            var agreeCheckbox = document.getElementById('agreeCheckbox');
+            var understoodBtn = document.getElementById('understoodBtn');
+
+            if (agreeCheckbox.checked) {
+                understoodBtn.disabled = false;
+            } else {
+                understoodBtn.disabled = true;
+            }
+        }
+        // show/hide contract governed based on 
+        document.getElementById('otherCont').addEventListener('change', function() {
+            var otherCont  = document.getElementById('otherContract');
+            otherCont.style.display = this.checked ? 'block' : 'none';
+        });
+
+        // page 3
+        // show/hide contract governed based on 
+        document.getElementById('otherContrac').addEventListener('change', function() {
+            var otherCont  = document.getElementById('otherContract2');
+            otherCont.style.display = this.checked ? 'block' : 'none';
+        });
+
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
           var countrySelect = document.getElementById('country');
@@ -887,4 +800,6 @@
         var sendotpurl = "standaloneform_landing/sendotpurl";
     </script>
 </section>
+
 @endsection
+

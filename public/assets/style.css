@@ -586,9 +586,9 @@ ol.decimal-list li{
     }
 
     /* Media query for Surface Pro 7 and similar devices */
-    @media screen and (max-width: 2736px) {
+    @media screen and (min-width: 768px) and (max-width: 1200px) {
         /* Add your specific styles for Surface Pro 7 here */
-        .col-lg-1.col-md-1 {
+        .col-lg-1.col-md-1.hide-on-mob {
             display: none;
         }
         .container.animation, .container-md.animation, .container-sm.animation {
