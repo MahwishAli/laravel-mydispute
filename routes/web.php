@@ -13,8 +13,6 @@ Route::group(['namespace' => 'web'], function () {
     Route::get('/faqs', 'PagesController@faqs')->name('faqs');
 });
 
-
-
 Auth::routes();
 Route::get('/member-signup', 'Auth\LoginController@memberSignUp')->name('member_signup');
 Route::get('/initiator-signup', 'Auth\LoginController@initiatorSignUp')->name('initiator_signup');

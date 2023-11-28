@@ -117,12 +117,12 @@
                                 <label class="form-check-label" for="agreeDisclaimer">I agree to the terms of the Disclaimer</label>
                             </div>
                             
-                            <div class="form-check mb-2">
+                            <div class="form-check mb-3">
                                 <input class="form-check-input" type="checkbox" id="declareAuthentic" name="declareAuthentic" required>
                                 <label class="form-check-label" for="declareAuthentic">I declare that all information provided here is correct and authentic.</label>
                             </div>
                             
-                            <div class="form-check">
+                            <div class="form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="receivePromotions" name="receivePromotions">
                                 <label class="form-check-label" for="receivePromotions">I want to receive promotional information from MyDRP (optional)</label>
                             </div>

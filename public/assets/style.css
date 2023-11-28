@@ -395,6 +395,15 @@ ol.decimal-list li{
         background-color: #0056b3;
     }
 
+    .form-check.mb-2 {
+        margin-left: 15px;
+        height: 30px;
+        line-height: 1.;
+    }
+
+    .form-check.mb-3 {
+        margin-left: 15px;
+    }
     /* member signup */
 
     .seperator.member-signup{
