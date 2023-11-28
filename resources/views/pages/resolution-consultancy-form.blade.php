@@ -766,9 +766,8 @@
             var awardEnforcement = document.getElementById('awardEnforcement');
             var typeContruction = document.getElementById('typeConstruction');
 
-            typeContruction.style.display = (this.value === 'Expert Determination') ? 'none' : 'block' ;
+            typeContruction.style.display = (this.value === 'Expert Determination' || this.value === 'Award Enforcement') ? 'none' : 'block';
             expertDeter.style.display = (this.value === 'Expert Determination') ? 'block' : 'none';
-            typeContruction.style.display = (this.value === 'Award Enforcement') ? 'none' : 'block' ;
             awardEnforcement.style.display = (this.value === 'Award Enforcement') ? 'block' : 'none';
         });
 
