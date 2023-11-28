@@ -30,6 +30,7 @@
     <script type="text/javascript" src="{{ asset('jslib/resource15/scroller.js') }}"></script>
     <script type="text/javascript" src="{{ asset('jslib/custom_dropdown.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/script.js') }}"></script>
+ 
     <script type="application/ld+json">
         {
         "@context": "http://schema.org",

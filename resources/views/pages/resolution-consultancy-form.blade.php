@@ -18,20 +18,20 @@
                         </p>
                     </div>
                 </div>
-                <div class="custom_progress_bar" style="display: none">
-                    <div class="processtext">0%</div>
-                    <div class="progressbar_text">
-                    <div class="probar" style="width: 0%"></div>
-                    </div>
-                </div>
                 <div class="bottomform_holder" id="hideclass3">
-                    <div class="formlebel animated zoomIn" data-step="first_page">
-                        <h4 class="frmtitle text-center fw-bold">Dispute Resolution Initiator</h4>
+                    <div class="formlebel" data-step="first_page">
                         <form action="#" method="post" enctype="multipart/form-data">
                             {{-- page 2 start --}}
-                            <div class="page1" >
+                            <div class="page1 animated zoomIn" data-step="first_page" >
+                                <div class="custom_progress_bar">
+                                    <div class="processtext">0%</div>
+                                    <div class="progressbar_text">
+                                    <div class="probar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <h4 class="frmtitle text-center fw-bold">Dispute Resolution Initiator</h4>
                                 <!-- Company Information -->
-                                <div class="row my-5 mx-2" >
+                                <div class="row mt-5 mb-4 mx-2" >
                                     <!-- Company Information -->
                                     <div class="col-md-12 mb-3 d-flex align-items-center">
                                         <label for="companyName" class="form-label col-3">Company Name: <span class="text-danger">*</span></label>
@@ -160,7 +160,7 @@
                                                 <label class="form-check-label" for="lumpSum">Lump Sum Fee</label>
                                             </div>
                                             
-                                            <div class="form-check">
+                                            <div class="form-check mb-2">
                                                 <input class="form-check-input" type="radio" id="hourlyBased" name="feeOption" value="Hourly Based Fee">
                                                 <label class="form-check-label" for="hourlyBased">Hourly Based Fee</label>
                                             </div>
@@ -192,7 +192,7 @@
                                     <div class="col-md-12 mb-3 mt-3">
                                         <label for="companyregister" class="form-label">Due to the sensitivity of data, you can post the Dispute Details as: <span class="text-danger">*</span></label>
                                         <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="companyReg" name="companyReg" value="Fee Based only">
+                                            <input class="form-check-input" type="checkbox" id="companyReg" name="anonymous" value="Fee Based only">
                                             <label class="form-check-label" for="feeBased">The Company Registered</label>
                                         </div>
             
@@ -222,19 +222,18 @@
                                     <div class="col-md-12 mb-3" >
                                         <label for="companyType" class="form-label">Please select Option for Free posting and receiving of proposals in which only our paid members can see your Dispute Details or Select the Paid Service by MyDRP to receive a list of Dispute Resolution and Claim Consultants best suiting your dispute requirements.</label>
                                         <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="feeBased" name="paid_service" value="paid_service" onchange="toggleButtons();">
-                                            <label class="form-check-label" for="feeBased">Paid Service</label>
+                                            <input class="form-check-input" type="radio" id="paid_service" name="service_type" value="paid_service" onclick="toggleButtons();">
+                                            <label class="form-check-label" for="">Paid Service</label>
                                         </div>
             
                                         <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="feeAndAward" name="free_service" id="free_service" value="Fee and Award Percentage Based" onchange="toggleButtons();">
-                                            <label class="form-check-label" for="feeAndAward">Free</label>
+                                            <input class="form-check-input" type="radio" id="free_service" name="service_type" value="free" onclick="toggleButtons();">
+                                            <label class="form-check-label" for="">Free</label>
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
                                         <div class="new_button_holder">
-                                            <a href="#" class="backbtn" style="display: none">Back</a>
                                             <a href="#" class="button_common nextbtn">Next</a>
                                         </div>
                                     </div>
@@ -242,107 +241,109 @@
                             </div>
                             {{-- page 1 end --}}
                             {{-- page 2 start --}}
-                            <div class="page2 typeConstruction" style="display: none">
-                                <h4 class="frmtitle text-center fw-bold">Page 2</h4>
-                                <div class="custom_progress_bar">
-                                    <div class="processtext">20%</div>
-                                    <div class="progressbar_text">
-                                    <div class="probar" style="width: 20%;"></div>
+                            <div class="page2 typeConstruction animated zoomIn" data-step="second_page" style="display: none">
+                                <div class="custom_progress_bar2">
+                                    <div class="processtext2">20%</div>
+                                    <div class="progressbar_text2">
+                                    <div class="probar2" style="width: 20%;"></div>
                                     </div>
                                 </div>
-                                <div class="row my-5 mx-2" >
-                                    <div class="col-md-12 mb-3 mt-3">
-                                        <label for="contractgov" class="form-label">Contract is governed by:</label>
-                                        <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="fidic" name="fidic" value="fidic">
-                                            <label class="form-check-label" for="fidic">FIDIC</label>
-                                        </div>
-            
-                                        <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="otherCont" name="otherCont" value="otherCont">
-                                            <label class="form-check-label" for="otherCont">Any other please state</label>
-                                        </div>
-                                    </div>
-                                    <div id="otherContract" class="col-md-12 mb-3" style="display: none;">
-                                        <div  class="col-md-12 m-0 d-flex align-items-center" >
-                                            <label for="contract" class="form-label col-3">Mention the name:</label>
-                                            <input type="text" class="form-control" id="contract" name="contract" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 mb-3 mt-3">
-                                        <label class="form-label">Please select Dispute Details (select one or many as desired):</label>
-                                        <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="extensionOfTime" name="" value="extensionOfTime">
-                                            <label class="form-check-label" for="extensionOfTime">Extension of Time Analysis</label>
-                                        </div>
-                                    
-                                        <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="forensicDelay" name="" value="forensicDelay">
-                                            <label class="form-check-label" for="forensicDelay">Forensic Delay Analysis</label>
-                                        </div>
-                                    
-                                        <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="forensicDisruption" name="" value="forensicDisruption">
-                                            <label class="form-check-label" for="forensicDisruption">Forensic Disruption Analysis</label>
-                                        </div>
-                                    
-                                        <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="expertWitnessing" name="" value="expertWitnessing">
-                                            <label class="form-check-label" for="expertWitnessing">Expert Witnessing</label>
-                                        </div>
-                                    
-                                        <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="quantumAnalysis" name="" value="quantumAnalysis">
-                                            <label class="form-check-label" for="quantumAnalysis">Quantum Analysis</label>
-                                        </div>
-                                    
-                                        <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="claimStatements" name="" value="claimStatements">
-                                            <label class="form-check-label" for="claimStatements">Drafting of Claim Statements</label>
-                                        </div>
-                                    
-                                        <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="legalInterpretation" name="" value="legalInterpretation">
-                                            <label class="form-check-label" for="legalInterpretation">Legal Interpretation of the Contract</label>
-                                        </div>
-                                    
-                                        <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="strategizeResolution" name="" value="strategizeResolution">
-                                            <label class="form-check-label" for="strategizeResolution">Strategize Dispute Resolution</label>
-                                        </div>
-                                    
-                                        <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="researchAnalysis" name="" value="researchAnalysis">
-                                            <label class="form-check-label" for="researchAnalysis">Research Based Analysis Required</label>
-                                        </div>
-                                    
-                                        <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="specialistFieldServices" name="" value="specialistFieldServices">
-                                            <label class="form-check-label" for="specialistFieldServices">Specific Specialist Field Services are allowed*</label>
-                                            <div class="mt-3 text-danger">
-                                                <small>*By ticking this box, you allow consultant firms which are specialist firms in a specific field such as Delay Analysis, Legal Interpretation, or Chemical Plant Engineering Analysis to contact you for providing any required services either selected above or mentioned below in the Concise Summary and Requirements of the Dispute Resolution.</small>
+                                <h4 class="frmtitle text-center fw-bold">Page 2</h4>
+                                <div class="row mb-5 mx-2" >
+                                    <div class="typeConstruction" id="typeConstruction">
+                                        <div class="col-md-12 mb-3 mt-3">
+                                            <label for="contractgov" class="form-label">Contract is governed by:</label>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="fidic" name="fidic" value="fidic">
+                                                <label class="form-check-label" for="fidic">FIDIC</label>
+                                            </div>
+                
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="otherCont" name="otherCont" value="otherCont">
+                                                <label class="form-check-label" for="otherCont">Any other please state</label>
                                             </div>
                                         </div>
+                                        <div id="otherContract" class="col-md-12 mb-3" style="display: none;">
+                                            <div  class="col-md-12 m-0 d-flex align-items-center" >
+                                                <label for="contract" class="form-label col-3">Mention the name:</label>
+                                                <input type="text" class="form-control" id="contract" name="contract" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3 mt-3">
+                                            <label class="form-label">Please select Dispute Details (select one or many as desired):</label>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="extensionOfTime" name="" value="extensionOfTime">
+                                                <label class="form-check-label" for="extensionOfTime">Extension of Time Analysis</label>
+                                            </div>
+                                        
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="forensicDelay" name="" value="forensicDelay">
+                                                <label class="form-check-label" for="forensicDelay">Forensic Delay Analysis</label>
+                                            </div>
+                                        
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="forensicDisruption" name="" value="forensicDisruption">
+                                                <label class="form-check-label" for="forensicDisruption">Forensic Disruption Analysis</label>
+                                            </div>
+                                        
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="expertWitnessing" name="" value="expertWitnessing">
+                                                <label class="form-check-label" for="expertWitnessing">Expert Witnessing</label>
+                                            </div>
+                                        
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="quantumAnalysis" name="" value="quantumAnalysis">
+                                                <label class="form-check-label" for="quantumAnalysis">Quantum Analysis</label>
+                                            </div>
+                                        
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="claimStatements" name="" value="claimStatements">
+                                                <label class="form-check-label" for="claimStatements">Drafting of Claim Statements</label>
+                                            </div>
+                                        
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="legalInterpretation" name="" value="legalInterpretation">
+                                                <label class="form-check-label" for="legalInterpretation">Legal Interpretation of the Contract</label>
+                                            </div>
+                                        
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="strategizeResolution" name="" value="strategizeResolution">
+                                                <label class="form-check-label" for="strategizeResolution">Strategize Dispute Resolution</label>
+                                            </div>
+                                        
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="researchAnalysis" name="" value="researchAnalysis">
+                                                <label class="form-check-label" for="researchAnalysis">Research Based Analysis Required</label>
+                                            </div>
+                                        
+                                            <div class="form-check mb-3 ms-3">
+                                                <input class="form-check-input" type="checkbox" id="specialistFieldServices" name="" value="specialistFieldServices">
+                                                <label class="form-check-label" for="specialistFieldServices">Specific Specialist Field Services are allowed*</label>
+                                                <div class="mt-3 text-danger">
+                                                    <small>*By ticking this box, you allow consultant firms which are specialist firms in a specific field such as Delay Analysis, Legal Interpretation, or Chemical Plant Engineering Analysis to contact you for providing any required services either selected above or mentioned below in the Concise Summary and Requirements of the Dispute Resolution.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <label for="" class="form-label">Please provide anonymous or non-anonymous concise summary and requirements of the dispute resolution: </label>
+                                            <textarea class="form-text col-12" rows="8" placeholder="This is initially a confidential and private mediation which can lead to arbitration. Extensive experience and in-depth knowledge may be required to substantiate the demonstration of damages incurred in the project of wastewater treatment plant due to the mismanagement of work caused by the direct intervention of the Contractor/Employer.
+                                            We initially require expert interpretation of the legal contract and quantum services for a large case of damages caused due to delay and disruption. This can solidify towards an Arbitration settlement. As the matter is private and confidential hence no company information can be given. Please provide your kind proposals on the basis of either fee only, fee or award percentage or completely on sharing the award percentage sharing basis. If you are considered for this arrangement, we will contact you back and a confidential, private and legal contract will be signed stating the details of the dispute resolution requirements. "></textarea>
+                                        </div> 
                                     </div>
-                                    <div class="col-md-12 mb-3">
-                                        <label for="" class="form-label">Please provide anonymous or non-anonymous concise summary and requirements of the dispute resolution: </label>
-                                        <textarea class="form-text col-12" rows="8" placeholder="This is initially a confidential and private mediation which can lead to arbitration. Extensive experience and in-depth knowledge may be required to substantiate the demonstration of damages incurred in the project of wastewater treatment plant due to the mismanagement of work caused by the direct intervention of the Contractor/Employer.
-                                        We initially require expert interpretation of the legal contract and quantum services for a large case of damages caused due to delay and disruption. This can solidify towards an Arbitration settlement. As the matter is private and confidential hence no company information can be given. Please provide your kind proposals on the basis of either fee only, fee or award percentage or completely on sharing the award percentage sharing basis. If you are considered for this arrangement, we will contact you back and a confidential, private and legal contract will be signed stating the details of the dispute resolution requirements. "></textarea>
-                                    </div> 
-                                    <div class="typeFinance" style="display: none">
+                                    <div class="typeFinance" id="typeFinance" style="display: none">
                                         <div class="col-md-12 mb-3 mt-3">
                                             <label class="form-label">Please select which dispute resolution services you may require:</label>
-                                            <div class="form-check">
+                                            <div class="form-check mb-2">
                                                 <input class="form-check-input" type="checkbox" id="forensicAccounting" name="disputeServices" value="forensicAccounting">
                                                 <label class="form-check-label" for="forensicAccounting">Forensic Accounting Analysis</label>
                                             </div>
 
-                                            <div class="form-check">
+                                            <div class="form-check mb-2">
                                                 <input class="form-check-input" type="checkbox" id="fraudExamination" name="disputeServices" value="fraudExamination">
                                                 <label class="form-check-label" for="fraudExamination">Fraud Examination</label>
                                             </div>
 
-                                            <div class="form-check">
+                                            <div class="form-check mb-2">
                                                 <input class="form-check-input" type="checkbox" id="financialStatementsAnalysis" name="disputeServices" value="financialStatementsAnalysis">
                                                 <label class="form-check-label" for="financialStatementsAnalysis">Analysis of Financial Statements</label>
                                             </div>
@@ -386,7 +387,7 @@
                                                 <input class="form-check-input" type="checkbox" id="researchAnalysis" name="" value="researchAnalysis">
                                                 <label class="form-check-label" for="researchAnalysis">Research Based Analysis</label>
                                             </div>
-                                            <div class="form-check mb-2">
+                                            <div class="form-check mb-3 ms-3">
                                                 <input class="form-check-input" type="checkbox" id="specialistFieldServices" name="" value="specialistFieldServices">
                                                 <label class="form-check-label" for="specialistFieldServices">Specific Specialist Field Services are allowed*</label>
                                                 <div class="mt-3 text-danger">
@@ -399,7 +400,7 @@
                                              "></textarea>
                                         </div> 
                                     </div>
-                                    <div class="typeTrade" style="display: none" >
+                                    <div class="typeTrade" id="typeTrade" style="display: none" >
                                         <div class="col-md-12 mb-3 mt-2">
                                             <label for="contractgov" class="form-label">Contract is governed by:</label>
                                             <div class="form-check mb-2">
@@ -456,7 +457,7 @@
                                                 <input class="form-check-input" type="checkbox" id="researchBasedAnalysis" name="disputeServices" value="researchBasedAnalysis">
                                                 <label class="form-check-label" for="researchBasedAnalysis">Research Based Analysis</label>
                                             </div>
-                                            <div class="form-check mb-2">
+                                            <div class="form-check mb-3 ms-3">
                                                 <input class="form-check-input" type="checkbox" id="specialistFieldServices" name="specialistFieldServices">
                                                 <label class="form-check-label" for="specialistFieldServices">Specific Specialist Field Services are allowed*</label>
                                                 <div class="mt-3 text-danger">
@@ -469,11 +470,11 @@
                                             <textarea class="form-text col-12" rows="8" placeholder="We are a X-country based trading house. We want a partner who can fund our claim of US$ 10 million against a company based in Y-country. We are ready to mutually agree upon beneficial terms and possibly a percentage of the claim amount and fee together. Please if you have dealt with similar cases of litigation in Country-Y or other countries please contact us. We encourage consultant firms to provide us with their proposals and we can make selection upon expertise, experience and percentage sharing and fees."></textarea>
                                         </div> 
                                     </div>
-                                    <div class="typeCommercial" style="display: none">
+                                    <div class="typeCommercial" id="typeCommercial" style="display: none">
                                         <div class="col-md-12 mb-3 mt-2 align-items-center">
                                             <label for="contractgoverned" class="form-label">Contract is governed by:</label>
-                                            <div  class="col-md-12 m-0 d-flex align-items-center" >
-                                                <label for="contract" class="form-label col-3">Name of the organization if any: </label>
+                                            <div  class="col-md-12 mt-1 d-flex align-items-center" >
+                                                <label for="contract" class="form-label col-4">Name of the organization if any: </label>
                                                 <input type="text" class="form-control" id="" name="contract" placeholder="e.g., FIDIC, GAFTA, The Berne Convention, ICSID Convention" required>
                                             </div>
                                         </div>
@@ -519,7 +520,7 @@
                                                 <input class="form-check-input" type="checkbox" id="researchBasedAnalysis" name="disputeServices" value="researchBasedAnalysis">
                                                 <label class="form-check-label" for="researchBasedAnalysis">Research Based Analysis</label>
                                             </div>
-                                            <div class="form-check mb-2">
+                                            <div class="form-check mb-3 ms-3">
                                                 <input class="form-check-input" type="checkbox" id="specialistFieldServices" name="specialistFieldServices">
                                                 <label class="form-check-label" for="specialistFieldServices">Specific Specialist Field Services are allowed*</label>
                                                 <div class="mt-3 text-danger">
@@ -532,6 +533,71 @@
                                             <textarea class="form-text col-12" rows="8" placeholder="We are a X-country based trading house. We want a partner who can fund our claim of US$ 10 million against a company based in Y-country. We are ready to mutually agree upon beneficial terms and possibly a percentage of the claim amount and fee together. Please if you have dealt with similar cases of litigation in Country-Y or other countries please contact us. We encourage consultant firms to provide us with their proposals and we can make selection upon expertise, experience and percentage sharing and fees."></textarea>
                                         </div> 
                                     </div>
+                                    <div class="expertDetermination" id="expertDetermination" style="display: none">
+                                        <div class="col-md-12 mb-3 mt-3">
+                                            <label for="expert" class="form-label">Please select the details of the Expert Determination:</label>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="pre_dispute" name="pre_dispute" value="pre_dispute">
+                                                <label class="form-check-label" for="pre_dispute">Pre - Dispute</label>
+                                            </div>
+                
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="post_dispute" name="post_dispute" value="post_dispute">
+                                                <label class="form-check-label" for="post_dispute">Post - Dispute</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3 mt-3">
+                                            <label class="form-label">Please select what you are looking in an expert determiner:</label>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="technicalExpertise" name="preferences" value="technicalExpertise">
+                                                <label class="form-check-label" for="technicalExpertise">Technical Expertise</label>
+                                            </div>
+
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="legalExpertise" name="preferences" value="legalExpertise">
+                                                <label class="form-check-label" for="legalExpertise">Legal Expertise</label>
+                                            </div>
+                                    
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="discretionForProcedures" name="preferences" value="discretionForProcedures">
+                                                <label class="form-check-label" for="discretionForProcedures">Expert Determiner’s Discretion for Procedures is Allowed</label>
+                                            </div>
+                                    
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="experienceInIndustry" name="preferences" value="experienceInIndustry">
+                                                <label class="form-check-label" for="experienceInIndustry">Experience in the Stated Industry</label>
+                                            </div>
+                                    
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="postDisputeAgreement" name="preferences" value="postDisputeAgreement">
+                                                <label class="form-check-label" for="postDisputeAgreement">Post Dispute Agreement Governs the Conditions of Expert Determination</label>
+                                            </div>
+                                    
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="hireOtherExperts" name="preferences" value="hireOtherExperts">
+                                                <label class="form-check-label" for="hireOtherExperts">Expert Determiner can hire other Experts if needed</label>
+                                            </div>                                    
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <label for="" class="form-label">Please provide anonymous or non-anonymous concise summary and requirements of the dispute resolution:</label>
+                                            <textarea class="form-text col-12" rows="8" placeholder="We are looking for a competitive firm which may provide us Expert Determination services in the Process of Mediation. The Expert Determiner has to be an experienced individual in the industry of construction and must have performed in a same or similar position. However, we will consider individuals which are competitive and have a good experience record. 
+                                            The Expert Determiner has to be an Engineer but does not need to have legal expertise and can hire legal experts as the nature of the dispute revolves around engineering experience and expertise."></textarea>
+                                        </div> 
+                                    </div>
+                                    <div class="awardEnforcement" id="awardEnforcement" style="display: none">
+                                        <div class="col-md-12 mb-3 mt-2 align-items-center">
+                                            <label for="contractgoverned" class="form-label">Contract is governed by:</label>
+                                            <div  class="col-md-12 mt-1 d-flex align-items-center" >
+                                                <label for="contract" class="form-label col-4">State the nature of the award: </label>
+                                                <input type="text" class="form-control" id="" name="contract" placeholder="Arbitral Award, Binding Expert Determination, ICSID Award" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 mb-3">
+                                            <label for="" class="form-label">Please provide anonymous or non-anonymous concise summary and requirements of the dispute resolution:</label>
+                                            <textarea class="form-text col-12" rows="8" placeholder="We have a favourable award to be enforced. We require expertise in enforcing the award on a company. We need the enforcement experts to devise and execute a recovery plan. We have an ICC award but are facing hurdles in recovering the due money. Please contact us at our given email address in the application. We are also open to sharing a percentage of the award depending upon mutual conditions. "></textarea>
+                                        </div> 
+                                    </div>
                                     <div class="col-md-12 mb-3 mt-2 text-center">
                                         <label class="form-label">Attach Dispute Relevant Documents:</label>
                                         <div class="file-attachment-container">
@@ -539,16 +605,15 @@
                                             <label for="attachment" class="file-label">Attach Documents</label>
                                         </div>
                                     </div>
-
-                                    <div class="col-md-12 mb-3 mt-3">                              
+                                    <div class="col-md-12 mb-3 mt-1">                              
                                         <label class="form-label mt-3">Please select for proposals receiving:</label>
                                 
-                                        <div class="form-check mb-2">
+                                        <div class="form-check mb-3">
                                             <input class="form-check-input" type="checkbox" id="contactInformation" name="proposalReceiving" value="contactInformation">
                                             <label class="form-check-label" for="contactInformation">Let my contact information be available to receive proposals and communication (your registered email address or, in the case of anonymous selection, the other email address given with Dispute Detail would be visible for consultants to contact)</label>
                                         </div>
                                 
-                                        <div class="form-check mb-2">
+                                        <div class="form-check mb-3">
                                             <input class="form-check-input" type="checkbox" id="consultantContact" name="proposalReceiving" value="consultantContact">
                                             <label class="form-check-label" for="consultantContact">Let the Dispute Resolution and Claim Consultant ask for Contact information (The paid consultant firm will have to press the "Let me contact" button to let the Dispute Resolution Initiator know that a Dispute Resolution Consultant wants to connect with all the consultant’s specific details)</label>
                                         </div>
@@ -559,24 +624,25 @@
                                             </a>
                                         </div>
                                 
-                                        <div class="form-check mb-2">
+                                        <div class="form-check mb-3">
                                             <input class="form-check-input" type="checkbox" id="disclaimer" name="disclaimer">
                                             <label class="form-check-label" for="disclaimer">I agree to the terms of the Disclaimer</label>
                                         </div>
                                 
-                                        <div class="form-check mb-2">
+                                        <div class="form-check mb-3">
                                             <input class="form-check-input" type="checkbox" id="genuineDeclaration" name="genuineDeclaration">
                                             <label class="form-check-label" for="genuineDeclaration">I declare that my dispute resolution requirement is genuine, and all the information provided here is correct and authentic</label>
                                         </div>
                                     </div>                                   
-                                </div>
-                                <div class="new_button_holder" >
-                                    <a href="#" class="backbtn">Back</a>
-                                    <a href="#" class="button_common" id="submitAndPayBtn" style="display: none;">Submit and Pay</a>
-                                    <a href="#" class="button_common" id="submitBtn" style="display: none;">Submit</a>
+                                    <div class="col-md-12 mt-1">
+                                        <div class="new_button_holder" >
+                                            <a href="#" class="backbtn">Back</a>
+                                            <a href="#" class="button_common" id="submitAndPayBtn" style="display: none" >Submit and Pay</a>
+                                            <a href="#" class="button_common" id="submitBtn" style="display: none">Submit</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            
                         </form>
                     </div>
                 </div>
@@ -657,6 +723,31 @@
     </div>
 
     <script>
+
+        $(document).on("click", ".nextbtn", function (e) {
+            e.preventDefault();
+            var flag = 0;
+
+            if (flag == 0) {
+            $(".page1").hide();
+
+            $(".page2").show();
+
+            $(".backbtn").show();
+            }
+        });
+        $(document).on("click", ".backbtn", function (e) {
+            e.preventDefault();
+            var flag = 0;
+
+            if (flag == 0) {
+                $(".page2").hide();
+
+                $(".page1").show();
+            }
+        });
+
+
         // Show/hide specific industry field based on Company Type
         document.getElementById('companyType').addEventListener('change', function () {
             var specificIndustry = document.getElementById('specificIndustry');
@@ -671,12 +762,14 @@
 
         // Show/hide form based on expert determination
         document.getElementById('dispute_type').addEventListener('change', function () {
-            var feeBasedOption = document.getElementById('feeBasedOptions');
-            var feeBased = document.getElementById('feeBasedhide');
-            // var disputeType = document.getElementById('disputeTypeForm');
-            // disputeType.style.display = (this.value === 'Expert Determination') ? 'block' : 'none';
-            feeBased.style.display = (this.value === 'Expert Determination') ? 'none' : 'block';
-            feeBasedOption.style.display = (this.value === 'Expert Determination') ? 'block' : 'none';
+            var expertDeter = document.getElementById('expertDetermination');
+            var awardEnforcement = document.getElementById('awardEnforcement');
+            var typeContruction = document.getElementById('typeConstruction');
+
+            typeContruction.style.display = (this.value === 'Expert Determination') ? 'none' : 'block' ;
+            expertDeter.style.display = (this.value === 'Expert Determination') ? 'block' : 'none';
+            typeContruction.style.display = (this.value === 'Award Enforcement') ? 'none' : 'block' ;
+            awardEnforcement.style.display = (this.value === 'Award Enforcement') ? 'block' : 'none';
         });
 
         // Show/hide Fee Based options based on payment options
@@ -696,7 +789,48 @@
             var anonymous = document.getElementById('anonymousShow');
             anonymous.style.display = this.checked ? 'block' : 'none';
         });
+        
+        // Display pages on the basis of selecting the industry type
+        document.getElementById('industry_type').addEventListener('change', function() {
+            var industryType = document.getElementById('industry_type').value;
+            var typeContruction = document.getElementById('typeConstruction');
+            var typeFinance = document.getElementById('typeFinance');
+            var typeTrade = document.getElementById('typeTrade');
+            var typeCommercial = document.getElementById('typeCommercial');
 
+            typeFinance.style.display = 'none';
+            typeTrade.style.display = 'none';
+            typeCommercial.style.display = 'none';
+
+            if (industryType === "Financial") {
+                typeFinance.style.display = 'block';
+                typeContruction.style.display = 'none';
+            } else if (industryType === "Trade") {
+                typeTrade.style.display = 'block';
+                typeContruction.style.display = 'none';
+            } else if (industryType === "Commercial") {
+                typeCommercial.style.display = 'block';
+                typeContruction.style.display = 'none';
+            }
+        });
+        
+        // Display submit button
+        function toggleButtons() {
+            var paidService = document.getElementById("paid_service");
+            var freeService = document.getElementById("free_service");
+            var submitAndPayBtn = document.getElementById("submitAndPayBtn");
+            var submitBtn = document.getElementById("submitBtn");
+
+            if (paidService.checked) {
+                console.log("Displaying Submit and Pay Button");
+                submitAndPayBtn.style.display = "inline-block";
+                submitBtn.style.display = "none";
+            } else if (freeService.checked) {
+                console.log("Displaying Submit Button");
+                submitAndPayBtn.style.display = "none";
+                submitBtn.style.display = "inline-block";
+            }
+        }
 
         // page 2 
 

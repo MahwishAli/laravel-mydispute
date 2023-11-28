@@ -31,8 +31,8 @@
                         </div>
 
                     <!-- Specific Industry (Visible only if Commercial is selected) -->
-                        <div id="specificIndustry" class="mb-3" style="display: none;">
-                            <label for="industry" class="form-label">Specific Industry: <span class="text-danger">*</span></label>
+                        <div id="specificIndustry" class="col-md-12 mb-3" style="display: none;">
+                            <label for="industry" class="form-label">Please mention your Specific Industry: <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="industry" name="industry" required>
                         </div>
 
@@ -258,7 +258,7 @@
                                 <label class="form-check-label" for="agreeDisclaimer">I agree to the terms of the Disclaimer</label>
                             </div>
                             
-                            <div class="form-check mb-2">
+                            <div class="form-check mb-3">
                                 <input class="form-check-input" type="checkbox" id="declareAuthentic" name="declareAuthentic" required>
                                 <label class="form-check-label" for="declareAuthentic">I declare that all information provided here is correct and authentic.</label>
                             </div>
