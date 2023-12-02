@@ -4,17 +4,17 @@
     {{-- Welcome section --}}
     <section class="sec-1 py-5">
         <div class="container-fluid" style="--bs-gutter-x: 5rem">
-            <div class="row justify-content-around ">
+            <div class="row justify-content-around welcome-sec">
                 <div class="col-lg-4 sec-1-col-1 p-0">
                     <img src="{{ asset('assets/image/Balance.png') }}" class="img-fluid weight" alt="">
                 </div>
 
                 <div class="col-lg-5 sec-1-col-2" style="padding-left: 0px; ">
                     <h1 class="mb-3">Welcome to the New Era of Dispute Resolution and Claim Management.</h1>
-                    <p>
+                    <p class="welcome">
                         No matter what your dispute resolution and claim management concern be whether international trade, construction claim, financial disputes or digital forensics - you may now hire experts and claim consultants through MyDRP. You can opt for Fee Based, Fee and Percentage Sharing Based or only on an Award Percentage sharing basis. We highly encourage and promote the Ownership-Oriented Model (Investment Mindset) of working out especially claim disputes as with the Ownership-Oriented Mindset, Dispute Resolution and Claim Management will enter a New Era of Equitable Justice. 
                     </p>
-                    <p>
+                    <p class="welcome">
                         Hire dispute resolution and claim management experts through our free service and solve your complex disputes by getting your requirements fulfilled through international institutions and experts around the globe.
                     </p>
                     <button type="button" class="btn"
@@ -110,7 +110,7 @@
     <section class="sec-2 py-5">
         <div class="container works-sec">
             <div class="row d-flex flex-column">
-                <h2>How It Works</h2>
+                <h2>How It Works - Dispute Resolution Seeker</h2>
                 <div class="seperator works"></div>
             </div>
         </div>

@@ -4,7 +4,10 @@
     <div class="container my-5" >
         <div class="row justify-content-around mt-2">
             <div class="col-lg-12 mb-4" >
-                <h5 class="fs-1">FAQs</h5>
+                <div class="d-flex flex-column align-items-center mb-4">    
+                    <h2 class="fs-1">FAQs</h2>
+                    <div class="seperator faqs"></div>
+                </div>
                 <h3 class="fs-4 fw-semibold my-4">Dispute Resolution Consultancy Requirements Posting</h3>
                 <div id="faq" class="faq-body">
                     <div class="faq-list">

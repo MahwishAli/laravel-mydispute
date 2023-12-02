@@ -36,12 +36,12 @@
                                                 <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
                                             </div>
                                         </div>
-                                        <div class="col-md-12 mb-3 p-3">
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <textarea name="message" class="form-control" id="message" cols="30" rows="7" placeholder="Message"></textarea>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 mt-2 text-center">
+                                        <div class="col-md-12 mt-5 text-center">
                                             <div class="form-group">
                                                 <input type="submit" value="Send Message" class="btn btn-primary">
                                             <div class="submitting"></div>
