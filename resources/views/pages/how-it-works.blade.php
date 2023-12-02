@@ -11,19 +11,23 @@
                 <div class="col-lg-1 col-md-1 hide-on-mob" >
                 </div>
                 <div class="col-lg-2 col-md-2 d-flex justify-content-center align-items-center image-left">
-                    <img class="image-left-img" src="{{ asset('assets/image/works1.PNG') }}" />
+                    <img class="image-left-img" src="{{ asset('assets/image/plaintiffs.PNG') }}" />
                 </div>
                 <div class="col-lg-6 col-md-8" >
-                    <img class="image-left-arrow" src="{{ asset('assets/image/works4.PNG') }}" />
+                    <img class="image-left-arrow" src="{{ asset('assets/image/fill.png') }}" />
                     <img class="image-right-arrow" src="{{ asset('assets/image/works3.PNG') }}" />
                 </div>
                 <div class="col-lg-2 col-md-2 d-flex justify-content-center align-items-center image-right"  >
-                    <img class="image-right-img" src="{{ asset('assets/image/works2.PNG') }}" />
+                    <img class="image-right-img" src="{{ asset('assets/image/consultant.PNG') }}" />
                 </div>
                 <div class="col-lg-1 col-md-1 hide-on-mob" >
                 </div>
             </div>
             <div class="row justify-content-around mt-5">
+                <div class="col-lg-12 mb-3">
+                    <h2 class="">Dispute Resolution Seeker</h2>
+                    <div class="seperator dispute"></div>
+                </div>
                 <div class="col-lg-12 mb-4" >
                     <p>How it Works – <b>Dispute Resolution Seeker</b> – Step by Step Guidelines:</p>
                     <ol class="decimal-list mt-4">
@@ -66,6 +70,10 @@
                     <img class="d-none d-md-block img-fluid" src="{{ asset('assets/image/Group 24.png') }}" alt="">
                 </div>
                 <div class="col-lg-12 mt-5 mb-4" >
+                    <div class="col-lg-12 mb-3">
+                        <h2 class="mb-3">Consultant Firm</h2>
+                        <div class="seperator consultant"></div>
+                    </div>
                     <p>How it works – <b>Consultant Firm </b>– Step by Step Guidelines:</p>
                     <ol class="decimal-list mt-4">
                         <li>

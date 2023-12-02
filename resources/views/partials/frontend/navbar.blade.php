@@ -10,7 +10,7 @@
             </a>
         </div>
 
-        <div class="col-lg-4 col-md-4 navbar-expand d-none d-lg-block mx-auto ms-5" id="">
+        <div class="col-lg-4 col-md-4 navbar-expand d-none d-lg-block d-md-block mx-auto ms-lg-5" id="">
             <ul class="navbar-nav d-flex justify-content-between">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('about') }}">About Us</a>
@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <div class="col-lg-4 col-md-4 nav-btns ms-auto text-end">
+        <div class="col-lg-4 col-md-5 nav-btns ms-lg-auto text-end">
             <a href="{{ route('request.resolution') }}" type="button" class="btn"
                 style="color: white; background-color: #006DA7">Request Dispute Resolution Consultancy</a>
             <a href="{{ route('login') }}" type="button" class="btn" style="color: white; background-color: #DAB57F; margin: 0px 5px;">Login</a>
@@ -79,23 +79,27 @@
             </div>
 
             <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">How it works</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
-                    </li>
-                </ul>
-                <div class="nav-btns d-flex flex-column">
-                    <button type="button" class="btn" style="color: white; background-color: #006DA7">Request
-                        Dispute Resolution Consultancy</button>
-                    <button type="button" class="btn" style="color: white; background-color: #DAB57F">Login</button>
-                    <button type="button" class="btn"
-                        style="color: white; background-color: #C02026">Signup</button>
+                <div class="row d-inline-block">
+                    <div class="col-sm-12 mb-3">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">How it works</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                    </div>
+                    <div class="col-sm-12 nav-btns">
+                        <button type="button" class="btn col-12 mb-2" style="color: white; background-color: #006DA7">Request
+                            Dispute Resolution Consultancy</button>
+                        <button type="button" class="btn col-12 mb-2" style="color: white; background-color: #DAB57F">Login</button>
+                        <button type="button" class="btn col-12"
+                            style="color: white; background-color: #C02026">Signup</button>
+                    </div>
                 </div>
             </div>
         </div>

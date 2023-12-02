@@ -68,7 +68,7 @@
             
                                     <div class="col-md-12 mb-3 d-flex align-items-center">
                                         <label for="country" class="form-label col-3">Country: <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" id="country" name="country" required>     
+                                        <input type="text" class="form-control" id="country_name" name="country_name" required>     
                                     </div>
                                     <div class="col-md-12 mb-3 d-flex align-items-center">
                                         <label for="phone" class="form-label col-3">Phone No: <span class="text-danger">*</span></label>
@@ -886,6 +886,7 @@
     
         document.addEventListener('DOMContentLoaded', function () {
           var regionSelect = document.getElementById('region');
+
           var regions = [
             "Asia",
             "Europe",
@@ -909,7 +910,8 @@
     
     
         function getLocation(id) {
-          // Your getLocation function logic here
+            var regionSelect = document.getElementById(id);
+        // Your getLocation function logic here
         }
       </script>
     

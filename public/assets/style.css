@@ -27,18 +27,6 @@ body {
     font-size: 10px;
 }
 
-.sec-1 h1{
-    font-size: 24px!important;
-}
-
-.sec-1 p{
-    font-size: 13px!important;
-}
-
-.sec-1 .btn{
-    font-size: 12px;
-}
-
 a.nav-link{
     color:#262525;
 }
@@ -130,26 +118,13 @@ a.nav-link{
 }
 
 
-.sec-2 h2 {
-    font-size: 40px;
-    font-weight: 500;
-}
-
-.sec-3 h2, .sec-4 h2 {
-    font-weight: 500;
-    font-size: 33px;
-    color: black;
-}
-.about_us, .vision {
-    font-size: 18px;
-}
-
-.vision-sec ul{
-    line-height: 1.7;
-}
-
 /* home page */
 
+.welcome-sec h1{
+    font-size: 24px!important;
+    font-weight: 600;
+    font-family: 'AkzidenzGrotesk', sans-serif;
+}
 .seperator.vision{
     width: 15.5em;
 }
@@ -161,13 +136,52 @@ a.nav-link{
     font-size: 21px;
     font-family: 'garamond';
 }
+
+.sec-1 p{
+    font-size: 13px!important;
+}
+
+.sec-1 .btn{
+    font-size: 12px;
+}
+
+.sec-2 h2 {
+    font-family: 'AkzidenzGrotesk', sans-serif;
+    font-size: 33px;
+    font-weight: 600;
+}
+
+.sec-3 h2, .sec-4 h2 {
+    font-family: 'AkzidenzGrotesk', sans-serif;
+    font-weight: 600;
+    font-size: 33px;
+    color: black;
+}
+.about_us, .vision {
+    font-size: 18px;
+}
+
+.vision-sec ul{
+    line-height: 1.7;
+}
+
+.works-sec .seperator.works{
+    width: 42em;
+}
+
+
 /* about us start */
+
+.about_us_page h2{
+    font-family: 'AkzidenzGrotesk', sans-serif;
+    font-weight: 600;
+}
 
 .about_us_page h4{
     font-size: 23px;
     font-weight: 600;
     color: black;
-    font-family: 'candara';
+    font-family: 'AkzidenzGrotesk', sans-serif;
 }
 
 .about_us_page p{
@@ -207,10 +221,22 @@ div.seperator {
     animation: fadeInFromLeft 2s ease-in-out;
 }
 /* how it works*/
+.how_it_works h2{
+    font-family: 'AkzidenzGrotesk', sans-serif;
+    font-weight: 600;
+}
 
 .how_it_works p{
     font-size: 21px;
     font-family: 'garamond';
+}
+
+.how_it_works .seperator.dispute{
+    width: 25.7em;
+}
+
+.how_it_works .seperator.consultant{
+    width: 16em;
 }
 
 ol.decimal-list {
@@ -310,6 +336,10 @@ ol.decimal-list li{
 }
 
 /* contact us */
+.contact_us_page h2{
+    font-family: 'AkzidenzGrotesk', sans-serif;
+    font-weight: 600;
+}
 
 .contact_us_page .info-wrap{
     background-color: #006DA7
@@ -327,8 +357,14 @@ ol.decimal-list li{
 .contact_us_page  .contact-links a {
     color: #DAB57F;
 }
-
+body h2{
+    font-family: 'AkzidenzGrotesk', sans-serif;
+}
 /* resolution form */
+   .how_it_works h4{
+        font-family: 'AkzidenzGrotesk', sans-serif;
+    }
+
     .blurback {
         width: 100%;
         height: 100%;
@@ -405,7 +441,11 @@ ol.decimal-list li{
         margin-left: 15px;
     }
     /* member signup */
-
+    
+    .sign_up_member h1{
+        font-family: 'AkzidenzGrotesk', sans-serif;
+        font-weight: 600;
+    }
     .seperator.member-signup{
         width: 22.5em;
     }
@@ -434,9 +474,9 @@ ol.decimal-list li{
     }
 
     .sign_up_member .block h4 {
-        font-size: 1.5rem;
+        font-size: 22px;
         font-weight: 600;
-        font-family: 'candara';
+        font-family: 'AkzidenzGrotesk', sans-serif;
     }
 
     .sign_up_member .block p {
@@ -498,6 +538,10 @@ ol.decimal-list li{
         margin-left: 15px;
     }
 
+    .sign_up_initiator h1{
+        font-family: 'AkzidenzGrotesk', sans-serif;
+        font-weight: 600;
+    }
     /* consultant signup */
 
     .sign_up_consultant .con-signup-form{
@@ -513,7 +557,19 @@ ol.decimal-list li{
         margin-left: 15px;
     }
 
+    .sign_up_consultant h1{
+        font-family: 'AkzidenzGrotesk', sans-serif;
+        font-weight: 600;
+    }
+
     /* faq's page */
+    .faqs h2, .faqs h3{
+        font-family: 'AkzidenzGrotesk', sans-serif;
+        font-weight: 600;
+    }
+    .seperator.faqs {
+        width: 6.5em;
+    }
 
     details{
         padding-left: 30px;
@@ -594,6 +650,8 @@ ol.decimal-list li{
         padding: 0px 10px;
     }
 
+    /* Mahwish media queries */
+
     /* Media query for Surface Pro 7 and similar devices */
     @media screen and (min-width: 768px) and (max-width: 1200px) {
         /* Add your specific styles for Surface Pro 7 here */
@@ -602,5 +660,13 @@ ol.decimal-list li{
         }
         .container.animation, .container-md.animation, .container-sm.animation {
             max-width: 840px;
+        }
+
+        .how_it_works .seperator.consultant {
+            width: 15em;
+        }
+
+        .how_it_works .seperator.dispute {
+            width: 23.7em;
         }
     }

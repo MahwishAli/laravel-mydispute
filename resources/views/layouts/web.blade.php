@@ -7,6 +7,8 @@
     <!--<meta name="robots" content="noindex">-->
     <meta name="robots" content="noindex">
     <title>My Dispute</title>
+    <link href="https://fonts.cdnfonts.com/css/akzidenzgrotesk" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gotham:wght@400&display=swap">
     <link href="{{ asset('css/resource15/reset.css') }}" media="all" rel="stylesheet" type="text/css" />
     {{-- <link href="css/resource15/header_footer.css" media="all" rel="stylesheet" type="text/css" /> --}}
     <link href="{{ asset('css/resource15/individual_form.css') }}" media="all" rel="stylesheet" type="text/css" />
