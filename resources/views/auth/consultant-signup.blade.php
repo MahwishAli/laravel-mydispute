@@ -30,7 +30,7 @@
                             </select>
                         </div>
 
-                    <!-- Specific Industry (Visible only if Commercial is selected) -->
+                        <!-- Specific Industry (Visible only if Commercial is selected) -->
                         <div id="specificIndustry" class="col-md-12 mb-3" style="display: none;">
                             <label for="industry" class="form-label">Please mention your Specific Industry: <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="industry" name="industry" required>
