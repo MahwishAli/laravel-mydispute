@@ -1,11 +1,11 @@
 @extends('layouts.web')
 @section('content')
-<section class="how_it_works pt-5">
+<section class="resolution pt-5">
     <div class="container my-5" >
         <div class="row justify-content-around mt-2">
-            <div class="col-lg-2 mb-4 justify-content-center" >
-            </div>
-            <div class="col-lg-8 mb-4 px-1 innnerlanding_form" >
+            {{-- <div class="col-lg-2 mb-4 justify-content-center" >
+            </div> --}}
+            <div class="col-lg-11 col-md-12 mb-4 px-1 innnerlanding_form" >
                 <div class="topsection">
                     <div class="lefttutor_details_full p-4" id="hideclass2">
                         <h2>Request Dispute Resolution and Claim Consultancy Requirements Now - It’s Free.</h2>
@@ -33,13 +33,13 @@
                                 <!-- Company Information -->
                                 <div class="row mt-5 mb-4 mx-2" >
                                     <!-- Company Information -->
-                                    <div class="col-md-12 mb-3 d-flex align-items-center">
-                                        <label for="companyName" class="form-label col-3">Company Name: <span class="text-danger">*</span></label>
+                                    <div class="col-md-6 mb-3 d-flex align-items-center">
+                                        <label for="companyName" class="form-label col-4">Company Name: <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="companyName" name="companyName" placeholder="" required>
                                     </div>
             
-                                    <div class="col-md-12 mb-3 d-flex align-items-center">
-                                        <label for="companyType" class="form-label col-3">Company Type: <span class="text-danger">*</span></label>
+                                    <div class="col-md-6 mb-3 d-flex align-items-center">
+                                        <label for="companyType" class="form-label col-4">Company Type: <span class="text-danger">*</span></label>
                                         <select class="form-select" id="companyType" name="companyType" required>
                                             <option value="Construction">Construction</option>
                                             <option value="Finance">Finance</option>
@@ -52,41 +52,57 @@
                                     <div id="specificIndustry" class="col-md-12 mb-3" style="display: none;">
                                         <div  class="col-md-12 m-0 d-flex align-items-center" >
                                             <label for="industry" class="form-label col-3">Please mention your Specific Industry: <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="industry" name="industry" required>
+                                            <select class="form-select" id="industry" name="industry" required>
+                                                <option value="Retail">Retail</option>
+                                                <option value="Technology">Technology</option>
+                                                <option value="Healthcare">Healthcare</option>
+                                                <option value="Manufacturing">Manufacturing</option>
+                                                <option value="Finance">Finance</option>
+                                                <option value="Real Estate">Real Estate</option>
+                                                <option value="Entertainment">Entertainment</option>
+                                                <option value="Hospitality">Hospitality</option>
+                                                <option value="Automotive">Automotive</option>
+                                                <option value="Telecommunications">Telecommunications</option>
+                                                <option value="Energy">Energy</option>
+                                                <option value="Agriculture">Agriculture</option>
+                                                <option value="Pharmaceuticals">Pharmaceuticals</option>
+                                                <option value="Education">Education</option>
+                                                <option value="Consulting">Consulting</option>
+                                            </select>
                                         </div>
                                     </div>
             
-                                    <div class="col-md-12 mb-3 d-flex align-items-center">
-                                        <label for="email" class="form-label col-3">Email Address: <span class="text-danger">*</span></label>
+                                    <div class="col-md-6 mb-3 d-flex align-items-center">
+                                        <label for="email" class="form-label col-4">Email Address: <span class="text-danger">*</span></label>
                                         <input type="email" class="form-control" id="email" name="email" required>
                                     </div>
             
-                                    <div class="col-md-12 mb-3 d-flex align-items-center">
-                                        <label for="address" class="form-label col-3">Address:</label>
+                                    <div class="col-md-6 mb-3 d-flex align-items-center">
+                                        <label for="address" class="form-label col-4">Address:</label>
                                         <textarea class="form-control" id="address" name="address" rows="2"></textarea>
                                     </div>
             
-                                    <div class="col-md-12 mb-3 d-flex align-items-center">
-                                        <label for="country" class="form-label col-3">Country: <span class="text-danger">*</span></label>
+                                    <div class="col-md-6 mb-3 d-flex align-items-center">
+                                        <label for="country" class="form-label col-4">Country: <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="country_name" name="country_name" required>     
                                     </div>
-                                    <div class="col-md-12 mb-3 d-flex align-items-center">
-                                        <label for="phone" class="form-label col-3">Phone No: <span class="text-danger">*</span></label>
+                                    <div class="col-md-6 mb-3 d-flex align-items-center">
+                                        <label for="phone" class="form-label col-4">Phone No: <span class="text-danger">*</span></label>
                                         <input type="tel" class="form-control" id="phone" name="phone" required>
                                     </div>
                                     <!-- Company Documents Attachment -->
-                                    <div class="col-md-12 mb-3 d-flex">
-                                        <label for="companyDocuments" class="form-label col-3">Company Documents Attachment:</label>
+                                    <div class="col-md-12 mb-3 d-flex mt-1">
+                                        <label for="companyDocuments" class="form-label col-2">Company Documents Attachment:</label>
                                         <div class="">
                                             <input type="file" class="form-control" id="companyDocuments" name="companyDocuments">
-                                                <p class="form-text mb-0">We encourage you to upload company documents as this increases your chance of success in finding the right Dispute Resolution Partner.</p>
+                                                <p class="form-text">We encourage you to upload company documents as this increases your chance of success in finding the right Dispute Resolution Partner.</p>
                                         </div>
                                     </div>
                                 </div>
-                                <h4 class="frmtitle text-center fw-bold"><u>Dispute Details so Claim Consultants</u></h4>
+                                <h4 class="frmtitle text-center fw-bold"><u>Dispute Details</u></h4>
                                 <div class="row my-5 mx-2">
-                                    <div class="col-md-12 mb-3 d-flex align-items-center">
-                                        <label for="industryType" class="form-label col-3">Industry Type: <span class="text-danger">*</span></label>
+                                    <div class="col-md-6 mb-3 d-flex align-items-center">
+                                        <label for="industryType" class="form-label col-4">Industry Type: <span class="text-danger">*</span></label>
                                         <select name="industry_type" id="industry_type" class="form-select industry_type"
                                             onchange="javascript:getLocation(this.id);">
                                             <option value="">Industry Type</option>
@@ -96,17 +112,9 @@
                                             <option value="Commercial">Commercial</option>
                                         </select>
                                     </div>
-            
-                                    <!-- Specific Industry (Visible only if Commercial is selected) -->
-                                    <div id="specificIndustryType" class="col-md-12 mb-3" style="display: none;">
-                                        <div  class="col-md-12 m-0 d-flex align-items-center" >
-                                            <label for="industry" class="form-label col-3">Please mention your Specific Industry: <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="industry" name="industry" required>
-                                        </div>
-                                    </div>
 
-                                    <div class="col-md-12 mb-3 d-flex align-items-center">
-                                        <label for="disputeType" class="form-label col-3">Dispute Type: <span class="text-danger">*</span></label>
+                                    <div class="col-md-6 mb-3 d-flex align-items-center">
+                                        <label for="disputeType" class="form-label col-4">Dispute Type: <span class="text-danger">*</span></label>
                                         <select name="dispute_type" id="dispute_type" class="form-select dispute_type">
                                             <!-- onchange="javascript:getLocation(this.id);" -->
                                             <option value="">Dispute Type</option>
@@ -120,10 +128,33 @@
                                             <option value="Award Enforcement">Award Enforcement</option>
                                         </select>
                                     </div>
-            
+                        
                                     <!-- Specific Industry (Visible only if Commercial is selected) -->
-                                    <div class="col-md-12 mb-3 d-flex align-items-center">
-                                        <label for="amount" class="form-label col-3">Dispute Amount:</label>
+                                    <div id="specificIndustryType" class="col-md-12 mb-3" style="display: none;">
+                                        <div  class="col-md-12 m-0 d-flex align-items-center" >
+                                            <label for="industry" class="form-label col-3">Please mention your Specific Industry: <span class="text-danger">*</span></label>
+                                            <select class="form-select" id="industry" name="industry" required>
+                                                <option value="Retail">Retail</option>
+                                                <option value="Technology">Technology</option>
+                                                <option value="Healthcare">Healthcare</option>
+                                                <option value="Manufacturing">Manufacturing</option>
+                                                <option value="Finance">Finance</option>
+                                                <option value="Real Estate">Real Estate</option>
+                                                <option value="Entertainment">Entertainment</option>
+                                                <option value="Hospitality">Hospitality</option>
+                                                <option value="Automotive">Automotive</option>
+                                                <option value="Telecommunications">Telecommunications</option>
+                                                <option value="Energy">Energy</option>
+                                                <option value="Agriculture">Agriculture</option>
+                                                <option value="Pharmaceuticals">Pharmaceuticals</option>
+                                                <option value="Education">Education</option>
+                                                <option value="Consulting">Consulting</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3 d-flex align-items-center">
+                                        <label for="amount" class="form-label col-4">Dispute Amount:</label>
                                         <select name="dispute_amount" id="dispute_amount" class="form-select dispute_amount">
                                             <option value="">Dispute Amount</option>
                                             <option value="1">$0 to $10</option>
@@ -173,8 +204,8 @@
                                             <input type="text" class="form-control" name="awardPercentage" placeholder="Enter percentage (e.g., up to 5%, up to 10%, up to 50%)" style="height: 40px;">
                                     </div>
 
-                                    <div class="col-md-12 mb-3 d-flex align-items-center">
-                                        <label for="region" class="form-label col-3">Region: <span class="text-danger">*</span></label>
+                                    <div class="col-md-6 mb-3 d-flex align-items-center">
+                                        <label for="region" class="form-label col-4">Region: <span class="text-danger">*</span></label>
                                         <select name="region" id="region" class="form-select regiondropdn"
                                             onchange="javascript:getLocation(this.id);" required>
                                             <option value="">Region*</option>
@@ -182,8 +213,8 @@
                                     </div>
             
                                     <!-- Specific Industry (Visible only if Commercial is selected) -->
-                                    <div class="col-md-12 mb-3 d-flex align-items-center">
-                                        <label for="country" class="form-label col-3">Country:</label>
+                                    <div class="col-md-6 mb-3 d-flex align-items-center">
+                                        <label for="country" class="form-label col-4">Country:</label>
                                         <select name="country" id="country" class="form-select countrydropdn"
                                             onchange="javascript:getLocation(this.id);">
                                             <option value="">Country</option>
@@ -203,22 +234,23 @@
                                     </div>
                                     
                                     <div class="col-md-12 mb-3" id="anonymousShow" style="display: none;">
-                                        {{-- <div class=" mb-3">
-                                            (if Anonymous is selected then you can put a different e-mail address and phone number to be contacted)
-                                        </div> --}}
-                                        <div class="mb-1 d-flex align-items-center">
-                                            <label for="anonymous" class="form-label col-3">Your anonymous email: <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="anonymousEmail" name="anonymousEmail" placeholder="" required>
-                                        </div>
-                                        <div class="mb-3 d-flex align-items-center">
-                                            <label for="anonymous" class="form-label col-3">Your anonymous phone: <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="anonymousPhone" name="anonymousPhone" placeholder="" required>
-                                        </div>
-                                        <div class=" mb-3"><b>
-                                            Selecting Anonymous will hide all registered company details except but will show the dispute details as selected.</b>
+                                        <div class="mb-3 row">
+                                            {{-- <div class=" mb-3">
+                                                (if Anonymous is selected then you can put a different e-mail address and phone number to be contacted)
+                                            </div> --}}
+                                            <div class="mb-1 col-md-6 d-flex align-items-center">
+                                                <label for="anonymousEmail" class="form-label col-4 ">Your anonymous email: <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="anonymousEmail" name="anonymousEmail" placeholder="" required>
+                                            </div>
+                                            <div class="mb-3 col-md-6 d-flex align-items-center">
+                                                <label for="anonymousPhone" class="form-label col-4 ">Your anonymous phone: <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="anonymousPhone" name="anonymousPhone" placeholder="" required>
+                                            </div>
+                                            <div class="mb-3 col-md-12"><b>
+                                                Selecting Anonymous will hide all registered company details except but will show the dispute details as selected.</b>
+                                            </div>
                                         </div>
                                     </div>
-
                                     <div class="col-md-12 mb-3" >
                                         <label for="companyType" class="form-label">Please select Option for Free posting and receiving of proposals in which only our paid members can see your Dispute Details or Select the Paid Service by MyDRP to receive a list of Dispute Resolution and Claim Consultants best suiting your dispute requirements.</label>
                                         <div class="form-check mb-2">
@@ -243,9 +275,9 @@
                             {{-- page 2 start --}}
                             <div class="page2 typeConstruction animated zoomIn" data-step="second_page" style="display: none">
                                 <div class="custom_progress_bar2">
-                                    <div class="processtext2">20%</div>
+                                    <div class="processtext2">50%</div>
                                     <div class="progressbar_text2">
-                                    <div class="probar2" style="width: 20%;"></div>
+                                    <div class="probar2" style="width: 50%;"></div>
                                     </div>
                                 </div>
                                 <h4 class="frmtitle text-center fw-bold">Page 2</h4>
@@ -618,15 +650,22 @@
                                             <label class="form-check-label" for="consultantContact">Let the Dispute Resolution and Claim Consultant ask for Contact information (The paid consultant firm will have to press the "Let me contact" button to let the Dispute Resolution Initiator know that a Dispute Resolution Consultant wants to connect with all the consultant’s specific details)</label>
                                         </div>
 
-                                        <div class="form-check my-3 text-center">
-                                            <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                                I agree to the terms and conditions
-                                            </a>
-                                        </div>
-                                
-                                        <div class="form-check mb-3">
-                                            <input class="form-check-input" type="checkbox" id="disclaimer" name="disclaimer">
-                                            <label class="form-check-label" for="disclaimer">I agree to the terms of the Disclaimer</label>
+                                        <div class="form-check mb-3 d-flex align-items-center">
+                                            <input class="form-check-input" type="checkbox"  name="condition">
+                                            <label class="form-check-label" for="disclaimer">
+                                                <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#termsCondition">
+                                                    I agree to the terms and conditions
+                                                </a>
+                                            </label>
+                                        </div>                                        
+                                        
+                                        <div class="form-check mb-3 d-flex align-items-center">
+                                            <input class="form-check-input" type="checkbox"  name="disclaimer">
+                                            <label class="form-check-label" for="disclaimer">
+                                                <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#disclaimer">
+                                                    I agree to the terms of the Disclaimer
+                                                </a>
+                                            </label>
                                         </div>
                                 
                                         <div class="form-check mb-3">
@@ -647,8 +686,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 mb-4 justify-content-center" >
-            </div>
+            {{-- <div class="col-lg-2 mb-4 justify-content-center" >
+            </div> --}}
         </div>
         <div class="exist_login">
             <span>If you are facing any problem kindly
@@ -657,65 +696,99 @@
               <a href="mailto:support@mydispute.ae" class="login" target="_blank"><span>support@mydispute.ae</span></a></span>
         </div>
     </div>
-    {{-- Modal --}}
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+    {{-- Modal for terms and condition--}}
+    <div class="modal fade" id="termsCondition" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="termsConditionLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Terms and Conditions</h1>
-                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                    <h1 class="modal-title fs-5" id="termsConditionLabel">Terms & Conditions</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    
                 </div>
                 <div class="modal-body">
-                    <p>1. My Dispute Resolution Partner is shortened to the abbreviation MyDRP.</p>
-                    <p>2. MyDRP does not promise that the site or any of its contents, services, and features are error-free and/or
-                        uninterrupted.</p>
-                    <p>3. MyDRP does not promise that the usage of the site will result in desired, required, and/or specific
-                        results.</p>
-                    <p>4. MyDRP website and its content are provided on an ‘as is’ and ‘as available’ basis.</p>
-                    <p>5. All information and services provided can change without notice.</p>
-                    <p>6. If maintenance of the site is required, then MyDRP has no responsibility for any loss occurring due to
-                        shutdown of services.</p>
-                    <p>7. MyDRP disclaims any responsibility or loss if any unforeseen and unfortunate event or occurrence stops
-                        the
-                        services partially or fully.</p>
-                    <p>8. MyDRP cannot ensure if any files or data downloaded by the members would be virus-free or free from
-                        destructive features.</p>
-                    <p>9. The members assume total responsibility for the use of the site and any linked sites.s</p>
-                    <p>10. If any regional, international, and/or national rules, laws, and regulations make the MyDRP services
-                        void;
-                        in this case, MyDRP will not be held responsible, and members assume full responsibility for carrying out
-                        required and desired due diligence and related jurisdictional approvals.</p>
-                    <p>11. The sole remedy upon dissatisfaction with the site or any of its contents is to stop using the site or
-                        any
-                        such content.</p>
-                    <p>12. MyDRP disclaims any responsibility for loss, harm, conflict, and/or dispute arising between consultants
-                        and
-                        companies (providing and requiring dispute services respectively) due to any reasons.</p>
-                    <p>13. MyDRP provides new jobs for dispute consultants on an “as is” and “as available” basis and does not
-                        carry
-                        any responsibility in authenticating such jobs. It is the consultant’s own responsibility to verify and
-                        authenticate jobs requiring dispute resolution services.</p>
-                    <p>14. MyDRP provides dispute resolution services through registered members to registered members on an “as
-                        is”
-                        and “as available” basis and does not take any responsibility in authenticating dispute resolution service
-                        providers. It is the responsibility of the company requiring dispute resolution services to verify and
-                        authenticate experts and consultants providing the desired and required dispute resolution services.</p>
-                    <p>15. MyDRP will not be held responsible for any losses occurring out of the use of the services provided
-                        through the platform: My Dispute Resolution provider website.</p>
-                    <p>16. MyDRP disclaims any or all liability for the acts, omissions, and conduct of any third parties.</p>
-                    <p>17. Disputes are sensitive matters and MyDRP takes no responsibility that even when the Dispute Resolution
-                        requirements are posted anonymously that other information may not be hacked or leaked. MyDRP disclaims any
-                        loss or harm occurring out of hacking of its website or misconduct or mistake by the members.</p>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="agreeCheckbox" onclick="enableUnderstoodButton()">
-                        <label class="form-check-label" for="agreeCheckbox">
-                            I Agree
-                        </label>
-                    </div>
+                    <ol class="decimal-list">
+                        <li>My Dispute Resolution Partner is abbreviated as MyDRP and this abbreviation is used throughout the site, policies and contracts.</li>
+                        <li>Please note that MyDRP is a facilitating platform that provides the service of connecting various parties involved in dispute resolution and does not provide any other related services to dispute resolution.</li>
+                        <li>Please note that MyDRP holds the right to cancel any membership without notice.</li>
+                        <li>Please note that membership terms and conditions can change without notice.</li>
+                        <li>Please note that MyDRP holds the right to reject any membership application without notice and without providing any explanation.</li>
+                        <li>If a member of MyDRP is found to be misusing the site – his or her membership will be cancelled.</li>
+                        <li>Any comments or actions of misbehavior will be dealt accordingly and can lead to the cancellation of the membership.</li>
+                        <li>Please note that members have to carry out their own due diligence before they engage in any commitments with companies or individuals providing dispute resolution services.</li>
+                        <li>MyDRP will not be held responsible for any loss or harm occurring due to the usage of the site.</li>
+                        <li>We advise caution to firms (plaintiff) seeking dispute resolution services before contracting. Please carry out your due diligence before contracting with any parties registered as a member on the MyDRP site.</li>
+                        <li>If you are a paid member or take the services of MyDRP on a paid basis, please note that membership fee or fee for a specific query can change in the future without notice.</li>
+                        <li>If you have paid for a specific query upon a specific claim or dispute resolution service – you may or may not achieve satisfactory or desired results while using the MyDRP services. If this may so occur, MyDRP will not be held responsible for any losses or harm, and any fee paid shall be non-compensable and non-refundable.</li>
+                        <li>Any Membership or Service Fee paid is on a non-refundable basis.</li>
+                        <li>Please keep your dealings with companies or individuals providing dispute resolution services fair and transparent. Any complaints and negative feedback can lead to an investigation and cancellation of the membership.</li>
+                        <li>MyDRP will not be held responsible for any loss or harm occurring due to the usage of the site.</li>
+                        <li>All Material available on the site or third-party sites are for educational and learning purposes and do not form part of any official, reliable, or dependable material.</li>
+                        <li>MyDRP by giving membership to companies or individuals providing dispute resolution services does not endorse any member of any characteristic whether legal or moral.</li>
+                        <li>Member acknowledges that he or she has read the disclaimer.</li>
+                        <li>MyDRP does not support in enforcing any legal award.</li>
+                        <li>Our website may use cookies for the better experience of a member.</li>
+                    </ol>                
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="understoodBtn" data-bs-dismiss="modal" disabled>Understood</button>
+                    <button type="button" class="close btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Modal for disclaimer--}}
+    <div class="modal fade" id="disclaimer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="disclaimerLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="disclaimerLabel">Terms of the Disclaimer</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    
+                </div>
+                <div class="modal-body">
+                    <ol class="decimal-list">
+                        <li>My Dispute Resolution Partner is shortened to the abbreviation MyDRP.</li>
+                        <li> MyDRP does not promise that the site or any of its contents, services, and features are error-free and/or
+                            uninterrupted.</li>
+                        <li> MyDRP does not promise that the usage of the site will result in desired, required, and/or specific
+                            results.</li>
+                        <li> MyDRP website and its content are provided on an ‘as is’ and ‘as available’ basis.</li>
+                        <li> All information and services provided can change without notice.</li>
+                        <li> If maintenance of the site is required, then MyDRP has no responsibility for any loss occurring due to
+                            shutdown of services.</li>
+                        <li> MyDRP disclaims any responsibility or loss if any unforeseen and unfortunate event or occurrence stops
+                            the services partially or fully.</li>
+                        <li> MyDRP cannot ensure if any files or data downloaded by the members would be virus-free or free from
+                            destructive features.</li>
+                        <li> The members assume total responsibility for the use of the site and any linked sites.s</li>
+                        <li> If any regional, international, and/or national rules, laws, and regulations make the MyDRP services
+                            void; in this case, MyDRP will not be held responsible, and members assume full responsibility for carrying out
+                            required and desired due diligence and related jurisdictional approvals.</li>
+                        <li> The sole remedy upon dissatisfaction with the site or any of its contents is to stop using the site or
+                            any
+                            such content.</li>
+                        <li> MyDRP disclaims any responsibility for loss, harm, conflict, and/or dispute arising between consultants
+                            and
+                            companies (providing and requiring dispute services respectively) due to any reasons.</li>
+                        <li> MyDRP provides new jobs for dispute consultants on an “as is” and “as available” basis and does not
+                            carry
+                            any responsibility in authenticating such jobs. It is the consultant’s own responsibility to verify and
+                            authenticate jobs requiring dispute resolution services.</li>
+                        <li> MyDRP provides dispute resolution services through registered members to registered members on an “as
+                            is”
+                            and “as available” basis and does not take any responsibility in authenticating dispute resolution service
+                            providers. It is the responsibility of the company requiring dispute resolution services to verify and
+                            authenticate experts and consultants providing the desired and required dispute resolution services.</li>
+                        <li> MyDRP will not be held responsible for any losses occurring out of the use of the services provided
+                            through the platform: My Dispute Resolution provider website.</li>
+                        <li> MyDRP disclaims any or all liability for the acts, omissions, and conduct of any third parties.</li>
+                        <li> Disputes are sensitive matters and MyDRP takes no responsibility that even when the Dispute Resolution
+                            requirements are posted anonymously that other information may not be hacked or leaked. MyDRP disclaims any
+                            loss or harm occurring out of hacking of its website or misconduct or mistake by the members.</li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
                     <button type="button" class="close btn btn-primary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -859,82 +932,57 @@
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-          var countrySelect = document.getElementById('country');
-          var initiatorCountrySelect = document.getElementById('initiator_country');
-          fetch('https://restcountries.com/v3.1/all')
-            .then(function (response) {
-              return response.json();
-            })
-            .then(function (data) {
-              // Sort countries in ascending order
-              data.sort(function (a, b) {
-                return a.name.common.localeCompare(b.name.common);
-              });
+            var countrySelect = document.getElementById('country');
+            var regionSelect = document.getElementById('region');
     
-              data.forEach(function (country) {
+            // Replace 'https://restcountries.com/v3.1/all' with a valid API endpoint
+            fetch('https://restcountries.com/v3.1/all')
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    // Sort countries in ascending order
+                    data.sort(function (a, b) {
+                        return a.name.common.localeCompare(b.name.common);
+                    });
+    
+                    data.forEach(function (country) {
+                        var option = document.createElement('option');
+                        option.value = country.name.common;
+                        option.textContent = country.name.common;
+                        countrySelect.appendChild(option);
+                    });
+                })
+                .catch(function (error) {
+                    console.error('Error fetching countries:', error);
+                });
+    
+            var regions = [
+                "Asia",
+                "Europe",
+                "Africa",
+                "North America",
+                "South America",
+                "Australia",
+                "Antarctica",
+                "Middle East",
+                "Central America",
+                "Caribbean"
+            ];
+    
+            regions.forEach(function (region, index) {
                 var option = document.createElement('option');
-                option.value = country.name.common;
-                option.textContent = country.name.common;
-                countrySelect.appendChild(option);
-                initiatorCountrySelect.appendChild(option);
-              });
-            })
-            .catch(function (error) {
-              console.error('Error fetching countries:', error);
+                option.value = index + 1; // Assign unique values based on index (1-based)
+                option.textContent = region;
+                regionSelect.appendChild(option);
             });
         });
     
-        document.addEventListener('DOMContentLoaded', function () {
-          var regionSelect = document.getElementById('region');
-
-          var regions = [
-            "Asia",
-            "Europe",
-            "Africa",
-            "North America",
-            "South America",
-            "Australia",
-            "Antarctica",
-            "Middle East",
-            "Central America",
-            "Caribbean"
-          ];
-    
-          regions.forEach(function (region, index) {
-            var option = document.createElement('option');
-            option.value = index + 1; // Assign unique values based on index (1-based)
-            option.textContent = region;
-            regionSelect.appendChild(option);
-          });
-        });
-    
-    
         function getLocation(id) {
             var regionSelect = document.getElementById(id);
-        // Your getLocation function logic here
+            // Your getLocation function logic here
         }
-      </script>
-    
-      <script>
-        var fetchsubjecturl = "standaloneform_landing/fetchsubjectsbysegment";
-        var fetchboardurl = "standaloneform_landing/fetchboardsbysegment";
-        var fetchareaurl = "standaloneform_landing/fetchareasbylocation";
-        var triggercommurl = "standaloneform_landing/triggercommunicate";
-    
-        var triggercommurl = "standaloneform_landing/triggercommunicate";
-    
-        var segsubfeedurl = "standaloneform_landing/fetchsegmentandsubjectajax";
-    
-        var classid = "";
-        var memberid = "";
-        var membertype = "";
-        var enqtype = "postajob";
-        var loggedin = "";
-        var maxlenmobile = "9";
-    
-        var sendotpurl = "standaloneform_landing/sendotpurl";
     </script>
-</section>
-
+</section> 
 @endsection
 

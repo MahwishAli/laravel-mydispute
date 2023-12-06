@@ -268,6 +268,11 @@ ol.decimal-list li{
     margin-bottom: 25px;
 }
 
+ol.decimal-list1 li{
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
 .image-left-img, .image-right-img{
     display: none;
 }
@@ -461,6 +466,12 @@ body h2{
     .form-check.mb-3 {
         margin-left: 15px;
     }
+
+    .resolution .col-md-6.mb-3 , .resolution .col-md-12.mb-3{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
     /* member signup */
     
     .sign_up_member h1{
