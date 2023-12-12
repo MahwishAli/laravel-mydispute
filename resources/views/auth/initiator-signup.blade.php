@@ -3,6 +3,9 @@
 
 <section class="sign_up_initiator pt-5">
     <div class="container my-5">
+        {{-- success msg --}}
+        <div class="alert alert-success" id="success-message" style="display: none">
+        </div>
         <div class="row justify-content-center">
             <div class="col-lg-12 col-md-12 d-flex flex-column align-items-center mb-4">
                 <h1 class="center">Registration Form</h1>
@@ -12,13 +15,18 @@
         </div>
         <div class="row justify-content-center mt-2">
             <div class="col-lg-11 col-md-12 ini-signup-form form-all bg-white mb-5">
-                <form action="#" method="post" enctype="multipart/form-data">
+                <form id="add" method="post" enctype="multipart/form-data">
+
+                    <input type="hidden" id="token" value="{{ @csrf_token() }}">
+                    <input type="hidden" name="role_id" value="{{ $role }}" />
+
                     <!-- Company Information -->
                     <div class="row my-5 mx-2">
                         <!-- Company Information -->
                         <div class="col-md-6 mb-3">
                             <label for="companyName" class="form-label">Company Name: <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="companyName" name="companyName" required>
+                            <input type="text" class="form-control" id="companyName" name="companyName" value="" required>
+                            <span class="text-danger" id="companyNameMsg"></span>
                         </div>
 
                         <div class="col-md-6 mb-3">
@@ -29,118 +37,162 @@
                                 <option value="Trade">Trade</option>
                                 <option value="Commercial">Commercial</option>
                             </select>
+                            <span class="text-danger" id="companyTypeMsg"></span>
                         </div>
 
                     <!-- Specific Industry (Visible only if Commercial is selected) -->
                         <div id="specificIndustry" class="col-md-12 mb-3" style="display: none;">
                             <label for="industry" class="form-label">Please mention your Specific Industry: <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="industry" name="industry" required>
+                            <select class="form-select" id="industry" name="industry">
+                                <option value="" disabled selected>Select Industry</option>
+                                <option value="Retail">Retail</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Manufacturing">Manufacturing</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Real Estate">Real Estate</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Hospitality">Hospitality</option>
+                                <option value="Automotive">Automotive</option>
+                                <option value="Telecommunications">Telecommunications</option>
+                                <option value="Energy">Energy</option>
+                                <option value="Agriculture">Agriculture</option>
+                                <option value="Pharmaceuticals">Pharmaceuticals</option>
+                                <option value="Education">Education</option>
+                                <option value="Consulting">Consulting</option>
+                            </select>
+                            <span class="text-danger" id="industryMsg"></span>
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label for="email" class="form-label">Email Address: <span class="text-danger">*</span></label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                            <input type="email" class="form-control" id="email" value="" name="email" required>
+                            <span class="text-danger" id="emailMsg"></span>
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label for="address" class="form-label">Address:</label>
-                            <textarea class="form-control" id="address" name="address"></textarea>
+                            <textarea class="form-control" id="addressMsg" name="address"></textarea>
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label for="country" class="form-label">Country: <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="country" name="country" required>     
+                            <input type="text" class="form-control" id="country" value="" name="country" required>
+                            <span class="text-danger" id="countryMsg"></span> 
+                            
                             <div class="mt-3">
                                 <label for="phone" class="form-label">Phone No.: <span class="text-danger">*</span></label>
                                 <input type="tel" class="form-control" id="phone" name="phone" required>
+                                <span class="text-danger" id="phoneMsg"></span>
                             </div>
                         </div>
                         <!-- Company Documents Attachment -->
                         <div class="col-md-6 mb-3">
                             <label for="companyDocuments" class="form-label">Company Documents Attachment:</label>
-                            <input type="file" class="form-control" id="companyDocuments" name="companyDocuments">
+                            <input type="file" class="form-control" id="companyDocuments" name="companyDocuments" value="">
                             <small>(can upload later)</small>
                             <p class="form-text">We encourage you to upload company documents as this increases your chance of success in finding the right Dispute Resolution Partner.</p>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="" class="form-label">Please describe your company and style of work concisely in the below: </label>
-                            <textarea class="form-text col-12" rows="8" placeholder="We are a construction company located in Oman, established in the year 1980. We deal in building roads, dams and water and wastewater treatment plants in the Middle East. We have a turnover of USD 10 million and we do employ sub-contractors from time-to-time. We mainly deal with government or semi government projects. We know that sometimes disputes can be resolved amicably but may require independent third-party evaluation even in Mediation. Due to the expansion of the company and intense growth we like to resolve our disputes by sharing a percentage on an award especially in arbitrations.(This all written but when the person clicks on this box all written above is removed – above only for idea purposes for the person/company to write. 
+                            <textarea class="form-text col-12" rows="8" name="companydesc" placeholder="We are a construction company located in Oman, established in the year 1980. We deal in building roads, dams and water and wastewater treatment plants in the Middle East. We have a turnover of USD 10 million and we do employ sub-contractors from time-to-time. We mainly deal with government or semi government projects. We know that sometimes disputes can be resolved amicably but may require independent third-party evaluation even in Mediation. Due to the expansion of the company and intense growth we like to resolve our disputes by sharing a percentage on an award especially in arbitrations.(This all written but when the person clicks on this box all written above is removed – above only for idea purposes for the person/company to write. 
                             "></textarea>
                         </div>
                         
                         <!-- Payment Options -->
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">We are generally interested in the following payment options (select as desired – one or more):</label>
+                            <label class="form-label">We are generally interested in the following payment options (select as desired – one or more): <span class="text-danger">*</span></label>
 
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="feeBased" name="paymentOption" value="Fee Based only">
+                                <input class="form-check-input" type="checkbox" id="feeBased" name="paymentOption[]" value="Fee Based only">
                                 <label class="form-check-label" for="feeBased">Fee Based only</label>
                             </div>
 
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="feeAndAward" name="paymentOption" value="Fee and Award Percentage Based">
+                                <input class="form-check-input" type="checkbox" id="feeAndAward" name="paymentOption[]" value="Fee and Award Percentage Based">
                                 <label class="form-check-label" for="feeAndAward">Fee and Award Percentage Based</label>
                             </div>
                             
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="awardPercentage" name="paymentOption" value="Award Percentage Based only">
+                                <input class="form-check-input" type="checkbox" id="awardPercentage" name="paymentOption[]" value="Award Percentage Based only">
                                 <label class="form-check-label" for="awardPercentage">Award Percentage Based only</label>
                             </div>
+                            <span class="text-danger" id="paymentOptionMsg"></span>
+
                             <!-- Additional Options for Fee Based -->
-                            <div id="feeBasedOptions" class=" mt-4" style="display: none;">
-                                <label class="form-label">Please select one or as desired:</label>
+                            <div id="feeBasedOptions" class=" mt-4 mb-2" style="display: none;">
+                                <label class="form-label">Please select one or as desired: <span class="text-danger">*</span></label>
                                 
                                 <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" id="lumpSum" name="feeOption" value="Lump Sum Fee">
+                                    <input class="form-check-input" type="checkbox" id="lumpSum" name="feeOption[]" value="Lump Sum Fee">
                                     <label class="form-check-label" for="lumpSum">Lump Sum Fee</label>
                                 </div>
                                 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" id="hourlyBased" name="feeOption" value="Hourly Based Fee">
+                                    <input class="form-check-input" type="checkbox" id="hourlyBased" name="feeOption[]" value="Hourly Based Fee">
                                     <label class="form-check-label" for="hourlyBased">Hourly Based Fee</label>
                                 </div>
                             </div>
+                            <span class="text-danger" id="feeOptionMsg"></span>
                         </div>
                         
-                        
+                        <!-- Password -->
+                        <div class="col-md-6 mb-3">
+                            
+                            <div class=" mb-2 ">
+                                <label for="password" class="form-label">Password: <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+
+                            <div class=" mb-2 ">
+                                <label for="confirmed" class="form-label">Confirm Password: <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="confirmed" name="password_confirmation" required>
+                                <span class="text-danger" id="passwordMsg"></span>
+                            </div>
+                        </div>
+
                         <!-- Agreement and Declaration -->
                         <div class="col-md-6 mb-3">
                             <label class="form-check-label mb-2">Select to submit form:</label>
                             
                             <div class="form-check mb-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                                <input class="form-check-input" type="checkbox" id="agreeTerms" name="agreeTerms[]" value="terms and conditions" required>
                                 <label class="form-check-label" for="agreeTerms">
                                     <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#termsCondition">
                                         I agree to the terms and conditions
                                     </a>
                                 </label>
+                                <span class="text-danger" id="agreeTermsMsg"></span>
                             </div>
 
                             <div class="form-check mb-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" id="agreeDisclaimer" name="agreeDisclaimer" required>
+                                <input class="form-check-input" type="checkbox" id="agreeDisclaimer" name="agreeTerms[]" value="terms and Disclaimer" required>
                                 <label class="form-check-label" for="agreeDisclaimer">
                                     <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#disclaimer">
                                         I agree to the terms of the Disclaimer
                                     </a>
                                 </label>
+                                <span class="text-danger" id="agreeDisclaimerMsg"></span>
                             </div>
                             
                             <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" id="declareAuthentic" name="declareAuthentic" required>
+                                <input class="form-check-input" type="checkbox" id="declareAuthentic" name="agreeTerms[]" value="authentic information" required>
                                 <label class="form-check-label" for="declareAuthentic">I declare that all information provided here is correct and authentic.</label>
+                                <span class="text-danger" id="declareAuthenticMsg"></span>
                             </div>
                             
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="receivePromotions" name="receivePromotions">
+                                <input class="form-check-input" type="checkbox" id="receivePromotions" value="promotional information" name="agreeTerms[]">
                                 <label class="form-check-label" for="receivePromotions">I want to receive promotional information from MyDRP (optional)</label>
                             </div>
                         </div>
+                        <span class="text-danger" id="agreeTermsMsg"></span>
                     </div>
                     
                     <!-- Submit Button -->
                     <div class="row text-center my-5">
                         <div class="d-grid gap-2 col-6 mx-auto">
-                            <a type="submit" class="btn btn-primary" style="background: #006DA7">Submit</a>
+                            <button type="submit" class="btn btn-primary submit-btn" style="background: #006DA7">Submit</button>
                         </div>
                     </div>
                 </form>
@@ -245,6 +297,58 @@
             </div>
         </div>
     </div>
+
+    <script>
+    $(document).ready(function(){
+        $("#add").on('submit', function(e){
+            e.preventDefault();
+            
+            $.ajax({
+                headers: {
+                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "POST",
+                url: '{{ route("initiator_register") }}',
+                data: new FormData(this),
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    console.log('success');
+                    // Handle the response message
+                    $('#success-message').show();
+                    $('#success-message').text(response.success);
+                    // Hide the success message after 3 seconds
+                    setTimeout(function() {
+                        $('#success-message').hide();
+                    }, 4000);
+                    // Reset the form
+                    $('#add')[0].reset();
+                },
+                error: function(xhr, status, error) {
+                    // // Handle errors if needed
+                    if (xhr.status === 422) {
+                        var errors = xhr.responseJSON.errors;
+                        $('#companyNameMsg').text(xhr.responseJSON.errors.companyName);
+                        $('#companyTypeMsg').text(xhr.responseJSON.errors.companyType);
+                        $('#industryMsg').text(xhr.responseJSON.errors.industry);
+                        $('#emailMsg').text(xhr.responseJSON.errors.email);
+                        $('#phoneMsg').text(xhr.responseJSON.errors.phone);
+                        $('#passwordMsg').text(xhr.responseJSON.errors.password);
+                        $('#countryMsg').text(xhr.responseJSON.errors.country);
+                        $('#paymentOptionMsg').text(xhr.responseJSON.errors.paymentOption);
+                        $('#feeOptionMsg').text(xhr.responseJSON.errors.feeOption);
+                        $('#agreeTermsMsg').text(xhr.responseJSON.errors.agreeTerms);
+                    } else {
+                            // Handle other errors
+                            console.log("An error occurred:", error);
+                        }
+                }
+            });
+        });
+    });
+
+    </script>    
+    
     <script>
         // Show/hide specific industry field based on Company Type
         document.getElementById('companyType').addEventListener('change', function () {

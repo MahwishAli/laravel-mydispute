@@ -11,14 +11,14 @@
                 <div class="col-lg-1 col-md-1 hide-on-mob" >
                 </div>
                 <div class="col-lg-2 col-md-2 d-flex justify-content-center align-items-center image-left">
-                    <img class="image-left-img" src="{{ asset('assets/image/plaintiffs.PNG') }}" />
+                    <img class="image-left-img" src="{{ asset('assets/image/plaintiffs.png') }}" />
                 </div>
                 <div class="col-lg-6 col-md-8" >
                     <img class="image-left-arrow" src="{{ asset('assets/image/fill.png') }}" />
-                    <img class="image-right-arrow" src="{{ asset('assets/image/works3.PNG') }}" />
+                    <img class="image-right-arrow" src="{{ asset('assets/image/works3.png') }}" />
                 </div>
                 <div class="col-lg-2 col-md-2 d-flex justify-content-center align-items-center image-right"  >
-                    <img class="image-right-img" src="{{ asset('assets/image/consultant.PNG') }}" />
+                    <img class="image-right-img" src="{{ asset('assets/image/consultant.png') }}" />
                 </div>
                 <div class="col-lg-1 col-md-1 hide-on-mob" >
                 </div>

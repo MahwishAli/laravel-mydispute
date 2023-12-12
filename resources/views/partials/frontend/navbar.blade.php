@@ -67,7 +67,7 @@
         </div>
 
         <div class="">
-            <img src="{{ asset('assets/image/FinalLogo.jpg') }}" style="width: 200px;">
+            <img src="{{ asset('assets/image/FinalLogo.jpg') }}" class="me-logo" style="width: 130px;">
         </div>
 
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar1"

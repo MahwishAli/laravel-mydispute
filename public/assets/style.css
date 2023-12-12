@@ -117,7 +117,10 @@ a.nav-link{
     font-size: 32px;
 }
 
-
+label, p{
+    font-family: 'gotham-light';
+    color: black;
+}
 /* home page */
 
 .welcome-sec h1{
@@ -133,8 +136,8 @@ a.nav-link{
     width: 9.5em;
 }
 .about-sec p, .vision-sec p , .vision-sec ul li{
-    font-size: 21px;
-    font-family: 'garamond';
+    font-size: 17px;
+    font-family: 'gotham-light';
 }
 
 .sec-1 p{
@@ -185,8 +188,8 @@ a.nav-link{
 }
 
 .about_us_page p{
-    font-size: 21px;
-    font-family: 'garamond';
+    font-size: 17px;
+    font-family: 'gotham-light';
 }
 
 div.seperator {
@@ -225,22 +228,6 @@ img.img-about {
     border: 1px solid #c4c4c4;
 }
 
-.col-lg-6.second-image {
-    order: 2;
-}
-
-.col-lg-6.mb-4.second-text {
-    order: 1;
-}
-
-.col-lg-6.forth-image {
-    order: 2;
-}
-
-.col-lg-6.mb-4.forth-text {
-    order: 1;
-}
-
 /* how it works*/
 .how_it_works h2{
     font-family: 'AkzidenzGrotesk', sans-serif;
@@ -248,8 +235,8 @@ img.img-about {
 }
 
 .how_it_works p{
-    font-size: 21px;
-    font-family: 'garamond';
+    font-size: 17px;
+    font-family: 'gotham-light';
 }
 
 .how_it_works .seperator.dispute{
@@ -465,6 +452,7 @@ body h2{
 
     .form-check.mb-3 {
         margin-left: 15px;
+        margin-right: 10px;
     }
 
     .resolution .col-md-6.mb-3 , .resolution .col-md-12.mb-3{
@@ -710,6 +698,7 @@ body h2{
         .container-fluid.navigation {
             --bs-gutter-x: 3rem !important;
         }
+
     }
 
     /* Portrait */
@@ -772,6 +761,22 @@ body h2{
         .btn-div{
             width: 44.666667% !important;
         }
+     
+        .col-lg-6.second-image {
+            order: 2;
+        }
+
+        .col-lg-6.mb-4.second-text {
+            order: 1;
+        }
+
+        .col-lg-6.forth-image {
+            order: 2;
+        }
+
+        .col-lg-6.mb-4.forth-text {
+            order: 1;
+        }
         
     }
 
@@ -802,5 +807,44 @@ body h2{
         .btn-div{
             width: 44.666667% !important;
         }
+        
+        .col-lg-6.second-image {
+            order: 2;
+        }
+
+        .col-lg-6.mb-4.second-text {
+            order: 1;
+        }
+
+        .col-lg-6.forth-image {
+            order: 2;
+        }
+
+        .col-lg-6.mb-4.forth-text {
+            order: 1;
+        }
+        
+    }
+
+    /* Styles for all devices with a screen width up to 767 pixels (typical mobile devices) */
+    @media only screen and (max-width: 767px) {
+        /* Your styles for mobile devices go here */
+        
+        .col-lg-6.second-image {
+            order: 2;
+        }
+
+        .col-lg-6.mb-4.second-text {
+            order: 1;
+        }
+
+        .col-lg-6.forth-image {
+            order: 2;
+        }
+
+        .col-lg-6.mb-4.forth-text {
+            order: 1;
+        }
+
         
     }

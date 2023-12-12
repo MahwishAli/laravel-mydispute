@@ -600,12 +600,12 @@ $(document).ready(function () {
 
   /********************************* Seg Sub Dropdown ******************************************/
 
-  switch (enqtype) {
-    case "postajob":
-      stepcount = 5;
-      stepinterval = Math.round(100 / stepcount);
-      break;
-  }
+  // switch (enqtype) {
+  //   case "postajob":
+  //     stepcount = 5;
+  //     stepinterval = Math.round(100 / stepcount);
+  //     break;
+  // }
 
   //alert(stepinterval);
 

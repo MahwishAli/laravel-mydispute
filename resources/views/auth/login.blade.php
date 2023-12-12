@@ -9,25 +9,18 @@
             <!--Login Block-->
             <div class="block my-5">
                 <h2>Existing Member Sign In</h2>
-                <form method="post" name="frm1" id="frm1" action="/login.php">
-                    <input type="hidden" name="act" id="act" value="sendlogindata" readonly>
-
+                <form method="post" id="frm1" action={{ route("login_user") }}>
+                    @csrf
+                    @if(session()->has('fail'))
+                    <div class="alert alert-danger">{{ session()->get('fail') }}</div>
+                    @endif
                     <!-- For CTA -->
-
                     <div class="logininner_block">
-
-
                         <div class="input_holder">
-                            <input type="email" name="email" id="email" value=""
-                                placeholder="Enter Email">
-
-                            <div class="error_txt"></div>
-
+                            <input type="email" class="" name="email" id="email" value="" placeholder="Enter Email" required>
                         </div>
                         <div class="input_holder">
-                            <input type="password" name="password" placeholder="Enter Password">
-
-                            <div class="error_txt"></div>
+                            <input type="password" class="" name="password" placeholder="Enter Password" required>
                         </div>
                         <ul class="types_block p-0">
                             <li class="">
@@ -42,7 +35,8 @@
                             </li>
                         </ul>
                         <div class="input_holder">
-                            <input type="submit" name="" value="Sign In">
+                            {{-- <button type="submit" class="btn btn-primary" style="background: #006DA7">Sign In</button> --}}
+                            <input type="submit" class="btn btn-primary" style="background: #006DA7" name="" value="Sign In">
                         </div>
                         <div class="input_holder">
                             <a href="/signin/forgotlogin" class="forgot">Forgot Password</a>
@@ -65,12 +59,6 @@
             </div>
             <!--End SignUp Block-->
         </div>
-        <!--Webinar -->
-        <!-- End Webinar -->
-
-
-        <!-- Login Ads -->
-        <!--End Login Ads -->
     </div>
 </div>
 

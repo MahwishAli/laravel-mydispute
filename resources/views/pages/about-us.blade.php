@@ -1,9 +1,7 @@
 @extends('layouts.web')
 
 @section('content')
-<style>
- 
-</style>
+
     <section class="about_us_page pt-5">
         <div class="container my-5" >
             <div class="row justify-content-around mt-2">
@@ -12,7 +10,7 @@
                         <h2 class="fs-1 ">About Us</h2>
                         <div class="seperator"></div>
                     </div>
-                    <p>
+                    <p class="ma">
                         My Dispute Resolution Partner (MyDRP) believes in healthy competition for the evolving nature of justice. MyDRP provides a platform to facilitate dispute resolution and claim management. It provides an effective mean of connecting the dispute initiators (plaintiffs) and provides prospective contract-based jobs for consultants, claim and forensic experts in the field of construction, trade, finance and digital industries.
                     </p>
                     <div class="text-center pt-5 pb-4 rounded shadow-sm"style="background-color: #e9e8e8;">
@@ -41,6 +39,7 @@
                 </div>
             </div>
             <div class="row mb-5 d-flex align-items-center justify-content-center">
+                
                 <div class="col-lg-6 second-image">
                     <img class="img-about" src="{{ asset('assets/image/law.jpg') }}" width="100%" />
                 </div>

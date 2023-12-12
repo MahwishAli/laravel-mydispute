@@ -2,9 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Hash;
+use Session;
+use App\Role;
+use App\Initiator;
+use App\Consultant;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+
 
 class LoginController extends Controller
 {
@@ -33,7 +41,6 @@ class LoginController extends Controller
        
         if (auth()->user()->role_id === 1) {
             // return '/admin/dashboard'; // Redirect admin users to admin dashboard
-
             return route('admin.dashboard');
         } elseif (auth()->user()->role_id === 2) {
             return '/initiator/dashboard'; // Redirect initiator users to initiator dashboard
@@ -51,16 +58,55 @@ class LoginController extends Controller
         // Redirect normal users back to the previous page they were on
     }
 
+    protected function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        $user_type = $request->membertype;
+
+        if ($user_type == "initiator") {
+            $initiator = Initiator::where('email', $request->email)->first();
+
+            if ($initiator && Hash::check($request->password, $initiator->password)) {
+                $request->session()->put('loginId', $initiator->id);
+                return redirect()->route('initiator.dashboard');
+            } else {
+                return redirect()->back()->with('fail', 'Wrong Password');
+            }
+        } elseif ($user_type == "consultant") {
+            $consultant = Consultant::where('email', $request->email)->first();
+
+            if ($consultant && Hash::check($request->password, $consultant->password)) {
+                // Assuming you have a route named 'consultant.dashboard'
+                return redirect()->route('consultant.dashboard');
+            } else {
+                return redirect()->back()->with('fail', 'Wrong Password');
+            }
+        } else {
+            return back()->with('fail', 'The email is not registered');
+        }
+    }
+
+
     public function memberSignUp(){
         return view('auth.member-signup');
     }
 
     public function initiatorSignUp(){
-        return view('auth.initiator-signup');
+
+        $role = Role::where('name', 'initiator')->pluck('id')->first();
+
+        return view('auth.initiator-signup', compact('role'));
     }
 
     public function consultantSignUp(){
-        return view('auth.consultant-signup');
+
+        $role = Role::where('name', 'consultant')->pluck('id')->first();
+
+        return view('auth.consultant-signup', compact('role'));
     }
     /**
      * Create a new controller instance.
