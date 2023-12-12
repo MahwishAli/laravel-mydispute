@@ -93,12 +93,12 @@ adroll_adv_id = "2HOYAY24RNF2RNFLQ7LHMY";
 
     // 7th
 
-    if (self === top) {
-        var antiClickjack = document.getElementById("antiClickjack");
-        antiClickjack.parentNode.removeChild(antiClickjack);
-      } else {
-        top.location = self.location;
-      }
+    // if (self === top) {
+    //     var antiClickjack = document.getElementById("antiClickjack");
+    //     antiClickjack.parentNode.removeChild(antiClickjack);
+    //   } else {
+    //     top.location = self.location;
+    //   }
 
     // for how it works image animation
 

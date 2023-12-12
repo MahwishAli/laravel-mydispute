@@ -41,6 +41,7 @@
                                     <div class="col-md-6 mb-3 d-flex align-items-center">
                                         <label for="companyType" class="form-label col-4">Company Type: <span class="text-danger">*</span></label>
                                         <select class="form-select" id="companyType" name="companyType" required>
+                                            <option value="" disabled selected>Select Company Type</option>
                                             <option value="Construction">Construction</option>
                                             <option value="Finance">Finance</option>
                                             <option value="Trade">Trade</option>
@@ -53,6 +54,7 @@
                                         <div  class="col-md-12 m-0 d-flex align-items-center" >
                                             <label for="industry" class="form-label col-3">Please mention your Specific Industry: <span class="text-danger">*</span></label>
                                             <select class="form-select" id="industry" name="industry" required>
+                                                <option value="" disabled selected>Select Industry</option>
                                                 <option value="Retail">Retail</option>
                                                 <option value="Technology">Technology</option>
                                                 <option value="Healthcare">Healthcare</option>
@@ -103,8 +105,8 @@
                                 <div class="row my-5 mx-2">
                                     <div class="col-md-6 mb-3 d-flex align-items-center">
                                         <label for="industryType" class="form-label col-4">Industry Type: <span class="text-danger">*</span></label>
-                                        <select name="industry_type" id="industry_type" class="form-select industry_type"
-                                            onchange="javascript:getLocation(this.id);">
+                                        <select name="industry_type" id="industry_type" class="form-select industry_type">
+                                            <option value="" disabled selected>Select Industry Type</option>
                                             <option value="">Industry Type</option>
                                             <option value="Construction">Construction</option>
                                             <option value="Financial">Financial</option>
@@ -116,7 +118,7 @@
                                     <div class="col-md-6 mb-3 d-flex align-items-center">
                                         <label for="disputeType" class="form-label col-4">Dispute Type: <span class="text-danger">*</span></label>
                                         <select name="dispute_type" id="dispute_type" class="form-select dispute_type">
-                                            <!-- onchange="javascript:getLocation(this.id);" -->
+                                            <option value="" disabled selected>Select Dispute Type</option>
                                             <option value="">Dispute Type</option>
                                             <option value="Negotiation">Negotiation</option>
                                             <option value="Mediation">Mediation</option>
@@ -134,6 +136,7 @@
                                         <div  class="col-md-12 m-0 d-flex align-items-center" >
                                             <label for="industry" class="form-label col-3">Please mention your Specific Industry: <span class="text-danger">*</span></label>
                                             <select class="form-select" id="industry" name="industry" required>
+                                                <option value="" disabled selected>Select Industry</option>
                                                 <option value="Retail">Retail</option>
                                                 <option value="Technology">Technology</option>
                                                 <option value="Healthcare">Healthcare</option>
@@ -156,7 +159,7 @@
                                     <div class="col-md-6 mb-3 d-flex align-items-center">
                                         <label for="amount" class="form-label col-4">Dispute Amount:</label>
                                         <select name="dispute_amount" id="dispute_amount" class="form-select dispute_amount">
-                                            <option value="">Dispute Amount</option>
+                                            <option value="" disabled selected>Dispute Amount</option>
                                             <option value="1">$0 to $10</option>
                                             <option value="2">$11 to %50</option>
                                             <option value="3">$51 to $100</option>
@@ -208,7 +211,7 @@
                                         <label for="region" class="form-label col-4">Region: <span class="text-danger">*</span></label>
                                         <select name="region" id="region" class="form-select regiondropdn"
                                             onchange="javascript:getLocation(this.id);" required>
-                                            <option value="">Region*</option>
+                                            <option value="" disabled selected>Region*</option>
                                         </select>
                                     </div>
             
@@ -217,7 +220,7 @@
                                         <label for="country" class="form-label col-4">Country:</label>
                                         <select name="country" id="country" class="form-select countrydropdn"
                                             onchange="javascript:getLocation(this.id);">
-                                            <option value="">Country</option>
+                                            <option value="" disabled selected>Country</option>
                                         </select>
                                     </div>
                                     <div class="col-md-12 mb-3 mt-3">
@@ -637,7 +640,7 @@
                                             <label for="attachment" class="file-label">Attach Documents</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 mb-3 mt-1">                              
+                                    <div class="col-md-12 mb-3 mt-1 mx-2">                              
                                         <label class="form-label mt-3">Please select for proposals receiving:</label>
                                 
                                         <div class="form-check mb-3">
@@ -935,7 +938,6 @@
             var countrySelect = document.getElementById('country');
             var regionSelect = document.getElementById('region');
     
-            // Replace 'https://restcountries.com/v3.1/all' with a valid API endpoint
             fetch('https://restcountries.com/v3.1/all')
                 .then(function (response) {
                     return response.json();

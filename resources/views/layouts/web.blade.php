@@ -4,11 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--<meta name="robots" content="noindex">-->
     <meta name="robots" content="noindex">
     <title>My Dispute</title>
     <link href="https://fonts.cdnfonts.com/css/akzidenzgrotesk" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gotham:wght@400&display=swap">
     <link href="{{ asset('css/resource15/reset.css') }}" media="all" rel="stylesheet" type="text/css" />
     {{-- <link href="css/resource15/header_footer.css" media="all" rel="stylesheet" type="text/css" /> --}}
     <link href="{{ asset('css/resource15/individual_form.css') }}" media="all" rel="stylesheet" type="text/css" />
@@ -32,7 +32,18 @@
     <script type="text/javascript" src="{{ asset('jslib/resource15/scroller.js') }}"></script>
     <script type="text/javascript" src="{{ asset('jslib/custom_dropdown.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/script.js') }}"></script>
- 
+    <style>
+
+        @font-face {
+            font-family: 'gotham-light';
+            src: url('{{ asset("assets/fonts/Gotham-Light.otf") }}') format('opentype');
+        }
+        @font-face {
+            font-family: 'gotham-thin';
+            src: url('{{ asset("assets/fonts/Gotham-Thin.otf") }}') format('opentype');
+        }
+
+    </style>
     <script type="application/ld+json">
         {
         "@context": "http://schema.org",
@@ -61,6 +72,7 @@
         ]
         }
     </script>
+
 </head>
 
 <body>
@@ -73,7 +85,7 @@
 
     <script src="{{ asset('js/request_claim.js') }}"></script>
     <script src="{{ asset('js/first_step.js') }}"></script>
-    <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    {{-- <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">

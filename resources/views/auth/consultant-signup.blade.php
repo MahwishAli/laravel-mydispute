@@ -2,6 +2,9 @@
 @section('content')
 <section class="sign_up_consultant pt-5">
     <div class="container my-5">
+          {{-- success msg --}}
+          <div class="alert alert-success" id="success-message" style="display: none">
+        </div>
         <div class="row justify-content-center">
             <div class="col-lg-12 col-md-12 d-flex flex-column align-items-center mb-4">
                 <h1 class="center">Registration Form</h1>
@@ -11,13 +14,17 @@
         </div>
         <div class="row justify-content-center mt-2">
             <div class="col-lg-11 col-md-12 con-signup-form form-all bg-white mb-5">
-                <form action="#" method="post" enctype="multipart/form-data">
+                <form id="add" method="post" >
+
+                    <input type="hidden" id="token" value="{{ @csrf_token() }}">
+                    <input type="hidden" name="role_id" value="{{ $role }}" />
                     <!-- Company Information -->
                     <div class="row my-5 mx-2">
                         <!-- Company Information -->
                         <div class="col-md-6 mb-3">
                             <label for="companyName" class="form-label">Company Name: <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="companyName" name="companyName" required>
+                            <span class="text-danger" id="companyNameMsg"></span>
                         </div>
 
                         <div class="col-md-6 mb-3">
@@ -28,17 +35,37 @@
                                 <option value="Trade">Trade</option>
                                 <option value="Commercial">Commercial</option>
                             </select>
+                            <span class="text-danger" id="companyTypeMsg"></span>
                         </div>
 
                         <!-- Specific Industry (Visible only if Commercial is selected) -->
                         <div id="specificIndustry" class="col-md-12 mb-3" style="display: none;">
-                            <label for="industry" class="form-label">Please mention your Specific Industry: <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="industry" name="industry" required>
+                            <label for="industry" class="form-label">Please mention your specific Industry: <span class="text-danger">*</span></label>
+                            <select class="form-select" id="industry" name="industry">
+                                <option value="" disabled selected>Select Industry</option>
+                                <option value="Retail">Retail</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Manufacturing">Manufacturing</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Real Estate">Real Estate</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Hospitality">Hospitality</option>
+                                <option value="Automotive">Automotive</option>
+                                <option value="Telecommunications">Telecommunications</option>
+                                <option value="Energy">Energy</option>
+                                <option value="Agriculture">Agriculture</option>
+                                <option value="Pharmaceuticals">Pharmaceuticals</option>
+                                <option value="Education">Education</option>
+                                <option value="Consulting">Consulting</option>
+                            </select>
+                            <span class="text-danger" id="industryMsg"></span>
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label for="email" class="form-label">Email Address: <span class="text-danger">*</span></label>
                             <input type="email" class="form-control" id="email" name="email" required>
+                            <span class="text-danger" id="emailMsg"></span>
                         </div>
 
                         <div class="col-md-6 mb-3">
@@ -48,10 +75,14 @@
 
                         <div class="col-md-6 mb-3">
                             <label for="country" class="form-label">Country: <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="country" name="country" required>     
+                            <input type="text" class="form-control" id="country" name="country" required>  
+                            <span class="text-danger" id="countryMsg"></span> 
+   
                             <div class="mt-3">
                                 <label for="phone" class="form-label">Phone No.: <span class="text-danger">*</span></label>
                                 <input type="tel" class="form-control" id="phone" name="phone" required>
+                                <span class="text-danger" id="phoneMsg"></span>
+
                             </div>
                         </div>
                         <!-- Company Documents Attachment -->
@@ -63,44 +94,65 @@
                         </div>
                         <!-- Company Type -->
                         <div class="col-md-6 mb-3">
-                            <label for="companyType" class="form-label">Please Select (one or more as desired): <span class="text-danger">*</span></label>
+                            <label for="companyType" class="form-label">Please select (one or more as desired): <span class="text-danger">*</span></label>
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="consultantFirm" name="companyType[]" value="Consultant Firm" required>
+                                <input class="form-check-input" type="checkbox" id="consultantFirm" name="firm[]" value="Consultant Firm" >
                                 <label class="form-check-label" for="consultantFirm">Consultant Firm</label>
                             </div>
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="lawFirm" name="companyType[]" value="Law Firm" required>
+                                <input class="form-check-input" type="checkbox" id="lawFirm" name="firm[]" value="Law Firm" >
                                 <label class="form-check-label" for="lawFirm">Law Firm</label>
                             </div>
+                            <span class="text-danger mt-1" id="firmMsg"></span>
                         </div>
                         <!-- Industries Catered To -->
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Please Select Industries you cater to: <span class="text-danger">*</span></label>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="constructionIndustry" name="industries[]" value="Construction Industry">
-                                <label class="form-check-label" for="constructionIndustry">Construction Industry</label>
-                            </div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="financeIndustry" name="industries[]" value="Finance Industry">
-                                <label class="form-check-label" for="financeIndustry">Finance Industry</label>
-                            </div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="tradeIndustry" name="industries[]" value="Trade Industry">
-                                <label class="form-check-label" for="tradeIndustry">Trade Industry</label>
-                            </div>
-                            <div class="form-check mb-4">
-                                <input class="form-check-input" type="checkbox" id="commercialIndustry" name="industries[]" value="Commercial Industry">
-                                <label class="form-check-label" for="commercialIndustry">Commercial Industry</label>
+                            <label class="form-label">Please select Industries you cater to: <span class="text-danger">*</span></label>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="constructionIndustry" name="industries[]" value="Construction Industry">
+                                        <label class="form-check-label" for="constructionIndustry">Construction Industry</label>
+                                    </div>
+                                    <div class="form-check mb-2 mt-4">
+                                        <input class="form-check-input" type="checkbox" id="financeIndustry" name="industries[]" value="Finance Industry">
+                                        <label class="form-check-label" for="financeIndustry">Finance Industry</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="tradeIndustry" name="industries[]" value="Trade Industry">
+                                        <label class="form-check-label" for="tradeIndustry">Trade Industry</label>
+                                    </div>
+                                    <div class="form-check mb-4 mt-4">
+                                        <input class="form-check-input" type="checkbox" id="commercialIndustries" name="industries[]" value="Commercial Industry">
+                                        <label class="form-check-label" for="commercialIndustries">Commercial Industry</label>
+                                    </div>
+                                </div>
                             </div>
                             <!-- Select Industry (When Commercial is selected) -->
                             <div id="showCommercialIndustry" style="display: none;">
-                                <label for="selectCommercialIndustry" class="form-label">Please select your industry (When Commercial is selected): <span class="text-danger">*</span></label>
-                                <select class="form-select" id="selectCommercialIndustry" name="selectCommercialIndustry" required>
-                                    <option value="construction">Construction</option>
-                                    <option value="finance">Finance</option>
-                                    <option value="trade">Trade</option>
+                                <label for="selectCommercialIndustry" class="form-label">Please select your industry: <span class="text-danger">*</span></label>
+                                <select class="form-select" id="commercialIndustryType" name="commercialIndustry">
+                                    <option value="" disabled selected>Select Industry</option>
+                                    <option value="Retail">Retail</option>
+                                    <option value="Technology">Technology</option>
+                                    <option value="Healthcare">Healthcare</option>
+                                    <option value="Manufacturing">Manufacturing</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Real Estate">Real Estate</option>
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Hospitality">Hospitality</option>
+                                    <option value="Automotive">Automotive</option>
+                                    <option value="Telecommunications">Telecommunications</option>
+                                    <option value="Energy">Energy</option>
+                                    <option value="Agriculture">Agriculture</option>
+                                    <option value="Pharmaceuticals">Pharmaceuticals</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Consulting">Consulting</option>
                                 </select>
                             </div>
+                            <span class="text-danger" id="commercialIndustryMsg"></span>
                         </div>
                         <!-- Services Provided -->
                         <div class="col-md-12 mb-3 ">
@@ -193,63 +245,79 @@
                                     </div>
                     
                                     <div class="form-check mb-2">
-                                        <input class="form-check-input" type="checkbox" id="specializedServices" name="services[]" value="Specific Specialized Services">
-                                        <label class="form-check-label" for="specializedServices">Specific Specialized Services</label>
+                                        <input class="form-check-input" type="checkbox" id="specializedService" name="services[]" value="Specific Specialized Services">
+                                        <label class="form-check-label" for="specializedService">Specific Specialized Services</label>
                                     </div>
                                     <div id="specializedServicesDis" class="mt-3 ms-3" style="display: none;">
-                                        <textarea type="text" class="form-control" id="industry" name="industry" placeholder="Please mention by writing some of your specific specialized services e.g., Delay Analysis, Chemical Plant Engineering Analysis " required></textarea>
+                                        <textarea type="text" class="form-control" id="specializedServices" name="specializedServices" placeholder="Please mention by writing some of your specific specialized services e.g., Delay Analysis, Chemical Plant Engineering Analysis " ></textarea>
                                     </div>
+                                    <span class="text-danger" id="specializedServiceMsg"></span>
+
                                 </div>
+                                <span class="text-danger" id="servicesMsg"></span>
                             </div>
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label for="" class="form-label">Please describe your services, experience, distinctive qualities, expertise and style of work concisely in the below box: </label>
-                            <textarea class="form-text col-12" rows="8" placeholder="We have been providing experience and evidence-based claim consultancy and dispute resolution services. Our experts have distinguished and in-depth knowledge and experience in providing arbitration, adjudication, expert determination, expert witnessing and quantum services. We carry out court-proven analysis and evaluation for delay and disruption analysis in the construction industry. (This all written but when the person clicks on this box all written above is removed – above only for idea purposes for the person/company to write.  
-                            "></textarea>
+                            <textarea class="form-text col-12" rows="8" name="companydesc" placeholder="We have been providing experience and evidence-based claim consultancy and dispute resolution services. Our experts have distinguished and in-depth knowledge and experience in providing arbitration, adjudication, expert determination, expert witnessing and quantum services. We carry out court-proven analysis and evaluation for delay and disruption analysis in the construction industry. (This all written but when the person clicks on this box all written above is removed – above only for idea purposes for the person/company to write. "></textarea>
                         </div>
 
                         <!-- Payment Options -->
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">We are interested in the following payment options (select as desired):</label>
+                            <label class="form-label">We are interested in the following payment options (select as desired): <span class="text-danger">*</span></label>
 
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="feeBased" name="paymentOption" value="Fee Based only">
+                                <input class="form-check-input" type="checkbox" id="feeBased" name="paymentOption[]" value="Fee Based only">
                                 <label class="form-check-label" for="feeBased">Fee Based only</label>
                             </div>
 
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="feeAndAward" name="paymentOption" value="Fee and Award Percentage Based">
+                                <input class="form-check-input" type="checkbox" id="feeAndAward" name="paymentOption[]" value="Fee and Award Percentage Based">
                                 <label class="form-check-label" for="feeAndAward">Fee and Award Percentage Based</label>
                             </div>
                             
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="awardPercentage" name="paymentOption" value="Award Percentage Based only">
+                                <input class="form-check-input" type="checkbox" id="awardPercentage" name="paymentOption[]" value="Award Percentage Based only">
                                 <label class="form-check-label" for="awardPercentage">Award Percentage Based only</label>
                             </div>
                             <!-- Additional Options for Fee Based -->
                             <div id="feeBasedOptions" class=" mt-4" style="display: none;">
-                                <label class="form-label">Please select one or as desired:</label>
+                                <label class="form-label">Please select one or as desired: <span class="text-danger">*</span></label>
                                 
                                 <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" id="lumpSum" name="feeOption" value="Lump Sum Fee">
+                                    <input class="form-check-input" type="checkbox" id="lumpSum" name="feeOption[]" value="Lump Sum Fee">
                                     <label class="form-check-label" for="lumpSum">Lump Sum Fee</label>
                                 </div>
                                 
                                 <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" id="hourlyBased" name="feeOption" value="Hourly Based Fee">
+                                    <input class="form-check-input" type="checkbox" id="hourlyBased" name="feeOption[]" value="Hourly Based Fee">
                                     <label class="form-check-label" for="hourlyBased">Hourly Based Fee</label>
                                 </div>
                             </div>
+                            <span class="text-danger" id="feeOptionMsg"></span>
                         </div>
-                        
+
+                        <!-- Password -->
+                        <div class="col-md-6 mb-3">
+                            <div class=" mb-2 ">
+                                <label for="password" class="form-label">Password: <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                                <span class="text-danger" id="passwordMsg"></span>
+                            </div>
+
+                            <div class=" mb-2 ">
+                                <label for="conPass" class="form-label">Confirm Password: <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="confirmed" name="password_confirmation" required>
+                                <span class="text-danger" id="confirmedMsg"></span>
+                            </div>
+                        </div>
                         
                         <!-- Agreement and Declaration -->
                         <div class="col-md-6 mb-3">
                             <label class="form-check-label mb-2">Select to submit form:</label>
-                            
                             <div class="form-check mb-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                                <input class="form-check-input" type="checkbox" id="agreeTerms" name="agreeTerms[]" value="terms and conditions" required>
                                 <label class="form-check-label" for="agreeTerms">
                                     <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#termsCondition">
                                         I agree to the terms and conditions
@@ -258,7 +326,7 @@
                             </div>
 
                             <div class="form-check mb-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" id="agreeDisclaimer" name="agreeDisclaimer" required>
+                                <input class="form-check-input" type="checkbox" id="agreeDisclaimer" name="agreeTerms[]" value="terms and Disclaimer" required>
                                 <label class="form-check-label" for="agreeDisclaimer">
                                     <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#disclaimer">
                                         I agree to the terms of the Disclaimer
@@ -267,21 +335,23 @@
                             </div>
                             
                             <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" id="declareAuthentic" name="declareAuthentic" required>
+                                <input class="form-check-input" type="checkbox" id="declareAuthentic" name="agreeTerms[]" value="authentic information" required>
                                 <label class="form-check-label" for="declareAuthentic">I declare that all information provided here is correct and authentic.</label>
                             </div>
                             
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="receivePromotions" name="receivePromotions">
+                                <input class="form-check-input" type="checkbox" id="receivePromotions" name="agreeTerms[]" value="promotional information">
                                 <label class="form-check-label" for="receivePromotions">I want to receive promotional information from MyDRP (optional)</label>
                             </div>
+                            <span class="text-danger mt-2" id="agreeTermsMsg"></span>
+
                         </div>
                     </div>
                     
                     <!-- Submit Button -->
                     <div class="row text-center my-5">
                         <div class="d-grid gap-2 col-6 mx-auto">
-                            <a type="submit" class="btn btn-primary" style="background: #006DA7">Submit</a>
+                            <button type="submit" class="btn btn-primary" style="background: #006DA7">Submit</button>
                         </div>
                     </div>
                 </form>
@@ -383,7 +453,60 @@
             </div>
         </div>
     </div>
-
+    <script>
+        $(document).ready(function(){
+            $("#add").on('submit', function(e){
+                e.preventDefault();
+                
+                $.ajax({
+                    headers: {
+                        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type: "POST",
+                    url: '{{ route("consultant_register") }}',
+                    data: new FormData(this),
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        console.log('success');
+                        // Handle the response message
+                        $('#success-message').show();
+                        $('#success-message').text(response.success);
+                        // Hide the success message after 3 seconds
+                        setTimeout(function() {
+                            $('#success-message').hide();
+                        }, 4000);
+                        // Reset the form
+                        $('#add')[0].reset();
+                    },
+                    error: function(xhr, status, error) {
+                        // // Handle errors if needed
+                        if (xhr.status === 422) {
+                            var errors = xhr.responseJSON.errors;
+                            $('#companyNameMsg').text(xhr.responseJSON.errors.companyName);
+                            $('#companyTypeMsg').text(xhr.responseJSON.errors.companyType);
+                            $('#industryMsg').text(xhr.responseJSON.errors.industry);
+                            $('#emailMsg').text(xhr.responseJSON.errors.email);
+                            $('#countryMsg').text(xhr.responseJSON.errors.country);
+                            $('#phoneMsg').text(xhr.responseJSON.errors.phone);
+                            $('#firmMsg').text(xhr.responseJSON.errors.firm);
+                            $('#industriesMsg').text(xhr.responseJSON.errors.industries);
+                            $('#commercialIndustryMsg').text(xhr.responseJSON.errors.commercialIndustry);
+                            $('#servicesMsg').text(xhr.responseJSON.errors.services);
+                            $('#specializedServiceMsg').text(xhr.responseJSON.errors.specializedServices);
+                            $('#passwordMsg').text(xhr.responseJSON.errors.password);
+                            $('#paymentOptionMsg').text(xhr.responseJSON.errors.paymentOption);
+                            $('#feeOptionMsg').text(xhr.responseJSON.errors.feeOption);
+                            $('#agreeTermsMsg').text(xhr.responseJSON.errors.agreeTerms);
+                        } else {
+                                // Handle other errors
+                                console.log("An error occurred:", error);
+                            }
+                    }
+                });
+            });
+        });
+    </script> 
     <script>
         // Show/hide specific industry field based on Company Type
         document.getElementById('companyType').addEventListener('change', function () {
@@ -391,12 +514,12 @@
             specificIndustry.style.display = (this.value === 'Commercial') ? 'block' : 'none';
         });
         // Show/hide Specific Specialized Services 
-        document.getElementById('specializedServices').addEventListener('change', function () {
+        document.getElementById('specializedService').addEventListener('change', function () {
             var specializedServices = document.getElementById('specializedServicesDis');
             specializedServices.style.display = this.checked ? 'block' : 'none';
         });
         // Show/hide industry list on selecting commercial 
-        document.getElementById('commercialIndustry').addEventListener('change', function () {
+        document.getElementById('commercialIndustries').addEventListener('change', function () {
             var specializedServices = document.getElementById('showCommercialIndustry');
             specializedServices.style.display = this.checked ? 'block' : 'none';
         });

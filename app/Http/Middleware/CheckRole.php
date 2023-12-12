@@ -14,12 +14,16 @@ class CheckRole
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $role)
+    public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role->name == $role) {
-            return $next($request);
-        }
+        // if (Auth::check() && Auth::user()->role->name == $role) {
+        //     return $next($request);
+        // }
 
-        abort(403, 'Unauthorized action.');
+        // abort(403, 'Unauthorized action.');
+        if(!Session()->has('loginId')){
+            return redirect('login')->with('fail','Unauthorized action');
+        }
+        return $next($request);
     }
 }
