@@ -476,6 +476,12 @@
                         setTimeout(function() {
                             $('#success-message').hide();
                         }, 4000);
+
+                         // Scroll to the top of the page
+                        $('html, body').animate({
+                            scrollTop: 0
+                        }, 500);
+
                         // Reset the form
                         $('#add')[0].reset();
                     },

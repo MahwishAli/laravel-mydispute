@@ -13,19 +13,41 @@ Route::group(['namespace' => 'web'], function () {
     Route::get('/faqs', 'PagesController@faqs')->name('faqs');
 });
 
-Auth::routes();
+// Auth::routes();
+Route::get('/login', 'Auth\LoginController@login')->name('login')->middleware('guest');
 Route::get('/member-signup', 'Auth\LoginController@memberSignUp')->name('member_signup');
 Route::get('/initiator-signup', 'Auth\LoginController@initiatorSignUp')->name('initiator_signup');
 Route::get('/consultant-signup', 'Auth\LoginController@consultantSignUp')->name('consultant_signup');
 Route::post('/initiator-register', 'Auth\RegisterController@initiatorRegister')->name('initiator_register');
 Route::post('/consultant-register', 'Auth\RegisterController@consultantRegister')->name('consultant_register');
-Route::post('/login-user', 'Auth\LoginController@login')->name('login_user');
-Route::get('/dashboard', 'Initiator\InitiatorController@dashboard')->name('initiator.dashboard')->middleware('role');
+Route::post('/login-user', 'Auth\LoginController@loginUser')->name('login_user');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => ['role:initiator']], function () {
+Route::group(['prefix' => 'initiator', 'middleware' => ['role:initiator']], function () {
     // Initiator Routes
+    Route::get('/home', 'Initiator\InitiatorController@dashboard')->name('initiator.home');
+    Route::get('/profile', 'Initiator\InitiatorController@dashboard')->name('initiator.profile');
+    Route::get('/free-services', 'Initiator\InitiatorController@dashboard')->name('initiator.freeServices');
+    Route::get('/paid-services', 'Initiator\InitiatorController@dashboard')->name('initiator.paidServices');
+    Route::get('/draft-services', 'Initiator\InitiatorController@dashboard')->name('initiator.draftServices');
+    Route::get('/requirements', 'Initiator\InitiatorController@dashboard')->name('initiator.requirements');
+    Route::get('/shortlisted-consultants', 'Initiator\InitiatorController@dashboard')->name('initiator.shortlistedCon');
+    Route::get('/consultant-applications', 'Initiator\InitiatorController@dashboard')->name('initiator.consultantApp');
+    Route::get('/reviews', 'Initiator\InitiatorController@dashboard')->name('initiator.reviews');
+    Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+});
+
+Route::group(['prefix' => 'consultant',  'middleware' => ['role:consultant']], function () {
+    // consultant Routes
+    Route::get('/home', 'Consultant\ConsultantController@dashboard')->name('consultant.home');
+    Route::get('/profile', 'Consultant\ConsultantController@dashboard')->name('consultant.profile');
+    Route::get('/available-jobs', 'Consultant\ConsultantController@dashboard')->name('consultant.jobs');
+    Route::get('/jobs-applied', 'Consultant\ConsultantController@dashboard')->name('consultant.jobsApp');
+    Route::get('/shortlisted-jobs', 'Consultant\ConsultantController@dashboard')->name('consultant.jobsShortlisted');
+    Route::get('/messages', 'Consultant\ConsultantController@dashboard')->name('consultant.messages');
+    Route::get('/reviews', 'Consultant\ConsultantController@dashboard')->name('consultant.reviews');
+    Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 });
 
 

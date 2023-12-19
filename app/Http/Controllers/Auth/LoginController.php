@@ -58,34 +58,52 @@ class LoginController extends Controller
         // Redirect normal users back to the previous page they were on
     }
 
-    protected function login(Request $request)
+    public function login()
+    {
+        return view('auth/login');
+    }
+
+    protected function loginUser(Request $request)
     {
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
-
+        
         $user_type = $request->membertype;
-
+        
         if ($user_type == "initiator") {
             $initiator = Initiator::where('email', $request->email)->first();
-
-            if ($initiator && Hash::check($request->password, $initiator->password)) {
-                $request->session()->put('loginId', $initiator->id);
-                return redirect()->route('initiator.dashboard');
-            } else {
-                return redirect()->back()->with('fail', 'Wrong Password');
+            if($initiator)
+            {
+                if (Hash::check($request->password, $initiator->password)) {
+                    $request->session()->put('loginId', $initiator->id);
+                    return redirect()->route('initiator.home');;
+                } else {
+                    return back()->with('fail', 'Wrong password.');
+                }
             }
-        } elseif ($user_type == "consultant") {
+            else{
+                return back()->with('fail', 'Email is not registered.');
+            }
+        } 
+        elseif ($user_type == "consultant") {
             $consultant = Consultant::where('email', $request->email)->first();
 
-            if ($consultant && Hash::check($request->password, $consultant->password)) {
-                // Assuming you have a route named 'consultant.dashboard'
-                return redirect()->route('consultant.dashboard');
-            } else {
-                return redirect()->back()->with('fail', 'Wrong Password');
+            if($consultant)
+            {
+                if (Hash::check($request->password, $consultant->password)) {
+                    $request->session()->put('loginId', $consultant->id);
+                    return redirect()->route('consultant.home');;
+                } else {
+                    return back()->with('fail', 'Wrong password.');
+                }
             }
-        } else {
+            else{
+                return back()->with('fail', 'Email is not registered.');
+            }
+        } 
+        else {
             return back()->with('fail', 'The email is not registered');
         }
     }
@@ -116,5 +134,12 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function logout(){
+        if(session()->has('loginId')){
+            session()->pull('loginId');
+            return redirect('login');
+        }
     }
 }
