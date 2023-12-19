@@ -12,15 +12,17 @@
                 <form method="post" id="frm1" action={{ route("login_user") }}>
                     @csrf
                     @if(session()->has('fail'))
-                    <div class="alert alert-danger">{{ session()->get('fail') }}</div>
+                        <div class="alert alert-danger">{{ session()->get('fail') }}</div>
                     @endif
                     <!-- For CTA -->
                     <div class="logininner_block">
                         <div class="input_holder">
-                            <input type="email" class="" name="email" id="email" value="" placeholder="Enter Email" required>
+                            <input type="email" class="" name="email" id="email" value="{{ old('email') }}" placeholder="Enter Email">
+                            <span class="text-danger">@error('email') {{ $message }} @enderror</span>
                         </div>
                         <div class="input_holder">
-                            <input type="password" class="" name="password" placeholder="Enter Password" required>
+                            <input type="password" class="" name="password" placeholder="Enter Password" >
+                            <span class="text-danger">@error('password') {{ $message }} @enderror</span>
                         </div>
                         <ul class="types_block p-0">
                             <li class="">
@@ -61,5 +63,7 @@
         </div>
     </div>
 </div>
-
+<script>
+    
+</script>
 @endsection

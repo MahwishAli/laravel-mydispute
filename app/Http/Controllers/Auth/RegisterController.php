@@ -99,7 +99,6 @@ class RegisterController extends Controller
             'companydesc'       => 'required|string',
             'paymentOption'     => 'required',
             'feeOption'         => (in_array('Fee Based only', $request->input('paymentOption'))) ? 'required' : '',
-
             'agreeTerms'        => ['required','array','size:4', // Ensure exactly 4 checkboxes are selected
                 function ($attribute, $value, $fail) {
                     // Ensure that at least one of the first three checkboxes is selected

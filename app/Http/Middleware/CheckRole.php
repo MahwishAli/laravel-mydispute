@@ -22,7 +22,7 @@ class CheckRole
 
         // abort(403, 'Unauthorized action.');
         if(!Session()->has('loginId')){
-            return redirect('login')->with('fail','Unauthorized action');
+            return redirect('login')->with('fail','Unauthorized! You have to login first.');
         }
         return $next($request);
     }
