@@ -94,6 +94,7 @@ class LoginController extends Controller
             {
                 if (Hash::check($request->password, $consultant->password)) {
                     $request->session()->put('loginId', $consultant->id);
+                    $request->session()->put('companyName', $consultant->companyName);
                     return redirect()->route('consultant.home');;
                 } else {
                     return back()->with('fail', 'Wrong password.');

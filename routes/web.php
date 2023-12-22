@@ -41,12 +41,12 @@ Route::group(['prefix' => 'initiator', 'middleware' => ['role:initiator']], func
 Route::group(['prefix' => 'consultant',  'middleware' => ['role:consultant']], function () {
     // consultant Routes
     Route::get('/home', 'Consultant\ConsultantController@dashboard')->name('consultant.home');
-    Route::get('/profile', 'Consultant\ConsultantController@dashboard')->name('consultant.profile');
-    Route::get('/available-jobs', 'Consultant\ConsultantController@dashboard')->name('consultant.jobs');
-    Route::get('/jobs-applied', 'Consultant\ConsultantController@dashboard')->name('consultant.jobsApp');
-    Route::get('/shortlisted-jobs', 'Consultant\ConsultantController@dashboard')->name('consultant.jobsShortlisted');
-    Route::get('/messages', 'Consultant\ConsultantController@dashboard')->name('consultant.messages');
-    Route::get('/reviews', 'Consultant\ConsultantController@dashboard')->name('consultant.reviews');
+    Route::get('/profile', 'Consultant\ConsultantController@profile')->name('consultant.profile');
+    Route::get('/available-jobs', 'Consultant\ConsultantController@availableJobs')->name('consultant.availjobs');
+    Route::get('/jobs-applied', 'Consultant\ConsultantController@jobsApplied')->name('consultant.jobsApp');
+    Route::get('/shortlisted-jobs', 'Consultant\ConsultantController@shortJobs')->name('consultant.jobsShortlisted');
+    Route::get('/messages', 'Consultant\ConsultantController@messages')->name('consultant.messages');
+    Route::get('/reviews', 'Consultant\ConsultantController@reviews')->name('consultant.reviews');
     Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 });
 
