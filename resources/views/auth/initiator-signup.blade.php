@@ -18,7 +18,6 @@
                 <form id="add" method="post" enctype="multipart/form-data">
 
                     <input type="hidden" id="token" value="{{ @csrf_token() }}">
-                    <input type="hidden" name="role_id" value="{{ $role }}" />
 
                     <!-- Company Information -->
                     <div class="row my-5 mx-2">
