@@ -37,7 +37,7 @@
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     <div class="container tab-pane active mx-2" id="details" role="tabpanel">
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-md-3">
                                                 <label>Company Name</label>
                                             </div>
@@ -45,7 +45,7 @@
                                                 <p>{{ @$consultant->companyName }}</p>
                                             </div>
                                         </div>                                        
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-md-3">
                                                 <label>Company Type</label>
                                             </div>
@@ -53,7 +53,7 @@
                                                 <p>{{ @$consultant->companyType }}</p>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-md-3">
                                                 <label>Address</label>
                                             </div>
@@ -61,7 +61,7 @@
                                                 <p>{{ @$consultant->address }}</p>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-md-3">
                                                 <label>Email</label>
                                             </div>
@@ -69,7 +69,7 @@
                                                 <p>{{ @$consultant->email }}</p>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-md-3">
                                                 <label>Phone</label>
                                             </div>
@@ -77,7 +77,7 @@
                                                 <p>{{ @$consultant->phone }}</p>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-md-3">
                                                 <label>Industries</label>
                                             </div>
@@ -89,7 +89,7 @@
                                                 <p>{{ $industriesString }}</p>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-md-3">
                                                 <label>Region</label>
                                             </div>
@@ -97,7 +97,7 @@
                                                 <p>Asia</p>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-md-3">
                                                 <label>Services</label>
                                             </div>
@@ -187,8 +187,13 @@
                     <div class="col-md-12 ml-auto col-xl-12">
                         <!-- Nav tabs -->
                         <div class="card">
-                            <div class="card-header">
-                                <h3 class="box-title">Change Password</h3>
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <div class="col-10">
+                                    <h3 class="box-title ml-auto">Change Password</h3>
+                                </div>
+                                <div class="col-2 text-right">
+                                    <button type="button" class="btn-close mr-auto" id="cancel"></button>
+                                </div>
                             </div>
                             <div class="card-body">              
                                 <!-- form start -->
@@ -232,6 +237,11 @@
             $('#change-password').show();
         });
 
+        // To show change password section
+        $('#cancel').on('click', function(){
+            $('#change-password').hide();
+        });
+        
         // to show text-danger message 
         $('input[name="busyStatus"]').on('change', function() {
             if ($(this).val() === 'Not Available for Consultancy Work') {

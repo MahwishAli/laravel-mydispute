@@ -7,58 +7,44 @@
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <h1>Dashboard</h1>
-                <div class="col-sm-3 col-12">
-                    <!-- small box -->
-                    <div class="small-box bg-primary">
-                        <div class="inner">
-                            <h3></h3>
-                            <p>Total Jobs</p>
+                <div class="col-md-12 ml-auto col-xl-12">
+                    <!-- Nav tabs -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="container">
+                                <div class="row"> 
+                                    <p><b></b></p>
+                                    <div class="col-md-3">
+                                        <label>Membership Status</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <p>Active/Free</p>
+                                    </div>
+                                </div>
+                                <div class="row"> 
+                                    <div class="col-md-3">
+                                        <label>Membership expiry:</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <p>12/03/2024</p>
+                                    </div>
+                                </div>
+                                <div class="row"> 
+                                    <div class="col-md-3">
+                                        <label>Membership Type: </label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <p>1 month, 3-month, 6-month, 1 year, 2 years, 3 years.</p>
+                                    </div>
+                                </div>
+                                <div class="row"> 
+                                    <div class="col-md-12 my-3 text-center">
+                                        <button type="submit" class="btn btn-primary me-2" id="upgrade">Upgrade Membership</button>
+                                        <button type="submit" class="btn btn-primary ms-2" id="extend">Extend Membership</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="icon">
-                            <i class="fas fa-shopping-bag"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-12">
-                    <!-- small box -->
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            <h3></h3>
-                            <p>Total Available Jobs</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-shopping-bag"></i>
-                        </div>
-                        <a href="{{ route('consultant.availjobs') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-sm-3 col-12">
-                    <!-- small box -->
-                    <div class="small-box bg-success">
-                        <div class="inner">
-                            <h3></h3>
-                            <p>Total Jobs Applied</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        <a href="{{ route('consultant.jobsApp') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-sm-3 col-12">
-                    <!-- small box -->
-                    <div class="small-box bg-warning">
-                        <div class="inner">
-                            <h3></h3>
-                            <p>Total Shortlisted Jobs</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <a href="{{ route('consultant.jobsShortlisted') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>

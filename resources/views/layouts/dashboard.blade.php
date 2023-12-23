@@ -49,8 +49,14 @@
         @include('partials.backend.navbar')
         <!-- /.navbar -->
 
-        <!-- Main Sidebar Container -->
-        @include('partials.backend.consultant-sidebar')
+        <!-- Main Sidebar consultant -->
+        @if(session()->has('role') && session('role') == 3)
+            @include('partials.backend.consultant-sidebar')
+
+         <!-- Main Sidebar initiator -->
+        @elseif(session()->has('role') && session('role') == 2)
+            @include('partials.backend.initiator-sidebar')
+        @endif
 
 
         <!-- Content Wrapper. Contains page content -->
