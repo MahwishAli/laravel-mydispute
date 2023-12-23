@@ -78,6 +78,8 @@ class LoginController extends Controller
             {
                 if (Hash::check($request->password, $initiator->password)) {
                     $request->session()->put('loginId', $initiator->id);
+                    $request->session()->put('role', $initiator->role_id);
+                    $request->session()->put('companyName', $initiator->companyName);
                     return redirect()->route('initiator.home');;
                 } else {
                     return back()->with('fail', 'Wrong password.');
@@ -94,6 +96,8 @@ class LoginController extends Controller
             {
                 if (Hash::check($request->password, $consultant->password)) {
                     $request->session()->put('loginId', $consultant->id);
+                    $request->session()->put('role', $consultant->role_id);
+                    $request->session()->put('companyName', $consultant->companyName);
                     return redirect()->route('consultant.home');;
                 } else {
                     return back()->with('fail', 'Wrong password.');

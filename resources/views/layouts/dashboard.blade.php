@@ -24,12 +24,16 @@
     <link rel="stylesheet" href="{{ asset('plugins/jqvmap/jqvmap.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.css') }}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -45,8 +49,14 @@
         @include('partials.backend.navbar')
         <!-- /.navbar -->
 
-        <!-- Main Sidebar Container -->
-        @include('partials.backend.sidebar')
+        <!-- Main Sidebar consultant -->
+        @if(session()->has('role') && session('role') == 3)
+            @include('partials.backend.consultant-sidebar')
+
+         <!-- Main Sidebar initiator -->
+        @elseif(session()->has('role') && session('role') == 2)
+            @include('partials.backend.initiator-sidebar')
+        @endif
 
 
         <!-- Content Wrapper. Contains page content -->
@@ -100,6 +110,7 @@
     <script src="{{ asset('dist/js/demo.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 
 </html>
