@@ -119,16 +119,16 @@ class LoginController extends Controller
 
     public function initiatorSignUp(){
 
-        $role = Role::where('name', 'initiator')->pluck('id')->first();
+        // $role = Role::where('name', 'initiator')->pluck('id')->first();
 
-        return view('auth.initiator-signup', compact('role'));
+        return view('auth.initiator-signup');
     }
 
     public function consultantSignUp(){
 
-        $role = Role::where('name', 'consultant')->pluck('id')->first();
+        // $role = Role::where('name', 'consultant')->pluck('id')->first();
 
-        return view('auth.consultant-signup', compact('role'));
+        return view('auth.consultant-signup');
     }
     /**
      * Create a new controller instance.
