@@ -31,6 +31,7 @@ a.nav-link{
     color:#262525;
 }
 
+
 @media only screen and (max-width: 1120px) {
     .nav-logo {
         width: 130px!important;
