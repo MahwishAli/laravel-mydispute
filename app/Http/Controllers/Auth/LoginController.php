@@ -112,7 +112,6 @@ class LoginController extends Controller
         }
     }
 
-
     public function memberSignUp(){
         return view('auth.member-signup');
     }

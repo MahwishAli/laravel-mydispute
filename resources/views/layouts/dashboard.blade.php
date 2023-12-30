@@ -32,6 +32,8 @@
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('assets/initiator-style.css') }}">
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
