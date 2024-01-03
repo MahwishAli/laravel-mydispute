@@ -89,9 +89,8 @@ class RegisterController extends Controller
             'companyName'       => 'required|string',
             'companyType'       => 'required|string',
             'industry'          => ($request->input('companyType') == 'Commercial') ? 'required|string' : '',
-            'email'             => 'required|string|email|unique:initiator_registeration',
+            'email'             => 'required|email|unique:initiator_registeration',
             'password'          => 'required|string|confirmed|min:8',
-            'role_id'           => 'required',
             'address'           => 'string',
             'country'           => 'required|string',
             'phone'             => 'required',
@@ -153,9 +152,8 @@ class RegisterController extends Controller
             'companyName'       => 'required|string',
             'companyType'       => 'required|string',
             'industry'          => ($request->input('companyType') == 'Commercial') ? 'required|string' : '',
-            'email'             => 'required|string|email|unique:consultant_registeration',
+            'email'             => 'required|email|unique:consultant_registeration',
             'password'          => 'required|string|confirmed|min:8',
-            'role_id'           => 'required',
             'address'           => 'string',
             'country'           => 'required|string',
             'phone'             => 'required',
@@ -163,16 +161,16 @@ class RegisterController extends Controller
             'companydesc'       => 'required|string',
             'firm'              => 'required',
             'industries'        => 'required',
-            'commercialIndustry'      => (in_array('Commercial Industry', $request->input('industries'))) ? 'required' : '',
-            'services'                => 'required',
-            'specializedServices'     => (in_array('Specific Specialized Services', $request->input('services'))) ? 'required' : '',
-            'paymentOption'           => 'required',
-            'feeOption'               => (in_array('Fee Based only', $request->input('paymentOption'))) ? 'required' : '',
-            'agreeTerms'              => ['required','array','size:4', 
+            'commercialIndustry'    => (in_array('Commercial Industry', $request->input('industries'))) ? 'required' : '',
+            'services'              => 'required',
+            'specializedServices'   => (in_array('Specific Specialized Services', $request->input('services'))) ? 'required' : '',
+            'paymentOption'         => 'required',
+            'feeOption'             => (in_array('Fee Based only', $request->input('paymentOption'))) ? 'required' : '',
+            'agreeTerms'            => ['required','array','size:4', 
                 function ($attribute, $value, $fail) 
                 {
                     if (count(array_intersect($value, ['terms and conditions', 'terms and Disclaimer', 'authentic information'])) < 1) {
-                        $fail('At least one of the first three checkboxes must be selected.');
+                        $fail('First three checkboxes must be selected.');
                     }
                 },
             ],

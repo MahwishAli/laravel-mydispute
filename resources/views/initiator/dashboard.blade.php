@@ -13,8 +13,8 @@
                         <div class="card-body bg-primary rounded-1">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="col-6">
-                                    <h4 class="fw-normal text-white">4</h4>
-                                    <p class="subtitle text-sm text-white mb-0">Closed Requirements</p>
+                                    <h4 class="fw-normal text-white fs-1">4</h4>
+                                    <h5 class="subtitle text-sm text-white mb-0">Closed Requirements</h5>
                                 </div>
                                 <div class="col-4">
                                     <i class="fas fa-speed"></i>
@@ -22,8 +22,8 @@
                             </div>
                         </div>
                         <div class="card-footer py-3 bg-red-light">
-                            <div class="row align-items-center text-primary">
-                                <a href="{{ route('initiator.draftServices') }}" class="d-inline-flex p-0">
+                            <div class="row align-items-center ">
+                                <a href="{{ route('initiator.requirements') }}" class="d-inline-flex p-0 text-primary">
                                     <div class="col-10">
                                     <p class="mb-0">View</p>
                                     </div>
@@ -40,7 +40,7 @@
                         <div class="card-body bg-info rounded-1">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <h4 class="fw-normal text-white">3</h4>
+                                    <h4 class="fw-normal text-white fs-1">3</h4>
                                     <p class="subtitle text-sm text-white mb-0">Current Live</p>
                                 </div>
                                 {{-- <div class="flex-shrink-0 ms-3">
@@ -51,8 +51,8 @@
                             </div>
                         </div>
                         <div class="card-footer py-3 bg-blue-light">
-                            <div class="row align-items-center text-info">
-                                <a href="{{ route('initiator.requirements') }}" class="d-inline-flex p-0">
+                            <div class="row align-items-center">
+                                <a href="{{ route('initiator.requirements') }}" class="d-inline-flex p-0 text-info">
                                     <div class="col-10">
                                     <p class="mb-0">View</p>
                                     </div>
@@ -69,7 +69,7 @@
                         <div class="card-body bg-success rounded-1">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <h4 class="fw-normal text-white">2</h4>
+                                    <h4 class="fw-normal text-white fs-1">2</h4>
                                     <p class="subtitle text-sm text-white mb-0">Draft</p>
                                 </div>
                                 {{-- <div class="flex-shrink-0 ms-3">
@@ -80,8 +80,8 @@
                             </div>
                         </div>
                         <div class="card-footer py-3 bg-primary-light">
-                            <div class="row align-items-center text-success">
-                                <a href="{{ route('initiator.draftServices') }}" class="d-inline-flex p-0">
+                            <div class="row align-items-center ">
+                                <a href="{{ route('initiator.draftServices') }}" class="d-inline-flex p-0 text-success">
                                     <div class="col-10">
                                         <p class="mb-0">View</p>
                                     </div>
