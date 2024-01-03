@@ -15,7 +15,6 @@
         <div class="row justify-content-center mt-2">
             <div class="col-lg-11 col-md-12 con-signup-form form-all bg-white mb-5">
                 <form id="add" method="post" >
-
                     <input type="hidden" id="token" value="{{ @csrf_token() }}">
                     <!-- Company Information -->
                     <div class="row my-5 mx-2">

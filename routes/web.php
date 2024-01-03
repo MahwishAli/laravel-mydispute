@@ -11,6 +11,7 @@ Route::group(['namespace' => 'web'], function () {
     Route::get('/contact-us', 'PagesController@contactUs')->name('contactUs');
     Route::get('/request-resolution-consultancy', 'PagesController@reqResolution')->name('request.resolution');
     Route::get('/faqs', 'PagesController@faqs')->name('faqs');
+    Route::post('dispute-form', 'RequestDisputeController@disputeForm')->name('dispute_form');
 });
 
 // Auth::routes();
