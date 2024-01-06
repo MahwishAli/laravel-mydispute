@@ -29,6 +29,7 @@ Route::group(['prefix' => 'initiator', 'middleware' => ['role:initiator']], func
     // Initiator Routes
     Route::get('/home', 'Initiator\InitiatorController@dashboard')->name('initiator.home');
     Route::get('/profile', 'Initiator\InitiatorController@profile')->name('initiator.profile');
+    Route::post('/change-password', 'Initiator\InitiatorController@changePassword')->name('initiator.changePassword');
     Route::get('/free-services', 'Initiator\InitiatorController@freeServices')->name('initiator.freeServices');
     Route::get('/paid-services', 'Initiator\InitiatorController@paidServices')->name('initiator.paidServices');
     Route::get('/draft-services', 'Initiator\InitiatorController@draftServices')->name('initiator.draftServices');

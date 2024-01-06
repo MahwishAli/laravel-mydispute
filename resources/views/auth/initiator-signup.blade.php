@@ -39,7 +39,7 @@
                             <span class="text-danger" id="companyTypeMsg"></span>
                         </div>
 
-                    <!-- Specific Industry (Visible only if Commercial is selected) -->
+                        <!-- Specific Industry (Visible only if Commercial is selected) -->
                         <div id="specificIndustry" class="col-md-12 mb-3" style="display: none;">
                             <label for="industry" class="form-label">Please mention your Specific Industry: <span class="text-danger">*</span></label>
                             <select class="form-select" id="industry" name="industry">

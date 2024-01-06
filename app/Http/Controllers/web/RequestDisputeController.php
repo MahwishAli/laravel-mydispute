@@ -13,10 +13,10 @@ class RequestDisputeController extends Controller
     public function disputeForm(Request $request){
 
         // dd($request->input('paymentOption'));
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'companyName'       => 'required',
             'companyType'       => 'required',
-            'industry'          => ($request->input('companyType') == 'Commercial') ? 'required|string' : '',
+            'industry'          => ($request->input('companyType') == 'Commercial') ? 'required' : '',
             'email'             => 'required|email',
             'address'           => 'nullable',
             'countryName'       => 'required',
@@ -24,7 +24,7 @@ class RequestDisputeController extends Controller
             'companyDocuments'  => 'nullable',
             'industryType'      => 'required',
             'disputeType'       => 'required',
-            'specificIndustry'  => ($request->input('industryType') == 'Commercial') ? 'required|string' : '',
+            'specificIndustry'  => ($request->input('industryType') == 'Commercial') ? 'required' : '',
             'disputeAmount'     => 'nullable',
             'paymentOption'     => 'required',
             'feeOption'         => ($request->input('paymentOption') && in_array('Fee Based only', $request->input('paymentOption'))) ? 'required' : '',
@@ -62,9 +62,9 @@ class RequestDisputeController extends Controller
             ],
         ]);
 
-        // if ($validator->fails()) {
-        //     return response()->json(['errors' => $validator->errors()], 422);
-        // }
+        if ($validator->fails()) {
+            return back()->with('fail', 'Fill the form carefully! Required fields are missing')->withErrors($validator)->withInput();
+        }
 
         // Add the paymentOption to the request data
         $request->merge(['paymentOption' => json_encode($request->paymentOption)]);
@@ -90,8 +90,11 @@ class RequestDisputeController extends Controller
         // Store the form data in the database
         $disputeData = RequestDispute::create($request->all());
 
-        // You can return a response or redirect to another page
-        return back()->with('success', 'Data submitted successfully!');
-
+        if($disputeData){
+            return back()->with('success', 'Data submitted successfully!');
+        }
+        else{
+            return back()->with('fail', 'Fill the form carefully!')->withErrors($validator)->withInput();
+        }
     }
 }

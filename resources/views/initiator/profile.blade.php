@@ -181,21 +181,27 @@
                             </div>
                             <div class="card-body">              
                                 <!-- form start -->
-                                <form role="form" method="post">
+                                <form role="form" method="post" id="add">
+                                    @csrf
+                                    {{-- <input type="hidden" id="token" value="{{ @csrf_token() }}"> --}}
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <label>Password</label>
-                                            <input type="password" class="form-control"  placeholder="Enter Password" name="password" >
+                                            <label for="current_password" class="form-label">Current Password</label>
+                                            <input type="password" class="form-control" placeholder="Enter Current Password" name="current_password">
                                         </div>
                                         <div class="form-group">
-                                            <label>Confirm Password</label>
-                                            <input type="password" class="form-control"  placeholder="Renter Password" name="password_confirmation">
+                                            <label class="form-label">New Password</label>
+                                            <input type="password" class="form-control" placeholder="Enter New Password" name="new_password" >
                                         </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Confirm New Password</label>
+                                            <input type="password" class="form-control" placeholder="Renter New Password" name="new_password_confirmation">
+                                        </div>
+                                        <span class="text-danger" id="newPassword"></span>
                                     </div>
                                     <!-- /.box-body -->
                                     <div class="box-footer text-center">
                                         <button type="submit" class="btn btn-primary">Update</button>
-                                        {{-- <button type="submit" href="#" class="btn btn-primary ms-2" id="cancel">Cancel</button> --}}
                                     </div>
                                 </form>
                             </div>
@@ -237,4 +243,38 @@
         });
     });
 </script>
+<script>
+    $(document).ready(function(){
+        $("#add").on('submit', function(e){
+            e.preventDefault();
+            
+            $.ajax({
+                type: "POST",
+                url: '{{ route("initiator.changePassword") }}',
+                data: new FormData(this),
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    console.log('success');
+                    // Handle the response message
+                    // $('#success-message').show();
+                    // $('#success-message').text(response.success);
+                    // Hide the success message after 3 seconds
+                    // setTimeout(function() {
+                    //     $('#success-message').hide();
+                    // }, 4000);
+                },
+                error: function(xhr, status, error) {
+                    if (xhr.status === 422) {
+                        var errors = xhr.responseJSON.errors;
+                        $('#newPassword').text(xhr.responseJSON.errors.new_password);
+                    } else {
+                            // Handle other errors
+                            console.log("An error occurred:", error);
+                        }
+                }
+            });
+        });
+    });
+    </script>   
 @endsection

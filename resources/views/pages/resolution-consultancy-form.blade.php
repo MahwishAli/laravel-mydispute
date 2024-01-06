@@ -3,6 +3,9 @@
 <section class="resolution pt-5">
     <div class="container my-5" >
         {{-- <div class="alert alert-success" id="success-message" style="display: none"></div> --}}
+        @if(session()->has('fail'))
+        <div class="alert alert-danger">{{ session()->get('fail') }}</div>
+        @endif
         @if(session()->has('success'))
             <div class="alert alert-success">{{ session()->get('success') }}</div>
         @endif
@@ -198,17 +201,17 @@
                                     <div class="col-md-12 mb-3 mt-3" id="feeBasedhide">
                                         <label for="companyType" class="form-label">Select Dispute Resolution Partner Type (select as many options as desired): <span class="text-danger">*</span></label>
                                         <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="feeBased" name="paymentOption[]" value="Fee Based only">
+                                            <input class="form-check-input" type="checkbox" id="feeBased" name="paymentOption[]" value="Fee Based only"  {{ in_array('Fee Based only', old('paymentOption', [])) ? 'checked' : '' }}>
                                             <label class="form-check-label" for="feeBased">Fee Based only</label>
                                         </div>
             
                                         <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="feeAndAward" name="paymentOption[]" value="Fee and Award Percentage Based">
+                                            <input class="form-check-input" type="checkbox" id="feeAndAward" name="paymentOption[]" value="Fee and Award Percentage Based" {{ in_array('Fee and Award Percentage Based', old('paymentOption', [])) ? 'checked' : '' }}>
                                             <label class="form-check-label" for="feeAndAward">Fee and Award Percentage Based</label>
                                         </div>
                                         
                                         <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="awardPercentage" name="paymentOption[]" value="Award Percentage Based only">
+                                            <input class="form-check-input" type="checkbox" id="awardPercentage" name="paymentOption[]" value="Award Percentage Based only" {{ in_array('Award Percentage Based only', old('paymentOption', [])) ? 'checked' : '' }}>
                                             <label class="form-check-label" for="awardPercentage">Award Percentage Based only</label>
                                         </div>
                                         <span class="text-danger">@error('paymentOption') {{ $message }} @enderror</span>
@@ -220,12 +223,14 @@
                                             <label class="form-label">Please select one or as desired: <span class="text-danger">*</span></label>
                                             
                                             <div class="form-check mb-2">
-                                                <input class="form-check-input" type="checkbox" id="lumpSum" value="{{ old('feeOption') }}" name="feeOption[]" value="Lump Sum Fee">
+                                                <input class="form-check-input" type="checkbox" id="lumpSum" name="feeOption[]" value="Lump Sum Fee" 
+                                                {{ in_array('Lump Sum Fee', old('feeOption', [])) ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="lumpSum">Lump Sum Fee</label>
                                             </div>
                                             
                                             <div class="form-check mb-2">
-                                                <input class="form-check-input" type="checkbox" id="hourlyBased" value="{{ old('feeOption') }}"  name="feeOption[]" value="Hourly Based Fee">
+                                                <input class="form-check-input" type="checkbox" id="hourlyBased" name="feeOption[]" value="Hourly Based Fee"
+                                                {{ in_array('Hourly Based Fee', old('feeOption', [])) ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="hourlyBased">Hourly Based Fee</label>
                                             </div>
                                         </div>
@@ -259,12 +264,13 @@
                                     <div class="col-md-12 mb-3 mt-3">
                                         <label for="companyregister" class="form-label">Due to the sensitivity of data, you can post the Dispute Details as: <span class="text-danger">*</span></label>
                                         <div class="form-check mb-2">
-                                            <input class="form-check-input" type="radio" id="companyReg" name="disputeDetail" value="Company Registered">
+                                            <input class="form-check-input" type="radio" id="companyReg" name="disputeDetail" value="Company Registered" {{ old('disputeDetail') == 'Company Registered' ? 'checked' : '' }}>
                                             <label class="form-check-label" for="feeBased">The Company Registered</label>
                                         </div>
             
                                         <div class="form-check mb-2">
-                                            <input class="form-check-input" type="radio" id="anonymous" name="disputeDetail" value="Anonymous">
+                                            <input class="form-check-input" type="radio" id="anonymous" name="disputeDetail" value="Anonymous" 
+                                            {{ old('disputeDetail') == 'Anonymous' ? 'checked' : '' }}>
                                             <label class="form-check-label" for="feeAndAward">Anonymous</label>
                                         </div>
                                         <span class="text-danger">@error('disputeDetail') {{ $message }} @enderror</span>
@@ -294,12 +300,12 @@
                                     <div class="col-md-12 mb-3" >
                                         <label for="companyType" class="form-label">Please select Option for Free posting and receiving of proposals in which only our paid members can see your Dispute Details or Select the Paid Service by MyDRP to receive a list of Dispute Resolution and Claim Consultants best suiting your dispute requirements.</label>
                                         <div class="form-check mb-2">
-                                            <input class="form-check-input" type="radio" id="paid_service" name="serviceType" value="paid_service" onclick="toggleButtons();" value="{{ old('serviceType') }}" >
+                                            <input class="form-check-input" type="radio" id="paid_service" name="serviceType" value="paid_service" onclick="toggleButtons();" >
                                             <label class="form-check-label" for="">Paid Service</label>
                                         </div>
             
                                         <div class="form-check mb-2">
-                                            <input class="form-check-input" type="radio" id="free_service" name="serviceType" value="free" onclick="toggleButtons();" value="{{ old('serviceType') }}" >
+                                            <input class="form-check-input" type="radio" id="free_service" name="serviceType" value="free" onclick="toggleButtons();" >
                                             <label class="form-check-label" for="">Free</label>
                                         </div>
                                     </div>
@@ -691,7 +697,8 @@
                                         </div>
 
                                         <div class="form-check mb-3 d-flex align-items-center">
-                                            <input class="form-check-input" type="checkbox" name="proposalReceiving[]" value="terms and conditions" required>
+                                            <input class="form-check-input" type="checkbox" name="proposalReceiving[]" value="terms and conditions"
+                                            {{ in_array('terms and conditions', old('proposalReceiving', [])) ? 'checked' : '' }} required>
                                             <label class="form-check-label" for="disclaimer">
                                                 <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#termsCondition">
                                                     I agree to the terms and conditions
@@ -700,7 +707,8 @@
                                         </div>                                        
                                         
                                         <div class="form-check mb-3 d-flex align-items-center">
-                                            <input class="form-check-input" type="checkbox" name="proposalReceiving[]" value="terms and Disclaimer" required>
+                                            <input class="form-check-input" type="checkbox" name="proposalReceiving[]" value="terms and Disclaimer"
+                                            {{ in_array('terms and conditions', old('proposalReceiving', [])) ? 'checked' : '' }} required>
                                             <label class="form-check-label" for="disclaimer">
                                                 <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#disclaimer">
                                                     I agree to the terms of the Disclaimer
@@ -709,7 +717,8 @@
                                         </div>
                                 
                                         <div class="form-check mb-3">
-                                            <input class="form-check-input" type="checkbox" id="genuineDeclaration" name="proposalReceiving[]" value="requirement is genuine" required>
+                                            <input class="form-check-input" type="checkbox" id="genuineDeclaration" name="proposalReceiving[]" value="requirement is genuine" 
+                                            {{ in_array('terms and conditions', old('proposalReceiving', [])) ? 'checked' : '' }} required>
                                             <label class="form-check-label" for="genuineDeclaration">I declare that my dispute resolution requirement is genuine, and all the information provided here is correct and authentic</label>
                                         </div>
 
@@ -864,15 +873,62 @@
         });
 
         // Show/hide specific industry field based on Company Type
-        document.getElementById('companyType').addEventListener('change', function () {
-            var specificIndustry = document.getElementById('specificIndustry');
-            specificIndustry.style.display = (this.value === 'Commercial') ? 'block' : 'none';
-        });
+        document.addEventListener('DOMContentLoaded', function () {
 
+            var reloadCount = parseInt(sessionStorage.getItem('reloadCountIndustry')) || 0;
+            sessionStorage.setItem('reloadCountIndustry', reloadCount + 1);
+
+            // Load visibility state from sessionStorage
+            var specificIndustryState = sessionStorage.getItem('specificIndustryState');
+            if (specificIndustryState === 'visible') {
+                document.getElementById('specificIndustry').style.display = 'block';
+            }
+
+            document.getElementById('companyType').addEventListener('change', function () {
+                var specificIndustry = document.getElementById('specificIndustry');
+                specificIndustry.style.display = (this.value === 'Commercial') ? 'block' : 'none';
+                // Save visibility state to sessionStorage
+                sessionStorage.setItem('specificIndustryState', this.value === 'Commercial' ? 'visible' : 'hidden');
+            });
+
+            // Clear sessionStorage when the page is reloaded for the second time
+            window.addEventListener('beforeunload', function () {
+
+                // Remove 'anonymousShowState' from sessionStorage only on the second reload
+                if (reloadCount === 1) {
+                    sessionStorage.removeItem('specificIndustryState');
+                    sessionStorage.removeItem('reloadCountIndustry');
+                }
+            });
+        });
+       
         // Show/hide specific industry field based on Industry Type
-        document.getElementById('industry_type').addEventListener('change', function () {
-            var specificIndustryType = document.getElementById('specificIndustryType');
-            specificIndustryType.style.display = (this.value === 'Commercial') ? 'block' : 'none';
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var reloadCount = parseInt(sessionStorage.getItem('reloadCountSpecInd')) || 0;
+            sessionStorage.setItem('reloadCountSpecInd', reloadCount + 1);
+
+            // Load visibility state from sessionStorage
+            var industryTypeState = sessionStorage.getItem('industryTypeState');
+            if (industryTypeState === 'visible') {
+                document.getElementById('specificIndustryType').style.display = 'block';
+            }
+
+            document.getElementById('industry_type').addEventListener('change', function () {
+                var specificIndustryType = document.getElementById('specificIndustryType');
+                specificIndustryType.style.display = (this.value === 'Commercial') ? 'block' : 'none';
+                sessionStorage.setItem('industryTypeState', this.value === 'Commercial' ? 'visible' : 'hidden');
+            });
+
+            // Clear sessionStorage when the page is reloaded for the second time
+            window.addEventListener('beforeunload', function () {
+
+                // Remove 'anonymousShowState' from sessionStorage only on the second reload
+                if (reloadCount === 1) {
+                    sessionStorage.removeItem('industryTypeState');
+                    sessionStorage.removeItem('reloadCountSpecInd');
+                }
+            });
         });
 
         // Show/hide form based on expert determination
@@ -887,30 +943,48 @@
         });
 
         // Show/hide Fee Based options based on payment options
-        document.getElementById('feeBased').addEventListener('change', function () {
-            var feeBasedOptions = document.getElementById('feeBasedOptions');
-            feeBasedOptions.style.display = this.checked ? 'block' : 'none';
+        document.getElementById('feeAndAward').addEventListener('change', function () {
+            var feeBasedOptions = document.getElementById('feeAwardshow');
+            feeBasedOptions.style.display = this.checked ? 'flex' : 'none';
         });
 
-        // show/hide percentage box based on fee & award 
+        // show/hide fee award box based on fee & award 
         document.addEventListener('DOMContentLoaded', function () {
+
+            var reloadCount = parseInt(sessionStorage.getItem('reloadCountAward')) || 0;
+            sessionStorage.setItem('reloadCountAward', reloadCount + 1);
+
             // Load visibility state from sessionStorage
-            var feeAwardshowState = sessionStorage.getItem('feeAwardshowState');
-            if (feeAwardshowState === 'visible') {
-                document.getElementById('feeAwardshow').style.display = 'block';
+            var feeBasedOptionsState = sessionStorage.getItem('feeBasedOptionsState');
+            if (feeBasedOptionsState === 'visible') {
+                document.getElementById('feeBasedOptions').style.display = 'block';
             }
 
-            document.getElementById('feeAndAward').addEventListener('change', function() {
-                var feeAward = document.getElementById('feeAwardshow');
-                feeAward.style.display = this.checked ? 'flex' : 'none';
+            document.getElementById('feeBased').addEventListener('change', function() {
+                var feeBasedOptions = document.getElementById('feeBasedOptions');
+                feeBasedOptions.style.display = this.checked ? 'block' : 'none';
 
                 // Save visibility state to sessionStorage
-                sessionStorage.setItem('anonymousShowState', this.value === 'Anonymous' ? 'visible' : 'hidden');
+                sessionStorage.setItem('feeBasedOptionsState', this.value === 'Fee Based only' ? 'visible' : 'hidden');
+            });
+
+            // Clear sessionStorage when the page is reloaded for the second time
+            window.addEventListener('beforeunload', function () {
+            
+                // Remove 'anonymousShowState' from sessionStorage only on the second reload
+                if (reloadCount === 1) {
+                    sessionStorage.removeItem('feeBasedOptionsState');
+                    sessionStorage.removeItem('reloadCountAward');
+                }
             });
         });
 
-        // show/hide email fields based on anonymous
+        // show/hide anonymous email fields based on anonymous
         document.addEventListener('DOMContentLoaded', function () {
+
+            var reloadCount = parseInt(sessionStorage.getItem('reloadCountAnonymous')) || 0;
+            sessionStorage.setItem('reloadCountAnonymous', reloadCount + 1);
+
             // Load visibility state from sessionStorage
             var anonymousShowState = sessionStorage.getItem('anonymousShowState');
             if (anonymousShowState === 'visible') {
@@ -926,8 +1000,18 @@
                     sessionStorage.setItem('anonymousShowState', this.value === 'Anonymous' ? 'visible' : 'hidden');
                 });
             });
+
+            // Clear sessionStorage when the page is reloaded for the second time
+            window.addEventListener('beforeunload', function () {
+            
+                // Remove 'anonymousShowState' from sessionStorage only on the second reload
+                if (reloadCount === 1) {
+                    sessionStorage.removeItem('anonymousShowState');
+                    sessionStorage.removeItem('reloadCountAnonymous');
+                }
+            });
         });
-        
+
         // Display pages on the basis of selecting the industry type
         document.getElementById('industry_type').addEventListener('change', function() {
             var industryType = document.getElementById('industry_type').value;
@@ -1059,6 +1143,20 @@
             var regionSelect = document.getElementById(id);
             // Your getLocation function logic here
         }
+
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the error message element
+            var errorMessage = document.querySelector('.alert');
+
+            // Check if the error message element exists
+            if (errorMessage) {
+                // Set a timeout to hide the error message after 3000 milliseconds (3 seconds)
+                setTimeout(function () {
+                    errorMessage.style.display = 'none';
+                }, 4000);
+            }
+        });
     </script>
 
 </section> 
