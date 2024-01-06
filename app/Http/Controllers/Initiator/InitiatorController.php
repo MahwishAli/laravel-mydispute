@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Initiator;
 use App\Initiator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class InitiatorController extends Controller
 {
@@ -22,6 +24,37 @@ class InitiatorController extends Controller
             $initiator = Initiator::where('id', session()->get('loginId'))->first();
         }
         return view('initiator.profile', compact('initiator'))->with('role');
+    }
+
+    public function changePassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'current_password' => 'required|string',
+            'new_password' => 'required|confirmed|min:8|string'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+        $initiator = Initiator::where('id', session()->get('loginId'))->first();
+        // $auth = Auth::user();
+ 
+        // // The passwords matches
+        if (!Hash::check($request->get('current_password'), $initiator->password)) 
+        {
+            return response()->json('error', "Current Password is Invalid");
+        }
+ 
+        // // Current password and new password same
+        // if (strcmp($request->get('current_password'), $request->new_password) == 0) 
+        // {
+        //     return redirect()->back()->with("error", "New Password cannot be same as your current password.");
+        // }
+ 
+        // $user =  User::find($auth->id);
+        // $user->password =  Hash::make($request->new_password);
+        // $user->save();
+        // return back()->with('success', "Password Changed Successfully");
     }
 
     public function freeServices()
