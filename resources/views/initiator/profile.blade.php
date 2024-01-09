@@ -152,10 +152,14 @@
                                         </div>
                                     </div>
                                     <div class="container tab-pane" id="account" role="tabpanel">
-                                        <form action="#" method="post">
+                                        <div class="alert alert-success" id="profile-delete-message" style="display: none">
+                                        </div> 
+                                        <form method="post" id="profileDelete">
+                                            @csrf
                                             <div class="col-lg-12 col-md-12">
                                                 <p>Please provide reason for deleting your account:</p>
                                                 <textarea type="text" rows="8" class="form-control" id="reason" name="reason" placeholder=""></textarea>
+                                                <span class="text-danger" id="required"></span>
                                             </div>
                                             <div class="col-md-12 my-3 text-center">
                                                 <button type="submit" class="btn btn-primary" >Submit</button>
@@ -179,25 +183,29 @@
                                     <button type="button" class="btn-close mr-auto" id="cancel"></button>
                                 </div>
                             </div>
-                            <div class="card-body">              
+                            <div class="card-body">
+                                <div class="alert alert-success" id="success-message" style="display: none">
+                                </div>              
                                 <!-- form start -->
                                 <form role="form" method="post" id="add">
                                     @csrf
                                     {{-- <input type="hidden" id="token" value="{{ @csrf_token() }}"> --}}
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <label for="current_password" class="form-label">Current Password</label>
-                                            <input type="password" class="form-control" placeholder="Enter Current Password" name="current_password">
+                                            <label for="current_password" class="form-label">Old Password</label>
+                                            <input type="password" class="form-control" placeholder="Enter old Password" name="current_password">
+                                            <span class="text-danger" id="oldPassword"></span>
                                         </div>
                                         <div class="form-group">
                                             <label class="form-label">New Password</label>
-                                            <input type="password" class="form-control" placeholder="Enter New Password" name="new_password" >
+                                            <input type="password" class="form-control" placeholder="Enter new Password" name="new_password" required>
                                         </div>
                                         <div class="form-group">
                                             <label class="form-label">Confirm New Password</label>
-                                            <input type="password" class="form-control" placeholder="Renter New Password" name="new_password_confirmation">
+                                            <input type="password" class="form-control" placeholder="Re-nter new Password" name="new_password_confirmation" required>
                                         </div>
                                         <span class="text-danger" id="newPassword"></span>
+                                        <span class="text-danger" id="samePassword"></span>
                                     </div>
                                     <!-- /.box-body -->
                                     <div class="box-footer text-center">
@@ -213,13 +221,12 @@
     <!-- /.content -->
 </div>
 <style>
-.profile .form-check-input[type=radio] {
-    border-color: grey;
-}
-.profile .form-check.mb-2 {
-    margin-left: 15px;
-}
-
+    .profile .form-check-input[type=radio] {
+        border-color: grey;
+    }
+    .profile .form-check.mb-2 {
+        margin-left: 15px;
+    }
 </style>
 <script>
     $(document).ready(function() {
@@ -244,9 +251,15 @@
     });
 </script>
 <script>
+    // change password
     $(document).ready(function(){
         $("#add").on('submit', function(e){
             e.preventDefault();
+
+             // Clear previous error messages
+            $('#samePassword').text('');
+            $('#oldPassword').text('');
+            $('#newPassword').text('');
             
             $.ajax({
                 type: "POST",
@@ -256,25 +269,61 @@
                 processData: false,
                 success: function(response) {
                     console.log('success');
-                    // Handle the response message
-                    // $('#success-message').show();
-                    // $('#success-message').text(response.success);
+                    $('#success-message').show();
+                    $('#success-message').text(response.success);
                     // Hide the success message after 3 seconds
-                    // setTimeout(function() {
-                    //     $('#success-message').hide();
-                    // }, 4000);
+                    setTimeout(function() {
+                        $('#success-message').hide();
+                    }, 4000);
+                    $('#add')[0].reset();
                 },
                 error: function(xhr, status, error) {
-                    if (xhr.status === 422) {
-                        var errors = xhr.responseJSON.errors;
+                    console.log(error);
+                    if(xhr.status === 422){
+                        $('#samePassword').text(xhr.responseJSON.samePassword);
+                        $('#oldPassword').text(xhr.responseJSON.error);
                         $('#newPassword').text(xhr.responseJSON.errors.new_password);
                     } else {
-                            // Handle other errors
-                            console.log("An error occurred:", error);
-                        }
+                        // Handle other errors
+                        console.log("An error occurred:", error);
+                    }
                 }
             });
         });
     });
-    </script>   
+
+    // delete profile
+    $(document).ready(function(){
+        $("#profileDelete").on('submit', function(e){
+            e.preventDefault();
+            
+            $.ajax({
+                type: "POST",
+                url: '{{ route("initiator.profileDelete") }}',
+                data: new FormData(this),
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    $('#profile-delete-message').show();
+                    $('#profile-delete-message').text(response.success);
+                    // Hide the success message after 3 seconds
+                    setTimeout(function() {
+                        $('#profile-delete-message').hide();
+                    }, 4000);
+                    $('#profileDelete')[0].reset();
+                },
+                error: function(xhr, status, error) 
+                {
+                    if(xhr.status === 422){
+                        $('#required').text(xhr.responseJSON.errors.reason);
+                    } else {
+                        // Handle other errors
+                        console.log("An error occurred:", error);
+                    }
+                }
+            });
+        });
+    });
+</script>
+   
 @endsection
