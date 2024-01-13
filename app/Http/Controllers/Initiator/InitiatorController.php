@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Initiator;
 
 use App\Initiator;
 use App\ProfileDelete;
+use App\Privacy;
+use App\Guidance;
+use App\Feedback;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -77,13 +80,77 @@ class InitiatorController extends Controller
             'reason' => $request->input('reason'),
         ]);
         
-        // Soft delete the user
         // Dispatch the delayed soft deletion job
-        DelayedInitiatorSoftDeletion::dispatch($initiator->id)->delay(now()->addHour());
-
-        // $initiator->delete();
+        // where('created_at', '<', Carbon::now()->subMinutes(20))->delete();
+        DelayedInitiatorSoftDeletion::dispatch($initiator->id)->delay(now()->addMinutes(30));
 
         return response()->json(['success' => 'Request sent successfully! Your profile will be deleted after 1 hour']); 
+    }
+
+    public function privacyDetails(Request $request)
+    {    
+        // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'contact_details' => 'required',
+            'unsubscribe' => 'nullable',
+            'busy_status' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        $initiator = Initiator::where('id', session()->get('loginId'))->first();
+        $privacyDetail = Privacy::where('user_id', $initiator->id)->first();
+
+        if($privacyDetail){
+            $privacyDetail->update($request->all());
+        }
+        else{
+            Privacy::create(array_merge($request->all(), [
+                'user_id' => $initiator->id,
+            ]));
+        }
+
+        return response()->json(['success'=>'Privacy details updated successfully!']); 
+    }
+
+    public function guidance(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'query' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        $initiator = Initiator::where('id', session()->get('loginId'))->first();
+        Guidance::create(array_merge($request->all(), [
+                'user_id' => $initiator->id,
+            ]));
+
+        return response()->json(['success'=>'Your query submitted successfully!']); ;
+
+    }
+
+    public function feedback(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'feedback' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        $initiator = Initiator::where('id', session()->get('loginId'))->first();
+        Feedback::create(array_merge($request->all(), [
+                'user_id' => $initiator->id,
+            ]));
+
+        return response()->json(['success'=>'Your feedback submitted successfully!']); ;
+
     }
 
     public function freeServices()

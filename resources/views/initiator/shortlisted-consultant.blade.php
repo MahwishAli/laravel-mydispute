@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row ">
-                                <div class="col-12 col-sm-12 col-lg-12 d-flex align-items-start border-bottom pb-4 mb-4">
+                                <div class="col-12 col-sm-12 col-lg-12 d-flex align-items-start pb-4 mb-4">
                                     <table class="table">
                                         <thead>
                                             <tr>

@@ -48,7 +48,7 @@
                                 <div class="row"> 
                                     <div class="col-md-12 my-2 text-center">
                                         <button type="submit" class="btn btn-primary ms-2" id="consultants-list">View MyDRP provided list of consultants</button>
-                                        <button type="submit" class="btn btn-primary ms-2" id="guidance">Request further guidance</button>
+                                        <button type="submit" class="btn btn-primary ms-2" id="guidance" data-toggle="modal" data-target="#exampleModal">Request further guidance</button>
                                     </div>
                                 </div>
                                 <div class="row"> 
@@ -68,4 +68,71 @@
     </section>
     <!-- /.content -->
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ask a Question</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="alert alert-success mx-3" id="req-guidance-submit" style="display: none">
+            </div> 
+            <form method="post" id="add">
+                @csrf
+                <div class="modal-body">
+                    <div class="col-lg-12 col-md-12">
+                        <h6>Ask a question & get help from our Support Team</h6>
+                        <textarea type="text" rows="8" class="form-control" id="query" name="query" placeholder="Write a question...."></textarea>
+                        <span class="text-danger" id="query-message"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+// request guidance form
+    $(document).ready(function(){
+        $("#add").on('submit', function(e){
+            e.preventDefault();
+
+            // Clear previous error messages
+            $('#query').text('');
+            
+            $.ajax({
+                type: "POST",
+                url: '{{ route("initiator.guidance") }}',
+                data: new FormData(this),
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    $('#req-guidance-submit').show();
+                    $('#req-guidance-submit').text(response.success);
+                    // Hide the success message after 3 seconds
+                    setTimeout(function() {
+                        $('#req-guidance-submit').hide();
+                    }, 4000);
+                    $('#add')[0].reset();
+                    location.reload();
+                },
+                error: function(xhr, status, error) {
+                    if(xhr.status === 422){
+                        $('#query-message').text(xhr.responseJSON.errors.query);
+                    } else {
+                        // Handle other errors
+                        console.log("An error occurred:", error);
+                    }
+                }
+            });
+        });
+    });
+</script>
 @endsection
