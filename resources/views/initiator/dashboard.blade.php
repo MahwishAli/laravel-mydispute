@@ -13,7 +13,7 @@
                         <div class="card-body bg-primary rounded-1">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="col-6">
-                                    <h4 class="fw-normal text-white fs-1">4</h4>
+                                    <h4 class="fw-normal text-white fs-1">0</h4>
                                     <h5 class="subtitle text-sm text-white mb-0">Closed Requirements</h5>
                                 </div>
                                 <div class="col-4">
@@ -40,7 +40,7 @@
                         <div class="card-body bg-info rounded-1">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <h4 class="fw-normal text-white fs-1">3</h4>
+                                    <h4 class="fw-normal text-white fs-1">0</h4>
                                     <p class="subtitle text-sm text-white mb-0">Current Live</p>
                                 </div>
                                 {{-- <div class="flex-shrink-0 ms-3">
@@ -69,7 +69,7 @@
                         <div class="card-body bg-success rounded-1">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <h4 class="fw-normal text-white fs-1">2</h4>
+                                    <h4 class="fw-normal text-white fs-1">0</h4>
                                     <p class="subtitle text-sm text-white mb-0">Draft</p>
                                 </div>
                                 {{-- <div class="flex-shrink-0 ms-3">

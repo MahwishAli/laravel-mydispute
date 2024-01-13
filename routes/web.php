@@ -31,7 +31,10 @@ Route::group(['prefix' => 'initiator', 'middleware' => ['role:initiator']], func
     Route::get('/profile', 'Initiator\InitiatorController@profile')->name('initiator.profile');
     Route::post('/change-password', 'Initiator\InitiatorController@changePassword')->name('initiator.changePassword');
     Route::post('/profile-delete', 'Initiator\InitiatorController@profileDelete')->name('initiator.profileDelete');
+    Route::post('/privacy-detail', 'Initiator\InitiatorController@privacyDetails')->name('initiator.privacyDetails');
     Route::get('/free-services', 'Initiator\InitiatorController@freeServices')->name('initiator.freeServices');
+    Route::post('/guidance', 'Initiator\InitiatorController@guidance')->name('initiator.guidance');
+    Route::post('/feedback', 'Initiator\InitiatorController@feedback')->name('initiator.feedback');
     Route::get('/paid-services', 'Initiator\InitiatorController@paidServices')->name('initiator.paidServices');
     Route::get('/draft-services', 'Initiator\InitiatorController@draftServices')->name('initiator.draftServices');
     Route::get('/requirements', 'Initiator\InitiatorController@requirements')->name('initiator.requirements');
@@ -45,6 +48,9 @@ Route::group(['prefix' => 'consultant',  'middleware' => ['role:consultant']], f
     // consultant Routes
     Route::get('/home', 'Consultant\ConsultantController@dashboard')->name('consultant.home');
     Route::get('/profile', 'Consultant\ConsultantController@profile')->name('consultant.profile');
+    Route::post('/change-password', 'Consultant\ConsultantController@changePassword')->name('consultant.changePassword');
+    Route::post('/profile-delete', 'Consultant\ConsultantController@profileDelete')->name('consultant.profileDelete');
+    Route::post('/privacy-detail', 'Consultant\ConsultantController@privacyDetails')->name('consultant.privacyDetails');
     Route::get('/available-jobs', 'Consultant\ConsultantController@availableJobs')->name('consultant.availjobs');
     Route::get('/jobs-applied', 'Consultant\ConsultantController@jobsApplied')->name('consultant.jobsApp');
     Route::get('/shortlisted-jobs', 'Consultant\ConsultantController@shortJobs')->name('consultant.jobsShortlisted');
