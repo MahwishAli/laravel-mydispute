@@ -7,6 +7,9 @@
         <!--Login-->
         <div class="main_login_block mt-5">
             <!--Login Block-->
+            @if(session()->has('message'))
+                <div class="alert alert-success">{{ session()->get('message') }}</div>
+            @endif
             <div class="block my-5">
                 <h2>Existing Member Sign In</h2>
                 <form method="post" id="frm1" action={{ route("login_user") }}>

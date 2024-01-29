@@ -84,7 +84,7 @@ class InitiatorController extends Controller
         // where('created_at', '<', Carbon::now()->subMinutes(20))->delete();
         DelayedInitiatorSoftDeletion::dispatch($initiator->id)->delay(now()->addMinutes(30));
 
-        return response()->json(['success' => 'Request sent successfully! Your profile will be deleted after 1 hour']); 
+        return response()->json(['success' => 'Request sent successfully! Your profile will be deleted']); 
     }
 
     public function privacyDetails(Request $request)
@@ -101,7 +101,7 @@ class InitiatorController extends Controller
         }
 
         $initiator = Initiator::where('id', session()->get('loginId'))->first();
-        $privacyDetail = Privacy::where('user_id', $initiator->id)->first();
+        $privacyDetail = Privacy::where('user_id', $initiator->id)->where('role_id', $initiator->role_id)->first();
 
         if($privacyDetail){
             $privacyDetail->update($request->all());
@@ -109,6 +109,7 @@ class InitiatorController extends Controller
         else{
             Privacy::create(array_merge($request->all(), [
                 'user_id' => $initiator->id,
+                'role_id' => $initiator->role_id,
             ]));
         }
 

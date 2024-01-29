@@ -115,27 +115,30 @@
                                         </div>
                                     </div>
                                     <div class="container tab-pane" id="privacy" role="tabpanel">
+                                        <div class="alert alert-success" id="privacy-update-message" style="display: none">
+                                        </div>
                                         <div class="row">
                                             <form method="post" id="privacyDetails">
                                                 @csrf
                                                 <div class="col-lg-12 col-md-12">
                                                     <p class="form-label">Select which contact details to show</p>
                                                     <div class="form-check mb-2">
-                                                        <input class="form-check-input" type="radio" name="contactDetails" value="Show All Details">
+                                                        <input class="form-check-input" type="radio" name="contact_details" value="Show All Details">
                                                         <label class="form-check-label" for="allDetails">Show All Details</label>
                                                     </div>
                                                     <div class="form-check mb-2">
-                                                        <input class="form-check-input" type="radio" name="contactDetails" value="Show Email Only">
+                                                        <input class="form-check-input" type="radio" name="contact_details" value="Show Email Only">
                                                         <label class="form-check-label" for="emailOnly">Show Email Only</label>
                                                     </div>
                                                     <div class="form-check mb-2">
-                                                        <input class="form-check-input" type="radio" name="contactDetails" value="Show Mobile Only">
+                                                        <input class="form-check-input" type="radio" name="contact_details" value="Show Mobile Only">
                                                         <label class="form-check-label" for="mobileOnly">Show Mobile Only</label>
                                                     </div>
                                                     <div class="form-check mb-2">
-                                                        <input class="form-check-input" type="radio" name="contactDetails" value="Show None">
+                                                        <input class="form-check-input" type="radio" name="contact_details" value="Show None">
                                                         <label class="form-check-label" for="showNone">Show None</label>
                                                     </div>
+                                                    <span class="text-danger" id="contact_details"></span>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 mt-4">
                                                     <p class="form-label">Unsubscribe</p>
@@ -149,18 +152,19 @@
                                                     <p class="form-label">Set Busy Status</p>
                                                     <p class="ml-2">If you are currently not available to take further consultancy work, please update your status below:</p>
                                                     <div class="form-check mb-2">
-                                                        <input class="form-check-input" type="radio" name="busyStatus" value="Available for Consultancy Work">
+                                                        <input class="form-check-input" type="radio" name="busy_status" value="Available for Consultancy Work">
                                                         <label class="form-check-label" for="busyStatus">Available for Consultancy Work
                                                         </label>
                                                     </div>
                                                     <div class="form-check mb-2">
-                                                        <input class="form-check-input" type="radio" name="busyStatus" value="Not Available for Consultancy Work">
+                                                        <input class="form-check-input" type="radio" name="busy_status" value="Not Available for Consultancy Work">
                                                         <label class="form-check-label" for="busyStatus">Not Available for Consultancy Work
                                                         </label>
                                                     </div>
                                                     <div class="mt-1 mx-3 text-danger" id="notAvailableMessage" style="display: none;">
                                                         <small>If you select Not Available then you will not be contacted by clients needing dispute resolution services also that you will not be put in the list of prospective consultants requested by clients indirectly to MyDRP.</small>
                                                     </div>
+                                                    <span class="text-danger" id="busy_status"></span>
                                                 </div>
                                                 <div class="col-md-12 my-3 text-center">
                                                     <button type="submit" class="btn btn-primary" id="update">Update</button>
@@ -169,11 +173,14 @@
                                         </div>
                                     </div>
                                     <div class="container tab-pane" id="account" role="tabpanel">
+                                        <div class="alert alert-success" id="profile-delete-message" style="display: none">
+                                        </div> 
                                         <form method="post" id="profileDelete">
                                             @csrf
                                             <div class="col-lg-12 col-md-12">
                                                 <p>Please provide reason for deleting your account:</p>
                                                 <textarea type="text" rows="8" class="form-control" id="reason" name="reason" placeholder=""></textarea>
+                                                <span class="text-danger" id="required"></span>
                                             </div>
                                             <div class="col-md-12 my-3 text-center">
                                                 <button type="submit" class="btn btn-primary" >Submit</button>
@@ -197,7 +204,9 @@
                                     <button type="button" class="btn-close mr-auto" id="cancel"></button>
                                 </div>
                             </div>
-                            <div class="card-body">              
+                            <div class="card-body">
+                                <div class="alert alert-success" id="success-message" style="display: none">
+                                </div>               
                                 <!-- form start -->
                                 <form role="form" method="post" id="add">
                                     @csrf
@@ -275,7 +284,7 @@
             
             $.ajax({
                 type: "POST",
-                url: '{{ route("initiator.changePassword") }}',
+                url: '{{ route("consultant.changePassword") }}',
                 data: new FormData(this),
                 contentType: false,
                 processData: false,
@@ -308,26 +317,31 @@
     $(document).ready(function(){
         $("#privacyDetails").on('submit', function(e){
             e.preventDefault();
-            
+
+              // Clear previous error messages
+            $('#contact_details').text('');
+            $('#busy_status').text('');
+
             $.ajax({
                 type: "POST",
-                url: '{{ route("initiator.privacyDetails") }}',
+                url: '{{ route("consultant.privacyDetails") }}',
                 data: new FormData(this),
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    $('#profile-delete-message').show();
-                    $('#profile-delete-message').text(response.success);
+                    $('#privacy-update-message').show();
+                    $('#privacy-update-message').text(response.success);
                     // Hide the success message after 3 seconds
                     setTimeout(function() {
-                        $('#profile-delete-message').hide();
+                        $('#privacy-update-message').hide();
                     }, 4000);
                     $('#privacyDetails')[0].reset();
                 },
                 error: function(xhr, status, error) 
                 {
                     if(xhr.status === 422){
-                        $('#required').text(xhr.responseJSON.errors.reason);
+                        $('#contact_details').text(xhr.responseJSON.errors.contact_details);
+                        $('#busy_status').text(xhr.responseJSON.errors.busy_status);
                     } else {
                         // Handle other errors
                         console.log("An error occurred:", error);
@@ -344,7 +358,7 @@
             
             $.ajax({
                 type: "POST",
-                url: '{{ route("initiator.profileDelete") }}',
+                url: '{{ route("consultant.profileDelete") }}',
                 data: new FormData(this),
                 contentType: false,
                 processData: false,
@@ -359,7 +373,8 @@
                 },
                 error: function(xhr, status, error) 
                 {
-                    if(xhr.status === 422){
+                    if(xhr.status === 422)
+                    {                        
                         $('#required').text(xhr.responseJSON.errors.reason);
                     } else {
                         // Handle other errors
