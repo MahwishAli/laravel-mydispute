@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Consultant;
 
 use App\Consultant;
+use App\ProfileDelete;
+use App\Privacy;
+use App\Shortlisted;
+use App\RequestDispute;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -37,10 +41,10 @@ class ConsultantController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        $initiator = Initiator::where('id', session()->get('loginId'))->first();
+        $consultant = Consultant::where('id', session()->get('loginId'))->first();
 
         // Check if the current password is valid
-        if (!Hash::check($request->get('current_password'), $initiator->password)) {
+        if (!Hash::check($request->get('current_password'), $consultant->password)) {
             return response()->json(['error' => 'Current Password does not match.'], 422);
         }
 
@@ -50,11 +54,40 @@ class ConsultantController extends Controller
         }
 
         // Update the password
-        $user =  Initiator::find($initiator->id);
+        $user =  Consultant::find($consultant->id);
         $user->password = Hash::make($request->new_password);
         $user->save();
 
         return response()->json(['success' => 'Password Changed Successfully!']); 
+    }
+    
+    public function privacyDetails(Request $request)
+    {    
+        // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'contact_details' => 'required',
+            'unsubscribe' => 'nullable',
+            'busy_status' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        $consultant = Consultant::where('id', session()->get('loginId'))->first();
+        $privacyDetail = Privacy::where('user_id', $consultant->id)->where('role_id', $consultant->role_id)->first();
+
+        if($privacyDetail){
+            $privacyDetail->update($request->all());
+        }
+        else{
+            Privacy::create(array_merge($request->all(), [
+                'user_id' => $consultant->id,
+                'role_id' => $consultant->role_id,
+            ]));
+        }
+
+        return response()->json(['success'=>'Privacy details updated successfully!']); 
     }
 
     public function profileDelete(Request $request)
@@ -63,28 +96,56 @@ class ConsultantController extends Controller
             'reason' => 'required|string',
         ]);
         
-        if ($validator->fails()) {
+        if($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        $initiator = Initiator::where('id', session()->get('loginId'))->first();
+        $consultant = Consultant::where('id', session()->get('loginId'))->first();
 
         // Create a ProfileDelete record
         $reason = ProfileDelete::create([
-            'user_id' => $initiator->id,
+            'user_id' => $consultant->id,
             'reason' => $request->input('reason'),
         ]);
-        
-        // Dispatch the delayed soft deletion job
-        // where('created_at', '<', Carbon::now()->subMinutes(20))->delete();
-        DelayedInitiatorSoftDeletion::dispatch($initiator->id)->delay(now()->addMinutes(30));
 
-        return response()->json(['success' => 'Request sent successfully! Your profile will be deleted after 1 hour']); 
+        // Soft delete the user
+        $consultant->delete();
+
+        // if(session()->has('loginId')) {
+        //     session()->pull('loginId');
+        //     return response()->json(['success' => 'Request sent successfully! Your profile will be deleted']);
+        // }
+        return response()->json(['success' => 'Request sent successfully! Your profile will be deleted']);
+
     }
 
     public function availableJobs()
     {
-        return view('consultant.available-jobs');
+        $industries = ['Retail','Technology','Healthcare','Manufacturing','Finance','Real Estate','Entertainment','Hospitality',
+                'Automotive','Telecommunications','Energy','Agriculture','Pharmaceuticals','Education','Consulting'];
+        $data = RequestDispute::all();
+
+        return view('consultant.available-jobs', compact('data'));
+    }
+    
+    public function saveJobs($id)
+    {
+        $consultant = Consultant::where('id', session()->get('loginId'))->first();
+
+        $shortlisted = Shortlisted::create([
+            'user_id' => $consultant->id,
+            'request_id' => $id,
+        ]);
+
+        return response()->json(['success' => 'Shortlisted']);
+
+    }  
+
+    public function viewDetails($id)
+    {
+        $data = RequestDispute::where('id', $id)->first();
+
+        return view('consultant.view-details', compact('data'));
     }
 
     public function jobsApplied()
@@ -94,7 +155,9 @@ class ConsultantController extends Controller
 
     public function shortJobs()
     {
-        return view('consultant.shortlisted-jobs');
+        $shortlisted = Shortlisted::with('user')->with('request')->get();
+        // dd($shortlisted);
+        return view('consultant.shortlisted-jobs', compact('shortlisted'));
     }
 
     public function messages()

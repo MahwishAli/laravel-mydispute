@@ -14,7 +14,6 @@ Route::group(['namespace' => 'web'], function () {
     Route::post('dispute-form', 'RequestDisputeController@disputeForm')->name('dispute_form');
 });
 
-// Auth::routes();
 Route::get('/login', 'Auth\LoginController@login')->name('login')->middleware('guest');
 Route::get('/member-signup', 'Auth\LoginController@memberSignUp')->name('member_signup');
 Route::get('/initiator-signup', 'Auth\LoginController@initiatorSignUp')->name('initiator_signup');
@@ -51,8 +50,10 @@ Route::group(['prefix' => 'consultant',  'middleware' => ['role:consultant']], f
     Route::post('/change-password', 'Consultant\ConsultantController@changePassword')->name('consultant.changePassword');
     Route::post('/profile-delete', 'Consultant\ConsultantController@profileDelete')->name('consultant.profileDelete');
     Route::post('/privacy-detail', 'Consultant\ConsultantController@privacyDetails')->name('consultant.privacyDetails');
+    Route::get('/view-details/{id}', 'Consultant\ConsultantController@viewDetails')->name('consultant.viewDetails');
     Route::get('/available-jobs', 'Consultant\ConsultantController@availableJobs')->name('consultant.availjobs');
     Route::get('/jobs-applied', 'Consultant\ConsultantController@jobsApplied')->name('consultant.jobsApp');
+    Route::get('/save-jobs/{id}', 'Consultant\ConsultantController@saveJobs')->name('consultant.saveJobs');
     Route::get('/shortlisted-jobs', 'Consultant\ConsultantController@shortJobs')->name('consultant.jobsShortlisted');
     Route::get('/messages', 'Consultant\ConsultantController@messages')->name('consultant.messages');
     Route::get('/reviews', 'Consultant\ConsultantController@reviews')->name('consultant.reviews');

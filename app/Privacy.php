@@ -11,6 +11,7 @@ class Privacy extends Model
 
     protected $fillable = [
             'user_id',
+            'role_id',
             'contact_details',
             'unsubscribe',
             'busy_status' ,
