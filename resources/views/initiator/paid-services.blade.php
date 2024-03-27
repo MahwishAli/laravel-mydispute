@@ -6,14 +6,25 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <h1>Paid Services</h1>
+                <h1 class="my-3">Paid Services</h1>
                 <div class="col-md-12 ml-auto col-xl-12">
                     <!-- Nav tabs -->
                     <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <label><u>Expert Determination (1):</u></label>
+                                </div>
+                                <div class="col-lg-6 col-md-6 text-muted text-end" style="display: inline-block;">
+                                    <span style="display: inline-block;">Submitted on (12/12/2020)</span>
+                                    <span class="mx-2" style="display: inline-block;">|</span>
+                                    <span class="view" style="display: inline-block;"><i class="fa fa-eye mr-1"></i> Viewed by 24 consultants</span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card-body">
                             <div class="container">
                                 <div class="row"> 
-                                    <p><u>Expert Determination (1):</u></p>
                                     <div class="col-md-4">
                                         <label>Request Type:</label>
                                     </div>
@@ -31,32 +42,22 @@
                                 </div>
                                 <div class="row"> 
                                     <div class="col-md-4">
-                                        <label>Request Submitted on:  </label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <p>12/12/2020</p>
-                                    </div>
-                                </div>
-                                <div class="row"> 
-                                    <div class="col-md-4">
                                         <label>Dispute Amount: </label>
                                     </div>
                                     <div class="col-md-8">
                                         <p>USD 10 million</p>
                                     </div>
                                 </div>
-                                <div class="row"> 
-                                    <div class="col-md-12 my-2 text-center">
-                                        <button type="submit" class="btn btn-primary ms-2" id="consultants-list">View MyDRP provided list of consultants</button>
-                                        <button type="submit" class="btn btn-primary ms-2" id="guidance" data-toggle="modal" data-target="#exampleModal">Request further guidance</button>
-                                    </div>
-                                </div>
-                                <div class="row"> 
-                                    <div class="col-md-12 my-3 text-center">
-                                        <button type="submit" class="btn btn-primary me-2" id="details">View Requirement Details</button>
-                                        <button type="submit" class="btn btn-primary ms-2" id="amend">Amend Requirement Details</button>
-                                        <button type="submit" class="btn btn-primary ms-2" id="close">Close the Requirement</button>
-                                    </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <button type="submit" class="btn btn-primary mb-2" id="consultants-list">View list of consultants</button>
+                                    <button type="submit" class="btn btn-primary mb-2" id="guidance" data-toggle="modal" data-target="#exampleModal">Req. further guidance</button>
+                                    <button type="submit" class="btn btn-link me-1 mb-2" id="details"><u>View Requirement Details</u></button>
+                                    <button type="submit" class="btn btn-primary ms-1 mb-2" id="amend">Amend Requirement Details</button>
+                                    <button type="submit" class="btn btn-secondary ms-1 mb-2" id="close">Close the Requirement</button>
                                 </div>
                             </div>
                         </div>

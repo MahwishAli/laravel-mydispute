@@ -11,7 +11,7 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <h1>Job Details</h1>
+                    <h1 class="my-3">Job Details</h1>
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <span class="segoe-ui-italic"><a style="color:black;text-decoration:none;"href="{{ route('consultant.availjobs') }}">Available

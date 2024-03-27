@@ -52,7 +52,7 @@
                         </div>
                         <div class="card-footer py-3 bg-blue-light">
                             <div class="row align-items-center">
-                                <a href="{{ route('initiator.requirements') }}" class="d-inline-flex p-0 text-info">
+                                <a href="" class="d-inline-flex p-0 text-info">
                                     <div class="col-10">
                                     <p class="mb-0">View</p>
                                     </div>
@@ -81,7 +81,7 @@
                         </div>
                         <div class="card-footer py-3 bg-primary-light">
                             <div class="row align-items-center ">
-                                <a href="{{ route('initiator.draftServices') }}" class="d-inline-flex p-0 text-success">
+                                <a href="" class="d-inline-flex p-0 text-success">
                                     <div class="col-10">
                                         <p class="mb-0">View</p>
                                     </div>
@@ -104,7 +104,7 @@
                                     <div class="col-md-12 my-3 text-center">
                                         <button type="submit" class="btn btn-primary me-2" id="resolution">Request Dispute Resolution Services</button>
                                         <button type="submit" class="btn btn-primary ms-2" id="review">Write a Consultant Review</button>
-                                        <button type="submit" class="btn btn-primary ms-2" id="feedback">Give Feeback to MyDRP</button>
+                                        <button type="submit" class="btn btn-primary ms-2" id="feedback" data-toggle="modal" data-target="#feedbackModal">Give Feeback to MyDRP</button>
                                         <button type="submit" class="btn btn-primary ms-2" id="help">Ask MyDRP for Help </button>
                                     </div>
                                 </div>
@@ -228,7 +228,7 @@
                                 <div class="row"> 
                                     <div class="col-md-12 my-2 text-center">
                                         <button type="submit" class="btn btn-primary ms-2" id="consultants-list">View MyDRP provided list of consultants</button>
-                                        <button type="submit" class="btn btn-primary ms-2" id="guidance">Request further guidance</button>
+                                        <button type="submit" class="btn btn-primary ms-2" id="guidance" data-toggle="modal" data-target="#exampleModal">Request further guidance</button>
                                     </div>
                                 </div>
                                 <div class="row"> 

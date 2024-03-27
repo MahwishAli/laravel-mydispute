@@ -77,6 +77,137 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
+    <!-- Modal for re guidance-->
+    <div class="modal fade" id="reqGuidance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ask a Question</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="alert alert-success mx-3" id="req-guidance-submit" style="display: none">
+                </div> 
+                <form method="post" id="add">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="col-lg-12 col-md-12">
+                            <h6>Ask a question & get help from our Support Team</h6>
+                            <textarea type="text" rows="8" class="form-control" id="query" name="query" placeholder="Write a question...."></textarea>
+                            <span class="text-danger" id="query-message"></span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{-- Modal for feedback--}}
+    <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Give your Feedback</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="alert alert-success mx-3" id="req-feedback-submit" style="display: none">
+                </div> 
+                <form method="post" id="addfeedback">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="col-lg-12 col-md-12">
+                            <h6>Enter Your Valuable Feedback</h6>
+                            <textarea type="text" rows="8" class="form-control" id="" name="feedback" placeholder="Write your feedback...."></textarea>
+                            <span class="text-danger" id="feedback-message"></span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        // request guidance form
+        $(document).ready(function(){
+            $("#add").on('submit', function(e){
+                e.preventDefault();
+
+                // Clear previous error messages
+                $('#query').text('');
+                
+                $.ajax({
+                    type: "POST",
+                    url: '{{ route("initiator.guidance") }}',
+                    data: new FormData(this),
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        $('#req-guidance-submit').show();
+                        $('#req-guidance-submit').text(response.success);
+                        // Hide the success message after 3 seconds
+                        setTimeout(function() {
+                            $('#req-guidance-submit').hide();
+                        }, 4000);
+                        $('#add')[0].reset();
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        if(xhr.status === 422){
+                            $('#query-message').text(xhr.responseJSON.errors.query);
+                        } else {
+                            // Handle other errors
+                            console.log("An error occurred:", error);
+                        }
+                    }
+                });
+            });
+        });
+        // feedback form
+        $(document).ready(function(){
+            $("#addfeedback").on('submit', function(e){
+                e.preventDefault();
+
+                // Clear previous error messages
+                $('#query').text('');
+                
+                $.ajax({
+                    type: "POST",
+                    url: '{{ route("initiator.feedback") }}',
+                    data: new FormData(this),
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        $('#req-feedback-submit').show();
+                        $('#req-feedback-submit').text(response.success);
+                        // Hide the success message after 3 seconds
+                        setTimeout(function() {
+                            $('#req-feedback-submit').hide();
+                        }, 4000);
+                        $('#addfeedback')[0].reset();
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        if(xhr.status === 422){
+                            $('#feedback-message').text(xhr.responseJSON.errors.feedback);
+                        } else {
+                            // Handle other errors
+                            console.log("An error occurred:", error);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 
     <!-- jQuery -->
     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
