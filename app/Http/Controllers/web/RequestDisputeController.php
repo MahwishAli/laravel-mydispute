@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\web;
-
+use App\Initiator;
 use App\RequestDispute;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
+
 
 
 class RequestDisputeController extends Controller
@@ -66,29 +68,55 @@ class RequestDisputeController extends Controller
             return back()->with('fail', 'Fill the form carefully! Required fields are missing')->withErrors($validator)->withInput();
         }
 
+        
         // Add the paymentOption to the request data
         $request->merge(['paymentOption' => json_encode($request->paymentOption)]);
-
+        
         // Add the feeOption to the request data
         $request->merge(['feeOption' => json_encode($request->feeOption)]);
-
+        
         // Add the details to the request data
         $request->merge(['disputeServices' => json_encode($request->disputeServices)]);
-
+        
         // Add the services to the request data
         $request->merge(['services' => json_encode($request->services)]);
-
+        
         // Add the details to the request data
         $request->merge(['details' => json_encode($request->details)]);
-
+        
         // Add the services to the request data
         $request->merge(['preferences' => json_encode($request->preferences)]);
-
+        
         // Add the proposalReceiving to the request data
         $request->merge(['proposalReceiving' => json_encode($request->proposalReceiving)]);
+        
+        $user = Initiator::where(['email' => $request->email])->first();
+        if(!$user) 
+        {
+            $user = Initiator::create(
+                [
+                    'companyName'      => $request->companyName,
+                    'companyType'      => $request->companyType,
+                    'industry'         => $request->industry,
+                    'email'            => $request->email,
+                    'password'         => Hash::make('12345678'),
+                    'role_id'          => 2,
+                    'address'          => $request->address,
+                    'country'          => $request->countryName,
+                    'phone'            => $request->phone,
+                    'companyDocuments' => $request->companyDocuments,
+                    'paymentOption'    => $request->paymentOption,
+                    'feeOption'        => $request->feeOption,
+                    'agreeTerms'       => implode(", ", ["terms and conditions", "terms and Disclaimer", "authentic information"]),
+                ]);                
+            $request->merge(['user_id' => $user->id]);
+            // Store the form data in the database
+            $disputeData = RequestDispute::create($request->all());
 
-        // Store the form data in the database
-        $disputeData = RequestDispute::create($request->all());
+            return back()->with('success', 'Data submitted successfully!')->with('success','Customer Account' . ' ' . $user->email . ' ' . 'created successfully check your email for login credentials');
+        }
+        
+
 
         if($disputeData){
             return back()->with('success', 'Data submitted successfully!');

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Consultant;
 
 use App\Consultant;
+use App\Initiator;
 use App\ProfileDelete;
 use App\Privacy;
+use App\ApplyJobs;
+use App\Chat;
 use App\Shortlisted;
 use App\RequestDispute;
 use App\Http\Controllers\Controller;
@@ -16,10 +19,15 @@ class ConsultantController extends Controller
 {
     public function dashboard()
     {
+        $available = RequestDispute::count();
+        $applied = ApplyJobs::count();
+        $shortlisted = Shortlisted::count();
+
         if(session()->has('loginId')){
             $consultant = Consultant::where('id', session()->get('loginId'))->first();
         }
-        return view('consultant.dashboard', compact('consultant'))->with('role');
+
+        return view('consultant.dashboard', compact('consultant', 'available', 'applied', 'shortlisted'))->with('role');
     }
 
     public function profile()
@@ -105,7 +113,7 @@ class ConsultantController extends Controller
         // Create a ProfileDelete record
         $reason = ProfileDelete::create([
             'user_id' => $consultant->id,
-            'reason' => $request->input('reason'),
+            'reason'  => $request->input('reason'),
         ]);
 
         // Soft delete the user
@@ -121,24 +129,29 @@ class ConsultantController extends Controller
 
     public function availableJobs()
     {
-        $industries = ['Retail','Technology','Healthcare','Manufacturing','Finance','Real Estate','Entertainment','Hospitality',
-                'Automotive','Telecommunications','Energy','Agriculture','Pharmaceuticals','Education','Consulting'];
-        $data = RequestDispute::all();
+        $data = RequestDispute::orderBy('created_at', 'desc')->get();
 
         return view('consultant.available-jobs', compact('data'));
     }
     
     public function saveJobs($id)
     {
+        $check = Shortlisted::where('request_id', '=', $id)->where('user_id', '=',  session()->get('loginId'))->first();
         $consultant = Consultant::where('id', session()->get('loginId'))->first();
 
-        $shortlisted = Shortlisted::create([
-            'user_id' => $consultant->id,
-            'request_id' => $id,
-        ]);
+        if ($check === null) {
 
-        return response()->json(['success' => 'Shortlisted']);
+            $shortlisted = Shortlisted::create([
+                'user_id' => $consultant->id,
+                'request_id' => $id,
+            ]);
 
+            return response()->json(['success' => 'Shortlisted!']);
+        }
+        else
+        {        
+            return response()->json(['error' => 'Already shortlisted!']);
+        }
     }  
 
     public function viewDetails($id)
@@ -150,7 +163,9 @@ class ConsultantController extends Controller
 
     public function jobsApplied()
     {
-        return view('consultant.jobs-applied');
+        $applied = ApplyJobs::with('request')->get();
+        // dd($applied);
+        return view('consultant.jobs-applied', compact('applied'));
     }
 
     public function shortJobs()
@@ -160,9 +175,62 @@ class ConsultantController extends Controller
         return view('consultant.shortlisted-jobs', compact('shortlisted'));
     }
 
+    public function applyJobs($id){
+
+        $check = ApplyJobs::where('job_id', '=', $id)->where('applicant_id', '=',  session()->get('loginId'))->first();
+
+        $consultant = Consultant::where('id', session()->get('loginId'))->first();
+
+        if ($check === null) {
+            $userid = $consultant->id;
+            $companyname = $consultant->companyName;
+            $email = $consultant->email;
+            
+            $ApplyJobs = new ApplyJobs;
+            $ApplyJobs->applicant_id = $userid;
+            $ApplyJobs->job_id = $id;
+            $ApplyJobs->applicant_name = $companyname;
+            $ApplyJobs->applicant_email = $email;
+            $ApplyJobs->status = 'pending';
+            $ApplyJobs->save();
+
+            return response()->json(['success' => 'Successfully applied!']);
+        }
+        else
+        {        
+            return response()->json(['error' => 'Already applied for this job!']);
+        }
+    }
+
+    public function deleteJobs($id)
+    {
+        $shortlisted = Shortlisted::where('id', $id)->delete();
+        return response()->json(['success' => 'Removed from the list']);
+    }
+
     public function messages()
     {
-        return view('consultant.messages');
+        $consultant = Consultant::where('id', session()->get('loginId'))->first();
+        $initiator = Chat::select('initiator_id')->where('sendby', 'initiator')->groupBy('initiator_id')->with('initiator')->get();
+        $chat = Chat::where('consultant_id','=' , $consultant->id)->get();
+
+        // dd($initiator);
+        return view('consultant.messages', compact('consultant','initiator', 'chat'));
+    }
+
+    public function sendMessages(Request $request)
+    {
+        // dd($request->all());
+        $chat = new Chat;
+
+        $chat->consultant_id = $request->consultant_id;
+        $chat->initiator_id = $request->consultant_id;
+        $chat->message = $request->message;
+        $chat->seen = '0';
+        $chat->sendby = 'consultant';
+        $chat->save();
+
+        return back();
     }
 
     public function reviews()

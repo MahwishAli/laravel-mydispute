@@ -4,3 +4,26 @@
     .brand-link .brand-image {
         margin-left: 0rem !important;
     }
+    .alert-success {
+        color: #1d643b;
+        background-color: #d7f3e3;
+        border-color: #c7eed8;
+    }
+
+    .alert-danger {
+        color: #761b18;
+        background-color: #f9d6d5;
+        border-color: #f7c6c5;
+    }
+
+    .saveJobs:hover {
+        cursor: pointer;
+    } 
+
+    .alert{
+        display: none;
+    }
+    
+    .shortlisted-color{
+        color : green !important;
+    }  

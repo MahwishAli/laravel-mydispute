@@ -4,10 +4,10 @@
     <div class="container my-5" >
         {{-- <div class="alert alert-success" id="success-message" style="display: none"></div> --}}
         @if(session()->has('fail'))
-        <div class="alert alert-danger">{{ session()->get('fail') }}</div>
+        <div class="alert alert-danger mx-4">{{ session()->get('fail') }}</div>
         @endif
         @if(session()->has('success'))
-            <div class="alert alert-success">{{ session()->get('success') }}</div>
+            <div class="alert alert-success mx-4">{{ session()->get('success') }}</div>
         @endif
         <div class="row justify-content-around mt-2">
             {{-- <div class="col-lg-2 mb-4 justify-content-center" >

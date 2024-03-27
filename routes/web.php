@@ -36,6 +36,7 @@ Route::group(['prefix' => 'initiator', 'middleware' => ['role:initiator']], func
     Route::post('/feedback', 'Initiator\InitiatorController@feedback')->name('initiator.feedback');
     Route::get('/paid-services', 'Initiator\InitiatorController@paidServices')->name('initiator.paidServices');
     Route::get('/draft-services', 'Initiator\InitiatorController@draftServices')->name('initiator.draftServices');
+    Route::get('/store-draft-services/{id}', 'Initiator\InitiatorController@storedraftServices')->name('initiator.storedraftServices');
     Route::get('/requirements', 'Initiator\InitiatorController@requirements')->name('initiator.requirements');
     Route::get('/shortlisted-consultants', 'Initiator\InitiatorController@shortlistedCon')->name('initiator.shortlistedCon');
     Route::get('/consultant-applications', 'Initiator\InitiatorController@consultantApp')->name('initiator.consultantApp');
@@ -51,11 +52,14 @@ Route::group(['prefix' => 'consultant',  'middleware' => ['role:consultant']], f
     Route::post('/profile-delete', 'Consultant\ConsultantController@profileDelete')->name('consultant.profileDelete');
     Route::post('/privacy-detail', 'Consultant\ConsultantController@privacyDetails')->name('consultant.privacyDetails');
     Route::get('/view-details/{id}', 'Consultant\ConsultantController@viewDetails')->name('consultant.viewDetails');
+    Route::get('/apply-jobs/{id}', 'Consultant\ConsultantController@applyJobs')->name('consultant.applyJobs');
+    Route::get('/delete-jobs/{id}', 'Consultant\ConsultantController@deleteJobs')->name('consultant.deleteJob');
     Route::get('/available-jobs', 'Consultant\ConsultantController@availableJobs')->name('consultant.availjobs');
     Route::get('/jobs-applied', 'Consultant\ConsultantController@jobsApplied')->name('consultant.jobsApp');
     Route::get('/save-jobs/{id}', 'Consultant\ConsultantController@saveJobs')->name('consultant.saveJobs');
     Route::get('/shortlisted-jobs', 'Consultant\ConsultantController@shortJobs')->name('consultant.jobsShortlisted');
     Route::get('/messages', 'Consultant\ConsultantController@messages')->name('consultant.messages');
+    Route::post('/send-messages', 'Consultant\ConsultantController@sendMessages')->name('consultant.sendMessages');
     Route::get('/reviews', 'Consultant\ConsultantController@reviews')->name('consultant.reviews');
     Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 });

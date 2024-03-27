@@ -10,6 +10,7 @@ class RequestDispute extends Model
     protected $table = 'request_dispute';
 
     protected $fillable = [
+            'user_id' ,
             'companyName' ,
             'companyType' ,
             'industry',

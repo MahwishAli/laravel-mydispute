@@ -7,6 +7,8 @@ use App\ProfileDelete;
 use App\Privacy;
 use App\Guidance;
 use App\Feedback;
+use App\ApplyJobs;
+use App\RequestDispute;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -20,6 +22,7 @@ class InitiatorController extends Controller
         if(session()->has('loginId')){
             $initiator = Initiator::where('id', session()->get('loginId'))->first();
         }
+        // dd($initiator);
         return view('initiator.dashboard', compact('initiator'))->with('role');
     }
 
@@ -159,7 +162,9 @@ class InitiatorController extends Controller
         if(session()->has('loginId')){
             $initiator = Initiator::where('id', session()->get('loginId'))->first();
         }
-        return view('initiator.free-services', compact('initiator'));
+        $freeServices = RequestDispute::where('user_id', $initiator->id)->get();
+        // dd($freeServices);
+        return view('initiator.free-services', compact('initiator', 'freeServices'));
     }
 
     public function paidServices()
